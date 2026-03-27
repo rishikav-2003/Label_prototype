@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Capillary</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#f5f6fa;color:#1a2332;font-size:14px}
+.app{display:flex;height:100vh;overflow:hidden}
+
+/* Icon Rail */
+.icon-rail{width:52px;background:#fff;border-right:1px solid #e8eaf0;display:flex;flex-direction:column;align-items:center;padding:12px 0;gap:4px;flex-shrink:0;z-index:10}
+.rail-logo{width:28px;height:28px;margin-bottom:12px}
+.rail-icon{width:34px;height:34px;border-radius:8px;display:flex;align-items:center;justify-content:center;cursor:pointer;color:#6b7280;transition:all 0.15s}
+.rail-icon:hover{background:#f0f4ff;color:#1a73e8}
+.rail-icon.active{background:#e8f0fe;color:#1a2332}
+.rail-sep{width:22px;height:1px;background:#e8eaf0;margin:4px 0}
+.rail-spacer{flex:1}
+.rail-collapse-btn{width:34px;height:34px;border-radius:8px;display:none;align-items:center;justify-content:center;cursor:pointer;color:#1a2332;transition:background 0.15s;margin-bottom:4px}
+.rail-collapse-btn:hover{background:#f0f4ff}
+.rail-collapse-btn.visible{display:flex}
+
+/* Sidebar */
+.sidebar{width:200px;background:#fff;border-right:1px solid #e8eaf0;display:flex;flex-direction:column;flex-shrink:0;overflow:hidden;transition:width 0.22s cubic-bezier(.4,0,.2,1)}
+.sidebar.collapsed{width:0;border-right:none}
+.sidebar-inner{width:200px;display:flex;flex-direction:column;height:100%;overflow-y:auto;overflow-x:hidden}
+.sidebar-top{padding:14px 16px;font-weight:700;font-size:13px;color:#111827;white-space:nowrap;border-bottom:1px solid #e8eaf0;flex-shrink:0}
+.sidebar-section{padding:6px 0}
+.sidebar-item{padding:8px 16px;cursor:pointer;font-size:13px;color:#4b5563;display:flex;align-items:center;gap:8px;transition:background 0.12s;white-space:nowrap}
+.sidebar-item:hover{background:#f5f6fa;color:#1a2332}
+.sidebar-item.active{background:#f0f4ff;color:#1a73e8;font-weight:500}
+.sidebar-sub{padding:7px 16px 7px 28px;cursor:pointer;font-size:13px;color:#6b7280;transition:background 0.12s;white-space:nowrap}
+.sidebar-sub:hover{background:#f5f6fa;color:#1a2332}
+.sidebar-sub.active{color:#1a73e8;background:#f0f4ff;font-weight:500}
+.sidebar-chevron{margin-left:auto;font-size:11px;color:#9ca3af;transition:transform 0.2s}
+.sidebar-chevron.open{transform:rotate(180deg)}
+.sidebar-footer{flex-shrink:0;padding:12px 16px;border-top:1px solid #e8eaf0;display:flex;justify-content:flex-end;margin-top:auto}
+.collapse-btn{cursor:pointer;color:#1a2332;display:flex;align-items:center;justify-content:center;padding:4px;border-radius:6px;transition:background 0.15s}
+.collapse-btn:hover{background:#f0f4ff}
+
+/* Main */
+.main{flex:1;display:flex;flex-direction:column;overflow:hidden}
+.topbar{background:#fff;border-bottom:1px solid #e8eaf0;padding:0 28px;height:52px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0}
+.org-info{display:flex;align-items:center;gap:10px;font-weight:600;font-size:14px;color:#1a2332}
+.env-pill{background:#e8f5e9;color:#2e7d32;border:1px solid #a5d6a7;padding:2px 10px;border-radius:20px;font-size:12px;font-weight:500;cursor:pointer}
+.topbar-icons{display:flex;align-items:center;gap:14px}
+.topbar-icon{color:#6b7280;cursor:pointer;display:flex}
+.avatar{width:30px;height:30px;background:#e0e0e0;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:600;color:#555;cursor:pointer}
+
+.content{flex:1;overflow-y:auto;padding:28px 32px;background:#f5f6fa}
+.page{display:none}
+.page.active{display:block}
+
+/* Cards */
+.cards-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.entity-card{background:#fff;border:1px solid #e5e7eb;border-radius:8px;padding:24px;cursor:pointer;transition:all 0.18s}
+.entity-card:hover{border-color:#93c5fd;box-shadow:0 2px 12px rgba(59,130,246,0.1)}
+.card-icon-box{width:44px;height:44px;background:#f1f5f9;border-radius:8px;display:flex;align-items:center;justify-content:center;margin-bottom:14px}
+.card-icon-box svg{width:22px;height:22px;color:#334155}
+.card-name{font-size:15px;font-weight:600;color:#111827;margin-bottom:5px}
+.card-desc{font-size:13px;color:#6b7280;line-height:1.5}
+
+/* Back / headers */
+.back-row{display:flex;align-items:baseline;gap:10px;margin-bottom:4px}
+.back-arrow-btn{display:flex;align-items:center;cursor:pointer;color:#111827;padding:2px}
+.back-arrow-btn:hover svg{stroke:#1a73e8}
+.page-title{font-size:20px;font-weight:700;color:#111827}
+.page-sub{font-size:13px;color:#6b7280;margin-bottom:20px}
+.plain-back{display:inline-flex;align-items:center;gap:7px;cursor:pointer;color:#111827;font-size:18px;font-weight:700;margin-bottom:22px}
+.plain-back:hover{color:#1a73e8}
+
+/* Toolbar */
+.toolbar{display:flex;align-items:center;gap:10px;margin-bottom:0}
+.search-wrap{position:relative;flex:1;max-width:320px}
+.search-wrap svg{position:absolute;left:10px;top:50%;transform:translateY(-50%);color:#9ca3af;pointer-events:none}
+.search-input{width:100%;border:1px solid #d1d5db;border-radius:6px;padding:8px 12px 8px 34px;font-size:13px;color:#111827;outline:none;background:#fff;transition:border 0.15s}
+.search-input:focus{border-color:#3b82f6}
+.icon-btn{width:36px;height:36px;border:1px solid #d1d5db;border-radius:6px;background:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;color:#6b7280;flex-shrink:0}
+.icon-btn:hover{border-color:#9ca3af}
+
+/* Buttons */
+.btn-green{background:#16a34a;color:#fff;border:none;padding:9px 20px;border-radius:6px;font-size:13px;font-weight:600;cursor:pointer;display:inline-flex;align-items:center;gap:6px;transition:background 0.15s;white-space:nowrap}
+.btn-green:hover{background:#15803d}
+.btn-green:disabled{background:#86efac;cursor:not-allowed}
+.btn-outline{background:#fff;color:#374151;border:1px solid #d1d5db;padding:9px 20px;border-radius:6px;font-size:13px;font-weight:500;cursor:pointer;transition:all 0.15s;white-space:nowrap}
+.btn-outline:hover{background:#f9fafb}
+.btn-gray{background:#f3f4f6;color:#374151;border:1px solid #e5e7eb;padding:8px 16px;border-radius:6px;font-size:13px;font-weight:500;cursor:pointer;display:inline-flex;align-items:center;gap:6px;transition:all 0.15s}
+.btn-gray:hover{background:#e5e7eb}
+.btn-danger{background:#fff;color:#dc2626;border:1px solid #dc2626;padding:9px 20px;border-radius:6px;font-size:13px;font-weight:500;cursor:pointer;transition:all 0.15s}
+.btn-danger:hover{background:#fef2f2}
+
+/* Table */
+.table-wrap{background:#fff;border:1px solid #e5e7eb;border-radius:8px;overflow:visible;margin-top:16px}
+.table-wrap table{border-radius:8px;overflow:hidden}
+table{width:100%;border-collapse:collapse}
+thead tr{border-bottom:1px solid #e5e7eb}
+th{padding:11px 16px;text-align:left;font-size:12px;font-weight:600;color:#6b7280;background:#fff;white-space:nowrap}
+th .th-sub{font-weight:400;color:#9ca3af;font-size:11px;display:block;margin-top:1px}
+td{padding:13px 16px;border-bottom:1px solid #f3f4f6;font-size:13px;vertical-align:middle;color:#374151}
+tr:last-child td{border-bottom:none}
+tbody tr{cursor:pointer;transition:background 0.1s}
+tbody tr:hover{background:#f9fafb}
+.row-primary{font-weight:600;color:#111827;font-size:13px}
+.row-secondary{font-size:12px;color:#9ca3af;margin-top:2px}
+.id-chip{font-size:11px;color:#6b7280;background:#f3f4f6;padding:2px 7px;border-radius:4px;display:inline-block}
+.cb{width:15px;height:15px;cursor:pointer;accent-color:#1a73e8}
+
+/* Ellipsis */
+.ellipsis-cell{position:relative;width:48px;text-align:center}
+.ellipsis-btn{background:none;border:none;cursor:pointer;color:#9ca3af;padding:4px 8px;border-radius:6px;font-size:18px;line-height:1;letter-spacing:2px;transition:background 0.12s}
+.ellipsis-btn:hover{background:#f3f4f6;color:#374151}
+.row-menu{position:absolute;right:8px;top:32px;background:#fff;border:1px solid #e5e7eb;border-radius:8px;box-shadow:0 4px 16px rgba(0,0,0,0.12);z-index:100;min-width:130px;overflow:hidden;display:none}
+.row-menu.open{display:block}
+.row-menu-item{padding:9px 16px;font-size:13px;cursor:pointer;color:#374151;display:flex;align-items:center;gap:8px;transition:background 0.1s}
+.row-menu-item:hover{background:#f5f6fa}
+.row-menu-item.danger{color:#dc2626}
+.row-menu-item.danger:hover{background:#fef2f2}
+
+/* Detail */
+.detail-wrap{background:#fff;margin:-28px -32px;padding:28px 32px;min-height:100%}
+.detail-header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:6px}
+.detail-title{font-size:20px;font-weight:700;color:#111827}
+.detail-meta{font-size:12px;color:#6b7280;margin-bottom:28px}
+.view-field{margin-bottom:22px}
+.view-label{font-size:12px;color:#6b7280;margin-bottom:4px;font-weight:500;text-transform:uppercase;letter-spacing:0.3px}
+.view-value{font-size:14px;font-weight:500;color:#111827}
+
+/* Forms */
+.form-page{background:#fff;margin:-28px -32px;padding:32px 40px;min-height:100%}
+.form-grid-2{display:grid;grid-template-columns:1fr 1fr;gap:20px 28px}
+.form-max{max-width:440px}
+.form-group{margin-bottom:22px}
+.form-label{display:block;font-size:14px;font-weight:600;color:#111827;margin-bottom:8px}
+.form-label-opt{font-weight:400;color:#9ca3af;font-size:13px;margin-left:4px}
+.form-input{width:100%;border:1px solid #d1d5db;border-radius:6px;padding:9px 14px;font-size:14px;color:#111827;outline:none;transition:border 0.15s;background:#fff}
+.form-input:focus{border-color:#3b82f6;box-shadow:0 0 0 3px rgba(59,130,246,0.1)}
+.form-input::placeholder{color:#9ca3af}
+.form-input[readonly]{background:#f9fafb;color:#9ca3af;cursor:not-allowed}
+.form-textarea{width:100%;border:1px solid #d1d5db;border-radius:6px;padding:9px 14px;font-size:14px;color:#111827;outline:none;resize:vertical;min-height:100px;background:#fff;font-family:inherit;transition:border 0.15s}
+.form-textarea:focus{border-color:#3b82f6;box-shadow:0 0 0 3px rgba(59,130,246,0.1)}
+.form-select{width:100%;border:1px solid #d1d5db;border-radius:6px;padding:9px 14px;font-size:14px;color:#111827;outline:none;background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%236b7280' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E") no-repeat right 12px center;appearance:none;cursor:pointer;transition:border 0.15s}
+.form-select:focus{border-color:#3b82f6;box-shadow:0 0 0 3px rgba(59,130,246,0.1)}
+.form-select.unset{color:#9ca3af}
+.inline-field{display:flex;align-items:center;gap:12px}
+.inline-field .form-select{flex:1}
+.add-inline-btn{background:#f3f4f6;color:#374151;border:1px solid #e5e7eb;padding:9px 14px;border-radius:6px;font-size:13px;font-weight:500;cursor:pointer;white-space:nowrap;display:inline-flex;align-items:center;gap:5px;flex-shrink:0}
+.add-inline-btn:hover{background:#e5e7eb}
+.advanced-row{display:flex;align-items:center;gap:8px;cursor:pointer;margin-bottom:22px}
+.form-actions{display:flex;gap:10px;margin-top:8px}
+
+/* Label section in product form */
+.label-section{margin-top:22px}
+.label-section-title{font-size:14px;font-weight:600;color:#111827;margin-bottom:12px}
+.label-entry{background:#f9fafb;border:1px solid #e5e7eb;border-radius:8px;padding:16px;margin-bottom:12px;position:relative}
+.label-entry-remove{position:absolute;top:12px;right:12px;background:none;border:none;cursor:pointer;color:#9ca3af;font-size:18px;line-height:1;padding:0}
+.label-entry-remove:hover{color:#dc2626}
+.label-entry .form-group{margin-bottom:14px}
+.label-entry .form-group:last-child{margin-bottom:0}
+.expiry-sub{font-size:11px;color:#9ca3af;margin-top:4px;line-height:1.4}
+
+/* Date picker */
+.dp-wrap{position:relative}
+.dp-panel{position:absolute;top:calc(100% + 6px);left:0;z-index:200;background:#fff;border:1px solid #e5e7eb;border-radius:10px;box-shadow:0 8px 24px rgba(0,0,0,0.12);padding:14px;min-width:260px;display:none}
+.dp-panel.open{display:block}
+.dp-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+.dp-nav{background:none;border:none;cursor:pointer;font-size:16px;color:#6b7280;padding:4px 8px;border-radius:4px;line-height:1}
+.dp-nav:hover{background:#f3f4f6}
+.dp-month{font-weight:600;font-size:13px;color:#111827}
+.dp-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:1px}
+.dp-dn{text-align:center;font-size:11px;font-weight:600;color:#9ca3af;padding:3px 0}
+.dp-day{text-align:center;padding:6px 2px;border-radius:5px;cursor:pointer;font-size:12px;color:#374151;transition:all 0.12s}
+.dp-day:hover{background:#dbeafe;color:#1d4ed8}
+.dp-day.sel{background:#1a73e8;color:#fff;font-weight:600}
+.dp-day.today{font-weight:700;color:#1a73e8}
+.dp-day.other{color:#d1d5db;pointer-events:none}
+
+/* Info box */
+.info-box{background:#f0f9ff;border:1px solid #bae6fd;border-radius:6px;padding:10px 14px;font-size:13px;color:#0c4a6e;margin-top:8px;max-width:560px}
+
+/* Cal (labels edit) */
+.cal-wrap{border:1px solid #e5e7eb;border-radius:8px;padding:14px;margin-top:8px;background:#fff;max-width:280px}
+.cal-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
+.cal-nav{background:none;border:none;cursor:pointer;font-size:16px;color:#6b7280;padding:4px 8px;border-radius:4px}
+.cal-nav:hover{background:#f3f4f6}
+.cal-month-label{font-weight:600;font-size:13px}
+.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:1px}
+.cal-dname{text-align:center;font-size:11px;font-weight:600;color:#9ca3af;padding:3px}
+.cal-day{text-align:center;padding:6px 3px;border-radius:5px;cursor:pointer;font-size:12px;color:#374151;transition:all 0.12s}
+.cal-day:hover{background:#dbeafe;color:#1d4ed8}
+.cal-day.sel{background:#1a73e8;color:#fff;font-weight:600}
+.cal-day.today{font-weight:700;color:#1a73e8}
+.cal-day.other{color:#d1d5db}
+
+/* Toaster */
+.toaster{position:fixed;top:20px;right:20px;background:#fff;border:1px solid #e5e7eb;border-left:4px solid #16a34a;border-radius:8px;padding:14px 16px;box-shadow:0 4px 16px rgba(0,0,0,0.1);display:flex;align-items:flex-start;gap:10px;min-width:300px;z-index:9999;animation:toastIn 0.25s ease;transition:opacity 0.3s,transform 0.3s}
+.toaster.hide{opacity:0;transform:translateX(20px)}
+@keyframes toastIn{from{opacity:0;transform:translateX(20px)}to{opacity:1;transform:translateX(0)}}
+.toast-icon{color:#16a34a;flex-shrink:0;margin-top:1px}
+.toast-title{font-size:13px;font-weight:600;color:#111827}
+.toast-sub{font-size:12px;color:#6b7280;margin-top:2px}
+.toast-close{margin-left:auto;background:none;border:none;cursor:pointer;color:#9ca3af;font-size:16px;line-height:1}
+
+/* Modal */
+.modal-bg{position:fixed;inset:0;background:rgba(0,0,0,0.35);z-index:900;display:none;align-items:center;justify-content:center}
+.modal-bg.show{display:flex}
+.modal{background:#fff;border-radius:10px;padding:28px;max-width:420px;width:90%;box-shadow:0 8px 32px rgba(0,0,0,0.15)}
+.modal-title{font-size:16px;font-weight:700;margin-bottom:10px}
+.modal-body{font-size:14px;color:#4b5563;line-height:1.6;margin-bottom:24px}
+.modal-footer{display:flex;gap:10px;justify-content:flex-end}
+.hidden{display:none!important}
+.sdiv{height:1px;background:#e5e7eb;margin:4px 0}
+</style>
+</head>
+<body>
+<div class="app">
+
+<!-- Icon Rail -->
+<div class="icon-rail">
+  <svg class="rail-logo" viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="13" stroke="#e5e7eb" stroke-width="1.5"/><path d="M8 14a6 6 0 1 1 12 0" stroke="#f59e0b" stroke-width="2.5" stroke-linecap="round"/><path d="M14 8v12M8 14h12" stroke="#3b82f6" stroke-width="1.5" opacity=".4"/></svg>
+  <div class="rail-icon"><svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></div>
+  <div class="rail-icon"><svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+  <div class="rail-icon"><svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div>
+  <div class="rail-icon"><svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+  <div class="rail-icon"><svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/></svg></div>
+  <div class="rail-icon"><svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></div>
+  <div class="rail-sep"></div>
+  <div class="rail-icon active"><svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></div>
+  <div class="rail-icon"><svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg></div>
+  <div class="rail-sep"></div>
+  <div class="rail-icon"><svg width="17" height="17" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93l-1.41 1.41M5.34 5.34L3.93 6.75M21 12h-2M5 12H3M19.07 19.07l-1.41-1.41M5.34 18.66l-1.41 1.41M12 21v-2M12 5V3"/></svg></div>
+  <div class="rail-spacer"></div>
+  <div class="rail-collapse-btn" id="rail-expand-btn" onclick="toggleSidebar()">
+    <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><rect x="1" y="1" width="20" height="20" rx="4" stroke="#0f2044" stroke-width="1.8"/><rect x="14" y="1" width="7" height="20" rx="3" fill="#0f2044"/><path d="M9 8l3 3-3 3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  </div>
+</div>
+
+<!-- Sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-inner">
+    <div class="sidebar-top">Capillary</div>
+    <div class="sidebar-section">
+      <div class="sidebar-item">aiRA</div>
+      <div class="sidebar-item">Loyalty</div>
+      <div class="sidebar-item">Engage</div>
+      <div class="sidebar-item">Rewards</div>
+      <div class="sidebar-item">Audiences</div>
+      <div class="sidebar-item">Channels</div>
+      <div class="sidebar-item">Member Care</div>
+      <div class="sidebar-item">Insights</div>
+    </div>
+    <div class="sdiv"></div>
+    <div class="sidebar-section">
+      <div class="sidebar-item" onclick="toggleDM()" style="font-weight:600;color:#111827">Data Management<span class="sidebar-chevron open" id="dm-chev">▾</span></div>
+      <div id="dm-sub">
+        <div class="sidebar-sub" id="nav-entities" onclick="goTo('ent-cards')">Entities</div>
+        <div class="sidebar-sub active" id="nav-labels" onclick="goTo('lbl-cards')">Labels</div>
+        <div class="sidebar-sub">Dataflows</div>
+        <div class="sidebar-sub">Imports</div>
+        <div class="sidebar-sub">Exports</div>
+        <div class="sidebar-sub">Event Notifications</div>
+      </div>
+    </div>
+    <div class="sdiv"></div>
+    <div class="sidebar-section">
+      <div class="sidebar-item">Extensions</div>
+      <div class="sidebar-item">Settings</div>
+    </div>
+    <div class="sidebar-footer">
+      <div class="collapse-btn" onclick="toggleSidebar()">
+        <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><rect x="1" y="1" width="20" height="20" rx="4" stroke="#0f2044" stroke-width="1.8"/><rect x="1" y="1" width="7" height="20" rx="3" fill="#0f2044"/><path d="M11 8l-3 3 3 3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Main -->
+<div class="main">
+  <div class="topbar">
+    <div class="org-info">Big Basket <span class="env-pill">Production ▾</span></div>
+    <div class="topbar-icons">
+      <div class="topbar-icon"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg></div>
+      <div class="topbar-icon"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg></div>
+      <div class="avatar">R</div>
+    </div>
+  </div>
+
+  <div class="content">
+
+    <!-- ═══ LABELS PAGES ═══ -->
+    <div class="page active" id="page-lbl-cards">
+      <div style="font-size:20px;font-weight:700;color:#111827;margin-bottom:3px">Labels</div>
+      <div style="font-size:13px;color:#6b7280;margin-bottom:24px">Manage metadata labels applied to your entities</div>
+      <div class="cards-grid">
+        <div class="entity-card" onclick="goTo('lbl-listing','Product')"><div class="card-icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div><div class="card-name">Product</div><div class="card-desc">Labels applied to product entities</div></div>
+        <div class="entity-card" onclick="goTo('lbl-listing','Customers')"><div class="card-icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div><div class="card-name">Customers</div><div class="card-desc">Labels applied to customer profiles</div></div>
+        <div class="entity-card" onclick="goTo('lbl-listing','Location')"><div class="card-icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div><div class="card-name">Location</div><div class="card-desc">Labels applied to location entities</div></div>
+      </div>
+    </div>
+
+    <div class="page" id="page-lbl-listing">
+      <div class="back-row"><div class="back-arrow-btn" onclick="goTo('lbl-cards')"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M19 12H5M12 5l-7 7 7 7"/></svg></div><div class="page-title" id="lbl-entity-title">Product</div></div>
+      <div class="page-sub">Labels</div>
+      <div class="toolbar">
+        <div class="search-wrap"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg><input class="search-input" placeholder="Search labels..." oninput="filterLabels(this.value)"/></div>
+        <div class="icon-btn"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="4" y1="6" x2="20" y2="6"/><line x1="8" y1="12" x2="16" y2="12"/><line x1="11" y1="18" x2="13" y2="18"/></svg></div>
+        <div style="margin-left:auto"><button class="btn-green" onclick="goTo('lbl-create')">+ Create Label</button></div>
+      </div>
+      <div class="table-wrap"><table>
+        <thead><tr><th style="width:36px"><input type="checkbox" class="cb"/></th><th>Name ↕</th><th>Label ID<span class="th-sub">External ID</span></th><th>Expiry Configuration</th><th style="width:48px"></th></tr></thead>
+        <tbody id="lbl-tbody"></tbody>
+      </table></div>
+    </div>
+
+    <div class="page" id="page-lbl-detail">
+      <div class="detail-wrap">
+        <div class="plain-back" onclick="goTo('lbl-listing',currentLblTab)"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M19 12H5M12 5l-7 7 7 7"/></svg><span id="lbl-back-label">Label</span></div>
+        <div class="detail-header"><div><div class="detail-title" id="lbl-dv-title"></div><div class="detail-meta" id="lbl-dv-meta"></div></div></div>
+        <div style="max-width:520px">
+          <div class="view-field"><div class="view-label">Local ID</div><div class="view-value" id="lbl-dv-id"></div></div>
+          <div class="view-field"><div class="view-label">External ID</div><div class="view-value" id="lbl-dv-extid"></div></div>
+          <div class="view-field"><div class="view-label">Name</div><div class="view-value" id="lbl-dv-name"></div></div>
+          <div class="view-field"><div class="view-label">Description</div><div class="view-value" id="lbl-dv-desc"></div></div>
+          <div class="view-field"><div class="view-label">Expiry Configuration</div><div class="view-value" id="lbl-dv-expiry"></div></div>
+          <div style="display:flex;gap:10px;margin-top:8px">
+            <button class="btn-danger" onclick="showDeleteModal('lbl')">Delete</button>
+            <button class="btn-green" onclick="goTo('lbl-edit')">Edit</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="page" id="page-lbl-edit">
+      <div class="plain-back" onclick="goTo('lbl-detail')"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M19 12H5M12 5l-7 7 7 7"/></svg><span id="lbl-edit-back">Edit Label</span></div>
+        <div style="max-width:520px">
+        <div style="display:flex;justify-content:flex-end;gap:10px;margin-bottom:24px">
+          <button class="btn-outline" onclick="goTo('lbl-detail')">Cancel</button>
+          <button class="btn-green" id="lbl-save-btn" disabled onclick="saveLblEdit()">Save</button>
+        </div>
+        <div class="form-group"><label class="form-label">Local ID</label><input class="form-input" id="lbl-e-id" readonly/></div>
+        <div class="form-group"><label class="form-label">External ID</label><input class="form-input" id="lbl-e-extid" oninput="lblDirty()"/></div>
+        <div class="form-group"><label class="form-label">Name</label><input class="form-input" id="lbl-e-name" oninput="lblDirty()"/></div>
+        <div class="form-group"><label class="form-label">Description</label><textarea class="form-textarea" id="lbl-e-desc" oninput="lblDirty()"></textarea></div>
+        <div class="form-group">
+          <label class="form-label">Expiry Configuration</label>
+          <select class="form-select unset" id="lbl-e-expiry" onchange="handleLblEditExpiry();lblDirty()">
+            <option value="" disabled selected>Select expiry type</option>
+            <option value="provide_date">Provide date</option>
+            <option value="default_to_label">Default to label</option>
+            <option value="never">Never expire</option>
+          </select>
+          <div id="lbl-e-expiry-extra"></div>
+        </div>
+        <div style="display:flex;gap:10px;margin-top:8px">
+          <button class="btn-danger" onclick="showDeleteModal('lbl')">Delete</button>
+        </div>
+        </div>
+    </div>
+
+    <div class="page" id="page-lbl-create">
+      <div class="plain-back" onclick="goTo('lbl-listing',currentLblTab)"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>Create Label</div>
+      <div style="max-width:520px">
+        <div class="form-group"><label class="form-label">Label ID</label><input class="form-input" id="lbl-c-id" readonly placeholder="Auto-generated"/></div>
+        <div class="form-group"><label class="form-label">External ID</label><input class="form-input" id="lbl-c-extid" placeholder="e.g. EXT-001"/></div>
+        <div class="form-group"><label class="form-label">Label Name</label><input class="form-input" id="lbl-c-name" placeholder="Enter label name"/></div>
+        <div class="form-group"><label class="form-label">Description<span class="form-label-opt">(Optional)</span></label><textarea class="form-textarea" id="lbl-c-desc" placeholder="Enter a brief description"></textarea></div>
+        <div class="form-group">
+          <label class="form-label">Expiry Configuration</label>
+          <select class="form-select unset" id="lbl-c-expiry" onchange="this.classList.toggle('unset',!this.value)">
+            <option value="" disabled selected>Select expiry configuration</option>
+            <option value="end_month">Expire at end of current month</option>
+            <option value="end_year">Expire at end of current year</option>
+            <option value="end_year_plus1">Expire at end of current year + 1 year</option>
+            <option value="round_month">Round expiration to end of month</option>
+          </select>
+        </div>
+        <div class="form-actions"><button class="btn-green" onclick="createLabel()">Add</button><button class="btn-outline" onclick="goTo('lbl-listing',currentLblTab)">Cancel</button></div>
+      </div>
+    </div>
+
+    <!-- ═══ ENTITIES PAGES ═══ -->
+    <div class="page" id="page-ent-cards">
+      <div style="font-size:20px;font-weight:700;color:#111827;margin-bottom:3px">Entities</div>
+      <div style="font-size:13px;color:#6b7280;margin-bottom:24px">Lorem ipsum</div>
+      <div class="cards-grid">
+        <div class="entity-card" onclick="goTo('ent-listing','Product')"><div class="card-icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div><div class="card-name">Product</div><div class="card-desc">Please write the description here</div></div>
+        <div class="entity-card" onclick="goTo('ent-listing','Customers')"><div class="card-icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg></div><div class="card-name">Customers</div><div class="card-desc">Please write the description here</div></div>
+        <div class="entity-card" onclick="goTo('ent-listing','Location')"><div class="card-icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div><div class="card-name">Location</div><div class="card-desc">Please write the description here</div></div>
+      </div>
+    </div>
+
+    <div class="page" id="page-ent-listing">
+      <div class="back-row"><div class="back-arrow-btn" onclick="goTo('ent-cards')"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M19 12H5M12 5l-7 7 7 7"/></svg></div><div class="page-title" id="ent-entity-title">Product SKU</div></div>
+      <div style="margin-bottom:16px"></div>
+      <div class="toolbar">
+        <div class="search-wrap"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg><input class="search-input" placeholder="Search..." oninput="filterProducts(this.value)"/></div>
+        <div class="icon-btn"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="4" y1="6" x2="20" y2="6"/><line x1="8" y1="12" x2="16" y2="12"/><line x1="11" y1="18" x2="13" y2="18"/></svg></div>
+        <div style="margin-left:auto"><button class="btn-green" onclick="goTo('ent-create',null,null)">+ New product</button></div>
+      </div>
+      <div class="table-wrap"><table>
+        <thead><tr>
+          <th>Product name<span class="th-sub">Product SKU</span></th>
+          <th>Category</th><th>Attributes</th>
+          <th>Updated on<span class="th-sub">Updated by</span></th>
+          <th style="width:48px"></th>
+        </tr></thead>
+        <tbody id="ent-tbody"></tbody>
+      </table></div>
+    </div>
+
+    <!-- Product Create / Edit (shared form) -->
+    <div class="page" id="page-ent-create">
+      <div class="form-page">
+        <div class="plain-back" onclick="goTo('ent-listing',currentEntTab)" id="prod-form-back-btn">New product</div>
+        <div class="form-grid-2" style="max-width:880px;margin-bottom:22px">
+          <div class="form-group" style="margin-bottom:0"><label class="form-label">Product SKU</label><input class="form-input" id="p-sku" placeholder="WIFI-PASS-365"/></div>
+          <div class="form-group" style="margin-bottom:0"><label class="form-label">EAN<span class="form-label-opt">(Optional)</span></label><input class="form-input" id="p-ean" placeholder="8901234567897"/></div>
+        </div>
+        <div class="form-group form-max"><label class="form-label">Product name</label><input class="form-input" id="p-name" placeholder="Annual Network License"/></div>
+        <div class="form-group form-max"><label class="form-label">Description</label><textarea class="form-textarea" id="p-desc" placeholder="Provides year-long secure access..."></textarea></div>
+        <div class="form-group form-max">
+          <label class="form-label">Brand</label>
+          <div class="inline-field"><select class="form-select" id="p-brand"><option value="">Select brand</option><option value="Infrasphere">Infrasphere</option><option value="TechCorp">TechCorp</option></select><button class="add-inline-btn">+ Add brand</button></div>
+        </div>
+        <div class="form-group form-max">
+          <label class="form-label">Category</label>
+          <div class="inline-field"><select class="form-select" id="p-category"><option value="">Select category</option><option value="Network">Network</option><option value="Software">Software</option><option value="Hardware">Hardware</option></select><button class="add-inline-btn">+ Add category</button></div>
+        </div>
+        <div class="form-group form-max">
+          <label class="form-label">Attributes</label>
+          <div class="inline-field"><select class="form-select" id="p-attr"><option value="">Select attribute</option><option value="Annual pack">Annual pack</option><option value="wireless">wireless</option><option value="superfast">superfast</option><option value="30m reach">30m reach</option></select><button class="add-inline-btn">+ Add attribute</button></div>
+        </div>
+
+        <!-- Label section -->
+        <div class="form-max" style="margin-bottom:22px">
+          <button class="btn-gray" onclick="addLabelEntry('prod-label-entries')">+ Add label</button>
+          <div id="prod-label-entries"></div>
+        </div>
+
+        <div class="advanced-row form-max" style="margin-bottom:22px">
+          <div><div style="font-size:14px;font-weight:600;color:#111827">Advanced details <span style="font-weight:400;color:#9ca3af;font-size:13px">(Optional)</span></div><div style="font-size:12px;color:#9ca3af;margin-top:2px">Add additional product information</div></div>
+          <svg width="16" height="16" fill="none" stroke="#9ca3af" stroke-width="2" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
+        </div>
+        <div class="form-actions" id="prod-form-actions">
+          <button class="btn-green" id="prod-submit-btn" onclick="submitProduct()">Add product</button>
+          <button class="btn-outline" onclick="goTo('ent-listing',currentEntTab)">Preview</button>
+          <button class="btn-outline" onclick="goTo('ent-listing',currentEntTab)">Cancel</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+</div>
+
+<!-- Delete Modal -->
+<div class="modal-bg" id="delete-modal">
+  <div class="modal">
+    <div class="modal-title">Delete?</div>
+    <div class="modal-body">Are you sure you want to delete <strong id="delete-item-name"></strong>? This action cannot be undone.</div>
+    <div class="modal-footer"><button class="btn-outline" onclick="closeDeleteModal()">Cancel</button><button class="btn-danger" onclick="confirmDelete()">Delete</button></div>
+  </div>
+</div>
+
+<!-- Toaster -->
+<div class="toaster hidden" id="toaster">
+  <div class="toast-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
+  <div style="flex:1"><div class="toast-title" id="toaster-title"></div><div class="toast-sub" id="toaster-sub"></div></div>
+  <button class="toast-close" onclick="hideToaster()">✕</button>
+</div>
+
+<script>
+const expMap={end_month:'Expire at end of current month',end_year:'Expire at end of current year',end_year_plus1:'Expire at end of current year + 1 year',round_month:'Round expiration to end of month','':"—"};
+
+let labels=[
+  {id:'LC-10021',extId:'EXT-SC-001',name:'Summer Clearance',desc:'Seasonal clearance',entity:'Product',expiry:'end_year',updatedBy:'Priya Mehta',updatedAt:'Mar 24, 2025'},
+  {id:'LC-10057',extId:'EXT-FS-004',name:'Flash Sale',desc:'Flash sale label',entity:'Product',expiry:'end_month',updatedBy:'Vikram Nair',updatedAt:'Mar 15, 2025'},
+  {id:'LC-10034',extId:'EXT-TL-002',name:'Tier-1 Location',desc:'Premium tier',entity:'Location',expiry:'round_month',updatedBy:'Rahul Sharma',updatedAt:'Mar 21, 2025'},
+  {id:'LC-10041',extId:'EXT-VC-003',name:'VIP Customer',desc:'VIP segment',entity:'Customers',expiry:'end_year_plus1',updatedBy:'Ananya Singh',updatedAt:'Mar 18, 2025'},
+];
+
+let products=[
+  {sku:'WIFI-PASS-001',name:'Office Wi-Fi Access',category:'Network',attributes:'wireless',updatedOn:'23/02/2026',updatedBy:'Rick Sanchez'},
+  {sku:'WIFI-PASS-002',name:'Visitor Wi-Fi Pass',category:'Network',attributes:'wireless',updatedOn:'23/02/2026',updatedBy:'Rick Sanchez'},
+  {sku:'WIFI-PASS-003',name:'Enterprise Email Account',category:'Network',attributes:'superfast',updatedOn:'23/02/2026',updatedBy:'Rick Sanchez'},
+  {sku:'WIFI-PASS-004',name:'Annual Network License',category:'Network',attributes:'-',updatedOn:'23/02/2026',updatedBy:'Rick Sanchez'},
+  {sku:'WIFI-PASS-005',name:'Corporate VPN Access',category:'Network',attributes:'-',updatedOn:'23/02/2026',updatedBy:'Rick Sanchez'},
+  {sku:'WIFI-PASS-006',name:'Cloud Storage Subscription',category:'Network',attributes:'30m reach',updatedOn:'23/02/2026',updatedBy:'Rick Sanchez'},
+  {sku:'WIFI-PASS-007',name:'Project Management Tool Access',category:'Network',attributes:'superfast',updatedOn:'23/02/2026',updatedBy:'Rick Sanchez'},
+];
+
+let currentLblTab='Product',currentEntTab='Product',currentLabel=null,lblEditDirty=false;
+let deleteTargetId='',deleteTargetType='';
+let editingProductIdx=null; // null = create, number = edit
+let labelEntryCount=0;
+let sidebarOpen=true;
+let calDate=new Date(),selectedDate=null;
+
+/* ── Sidebar ── */
+function toggleSidebar(){
+  sidebarOpen=!sidebarOpen;
+  document.getElementById('sidebar').classList.toggle('collapsed',!sidebarOpen);
+  document.getElementById('rail-expand-btn').classList.toggle('visible',!sidebarOpen);
+}
+function toggleDM(){
+  const s=document.getElementById('dm-sub'),c=document.getElementById('dm-chev');
+  const open=s.style.display!=='none';
+  s.style.display=open?'none':'block';
+  c.classList.toggle('open',!open);
+}
+
+/* ── Navigation ── */
+function goTo(page,tab,productIdx){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.getElementById('page-'+page).classList.add('active');
+  document.querySelectorAll('.sidebar-sub').forEach(s=>s.classList.remove('active'));
+  if(page.startsWith('lbl')) document.getElementById('nav-labels').classList.add('active');
+  if(page.startsWith('ent')) document.getElementById('nav-entities').classList.add('active');
+  if(tab){if(page.startsWith('lbl'))currentLblTab=tab;if(page.startsWith('ent'))currentEntTab=tab;}
+  if(page==='lbl-listing'){renderLblTable();document.getElementById('lbl-entity-title').textContent=currentLblTab;}
+  if(page==='lbl-create')resetLblCreate();
+  if(page==='lbl-edit')loadLblEdit();
+  if(page==='ent-listing'){renderEntTable();document.getElementById('ent-entity-title').textContent=currentEntTab+' SKU';}
+  if(page==='ent-create'){
+    editingProductIdx=(productIdx!==undefined&&productIdx!==null)?productIdx:null;
+    setupProductForm();
+  }
+  window.scrollTo(0,0);
+}
+
+/* ── Product Form (create + edit shared) ── */
+function setupProductForm(){
+  const isEdit=editingProductIdx!==null;
+  // back btn text
+  const backBtn=document.getElementById('prod-form-back-btn');
+  backBtn.childNodes[backBtn.childNodes.length-1].textContent=isEdit?' Edit product':' New product';
+  // submit btn text
+  document.getElementById('prod-submit-btn').textContent=isEdit?'Save product':'Add product';
+  // clear label entries
+  document.getElementById('prod-label-entries').innerHTML='';
+  labelEntryCount=0;
+
+  if(isEdit){
+    const p=products[editingProductIdx];
+    document.getElementById('p-sku').value=p.sku;
+    document.getElementById('p-ean').value=p.ean||'';
+    document.getElementById('p-name').value=p.name;
+    document.getElementById('p-desc').value=p.desc||'';
+    document.getElementById('p-brand').value=p.brand||'';
+    document.getElementById('p-category').value=p.category||'';
+    document.getElementById('p-attr').value=p.attributes!=='-'?p.attributes:'';
+  } else {
+    ['p-sku','p-ean','p-name','p-desc'].forEach(id=>document.getElementById(id).value='');
+    document.getElementById('p-brand').value='';
+    document.getElementById('p-category').value='';
+    document.getElementById('p-attr').value='';
+  }
+}
+
+function submitProduct(){
+  const name=document.getElementById('p-name').value.trim();
+  if(!name){alert('Please enter a product name.');return;}
+  const data={
+    sku:document.getElementById('p-sku').value||'SKU-NEW',
+    name,
+    desc:document.getElementById('p-desc').value,
+    brand:document.getElementById('p-brand').value,
+    category:document.getElementById('p-category').value||'—',
+    attributes:document.getElementById('p-attr').value||'-',
+    updatedOn:new Date().toLocaleDateString('en-GB'),
+    updatedBy:'You'
+  };
+  if(editingProductIdx!==null){
+    products[editingProductIdx]={...products[editingProductIdx],...data};
+    showToaster('Product updated successfully',name);
+  } else {
+    products.push(data);
+    showToaster('Product created successfully',name);
+  }
+  goTo('ent-listing',currentEntTab);
+}
+
+/* ── Add Label Entry (used in product form) ── */
+function addLabelEntry(containerId){
+  const wrap=document.getElementById(containerId);
+  const id=labelEntryCount++;
+  const entry=document.createElement('div');
+  entry.className='label-entry';
+  entry.id='lentry-'+id;
+  entry.innerHTML=`
+    <button class="label-entry-remove" onclick="removeLabelEntry(${id})" title="Remove">×</button>
+    <!-- Label field -->
+    <div class="form-group">
+      <label class="form-label" style="font-size:14px;font-weight:600;color:#111827;margin-bottom:8px;display:block">Label</label>
+      <div class="inline-field">
+        <select class="form-select unset" id="le-label-${id}" onchange="this.classList.toggle('unset',!this.value)">
+          <option value="" disabled selected>Select label</option>
+          <option value="cool_stuff">Cool Stuff</option>
+          <option value="clearance">Clearance</option>
+        </select>
+        <button class="add-inline-btn" type="button">+ Add label</button>
+      </div>
+    </div>
+    <!-- Expiry field -->
+    <div class="form-group" style="margin-bottom:0">
+      <label class="form-label" style="font-size:14px;font-weight:600;color:#111827;margin-bottom:8px;display:block">Expiry configuration</label>
+      <div class="dp-wrap" id="dp-wrap-${id}">
+        <div class="inline-field">
+          <select class="form-select unset" id="le-expiry-${id}" onchange="onExpiryChange(this,${id})">
+            <option value="" disabled selected>Select expiry configuration</option>
+            <option value="same_as_label">Same as label</option>
+            <option value="manual_date">Manual date</option>
+            <option value="never_expire">Never expire</option>
+          </select>
+          <button class="add-inline-btn" type="button" style="visibility:hidden">placeholder</button>
+        </div>
+        <div class="dp-panel" id="dp-panel-${id}"></div>
+      </div>
+      <div class="expiry-sub">Define the duration for which this label is applied to the SKU</div>
+    </div>`;
+  wrap.appendChild(entry);
+}
+
+function removeLabelEntry(id){const el=document.getElementById('lentry-'+id);if(el)el.remove();}
+
+function onExpiryChange(sel,id){
+  sel.classList.toggle('unset',!sel.value);
+  const panel=document.getElementById('dp-panel-'+id);
+  if(sel.value==='manual_date'){
+    renderDp(id);
+    panel.classList.add('open');
+    setTimeout(()=>{
+      function oc(e){const w=document.getElementById('dp-wrap-'+id);if(!w||!w.contains(e.target)){panel.classList.remove('open');document.removeEventListener('click',oc);}}
+      document.addEventListener('click',oc);
+    },10);
+  } else {
+    panel.classList.remove('open');
+    // remove date input if exists
+    const inp=document.getElementById('le-date-inp-'+id);
+    if(inp){inp.remove();document.getElementById('le-expiry-'+id).style.display='';}
+  }
+}
+
+function renderDp(id,yr,mo){
+  const now=new Date();
+  yr=yr!==undefined?yr:now.getFullYear();
+  mo=mo!==undefined?mo:now.getMonth();
+  const fd=new Date(yr,mo,1).getDay(),dim=new Date(yr,mo+1,0).getDate();
+  const mn=['January','February','March','April','May','June','July','August','September','October','November','December'];
+  const dn=['Su','Mo','Tu','We','Th','Fr','Sa'];
+  const sel=document.getElementById('le-expiry-'+id);
+  const stored=sel?sel.dataset.pickedDate||'':'';
+  let cells='';
+  for(let i=0;i<fd;i++) cells+=`<div class="dp-day other"></div>`;
+  for(let d=1;d<=dim;d++){
+    const ds=`${String(d).padStart(2,'0')}/${String(mo+1).padStart(2,'0')}/${yr}`;
+    const isT=d===now.getDate()&&mo===now.getMonth()&&yr===now.getFullYear();
+    const isSel=stored===ds;
+    cells+=`<div class="dp-day${isT?' today':''}${isSel?' sel':''}" onclick="pickDate(${id},'${ds}',${yr},${mo})">${d}</div>`;
+  }
+  const prevYr=mo===0?yr-1:yr, prevMo=mo===0?11:mo-1;
+  const nextYr=mo===11?yr+1:yr, nextMo=mo===11?0:mo+1;
+  const panel=document.getElementById('dp-panel-'+id);
+  if(panel) panel.innerHTML=`
+    <div class="dp-header">
+      <button class="dp-nav" onclick="renderDp(${id},${prevYr},${prevMo});event.stopPropagation()">‹</button>
+      <span class="dp-month">${mn[mo]} ${yr}</span>
+      <button class="dp-nav" onclick="renderDp(${id},${nextYr},${nextMo});event.stopPropagation()">›</button>
+    </div>
+    <div class="dp-grid">
+      ${dn.map(d=>`<div class="dp-dn">${d}</div>`).join('')}
+      ${cells}
+    </div>`;
+}
+
+function pickDate(id,ds,yr,mo){
+  const sel=document.getElementById('le-expiry-'+id);
+  if(sel) sel.dataset.pickedDate=ds;
+  // Hide select, show input with date
+  if(sel) sel.style.display='none';
+  let inp=document.getElementById('le-date-inp-'+id);
+  if(!inp){
+    inp=document.createElement('input');
+    inp.className='form-input';
+    inp.id='le-date-inp-'+id;
+    inp.readOnly=true;
+    inp.style.cursor='pointer';
+    inp.style.flex='1';
+    // clicking re-opens calendar
+    inp.onclick=(e)=>{
+      e.stopPropagation();
+      const panel=document.getElementById('dp-panel-'+id);
+      renderDp(id,yr,mo);
+      panel.classList.add('open');
+      setTimeout(()=>{
+        function oc(e2){const w=document.getElementById('dp-wrap-'+id);if(!w||!w.contains(e2.target)){panel.classList.remove('open');document.removeEventListener('click',oc);}}
+        document.addEventListener('click',oc);
+      },10);
+    };
+    // insert before the hidden-btn placeholder
+    const inlineField=sel.closest('.inline-field');
+    if(inlineField) inlineField.insertBefore(inp,inlineField.children[1]);
+  }
+  inp.value=ds;
+  inp.style.display='block';
+  document.getElementById('dp-panel-'+id).classList.remove('open');
+}
+
+/* ── Products Table ── */
+function renderEntTable(filter=''){
+  const tbody=document.getElementById('ent-tbody');
+  const rows=filter?products.filter(p=>p.name.toLowerCase().includes(filter.toLowerCase())):products;
+  if(!rows.length){tbody.innerHTML=`<tr><td colspan="5" style="text-align:center;color:#9ca3af;padding:32px">No products yet.</td></tr>`;return;}
+  tbody.innerHTML=rows.map((p,i)=>`
+    <tr onclick="void(0)">
+      <td><div class="row-primary">${p.name}</div><div class="row-secondary">${p.sku}</div></td>
+      <td>${p.category}</td>
+      <td style="color:#6b7280">${p.attributes}</td>
+      <td><div class="row-primary">${p.updatedOn}</div><div class="row-secondary">${p.updatedBy}</div></td>
+      <td class="ellipsis-cell" onclick="event.stopPropagation()">
+        <button class="ellipsis-btn" onclick="toggleMenu(event,'pmenu-${i}')">···</button>
+        <div class="row-menu" id="pmenu-${i}">
+          <div class="row-menu-item" onclick="editProduct(${i})">
+            <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+            Edit
+          </div>
+          <div class="row-menu-item" onclick="archiveItem(${i},'prod')">
+            <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="21 8 21 21 3 21 3 8"/><rect x="1" y="3" width="22" height="5"/><line x1="10" y1="12" x2="14" y2="12"/></svg>
+            Archive
+          </div>
+          <div class="row-menu-item danger" onclick="deleteFromMenu(${i},'prod')">
+            <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v6M14 11v6"/><path d="M9 6V4h6v2"/></svg>
+            Delete
+          </div>
+        </div>
+      </td>
+    </tr>`).join('');
+}
+function filterProducts(v){renderEntTable(v);}
+function editProduct(idx){
+  document.querySelectorAll('.row-menu').forEach(m=>m.classList.remove('open'));
+  goTo('ent-create',currentEntTab,idx);
+}
+
+/* ── Labels Table ── */
+function renderLblTable(filter=''){
+  const tbody=document.getElementById('lbl-tbody');
+  const rows=labels.filter(l=>l.entity===currentLblTab&&(!filter||l.name.toLowerCase().includes(filter.toLowerCase())));
+  if(!rows.length){tbody.innerHTML=`<tr><td colspan="5" style="text-align:center;color:#9ca3af;padding:32px">No labels yet.</td></tr>`;return;}
+  tbody.innerHTML=rows.map(l=>`
+    <tr onclick="openLblDetail('${l.id}')">
+      <td><input type="checkbox" class="cb" onclick="event.stopPropagation()"/></td>
+      <td><div class="row-primary">${l.name}</div></td>
+      <td><div class="row-primary">${l.id}</div><div class="row-secondary">${l.extId}</div></td>
+      <td style="font-size:12px;color:#4b5563">${expMap[l.expiry]||l.expiry}</td>
+      <td class="ellipsis-cell" onclick="event.stopPropagation()">
+        <button class="ellipsis-btn" onclick="toggleMenu(event,'lmenu-${l.id}')">···</button>
+        <div class="row-menu" id="lmenu-${l.id}">
+          <div class="row-menu-item" onclick="archiveItem('${l.id}','lbl')"><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="21 8 21 21 3 21 3 8"/><rect x="1" y="3" width="22" height="5"/><line x1="10" y1="12" x2="14" y2="12"/></svg>Archive</div>
+          <div class="row-menu-item danger" onclick="deleteFromMenu('${l.id}','lbl')"><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v6M14 11v6"/><path d="M9 6V4h6v2"/></svg>Delete</div>
+        </div>
+      </td>
+    </tr>`).join('');
+}
+function filterLabels(v){renderLblTable(v);}
+function openLblDetail(id){
+  currentLabel=labels.find(l=>l.id===id);if(!currentLabel)return;
+  currentLblTab=currentLabel.entity;
+  document.getElementById('lbl-back-label').textContent=currentLabel.name;
+  document.getElementById('lbl-dv-title').textContent=currentLabel.name;
+  document.getElementById('lbl-dv-meta').textContent=`Updated by ${currentLabel.updatedBy} · ${currentLabel.updatedAt}`;
+  document.getElementById('lbl-dv-id').textContent=currentLabel.id;
+  document.getElementById('lbl-dv-extid').textContent=currentLabel.extId;
+  document.getElementById('lbl-dv-name').textContent=currentLabel.name;
+  document.getElementById('lbl-dv-desc').textContent=currentLabel.desc||'—';
+  document.getElementById('lbl-dv-expiry').textContent=expMap[currentLabel.expiry]||currentLabel.expiry;
+  goTo('lbl-detail');
+}
+function loadLblEdit(){
+  if(!currentLabel)return;
+  lblEditDirty=false;
+  document.getElementById('lbl-save-btn').disabled=true;
+  document.getElementById('lbl-edit-back').textContent=currentLabel.name;
+  document.getElementById('lbl-e-id').value=currentLabel.id;
+  document.getElementById('lbl-e-extid').value=currentLabel.extId;
+  document.getElementById('lbl-e-name').value=currentLabel.name;
+  document.getElementById('lbl-e-desc').value=currentLabel.desc;
+  document.getElementById('lbl-e-expiry').value='';
+  document.getElementById('lbl-e-expiry').classList.add('unset');
+  document.getElementById('lbl-e-expiry-extra').innerHTML='';
+}
+function lblDirty(){lblEditDirty=true;document.getElementById('lbl-save-btn').disabled=false;}
+function handleLblEditExpiry(){
+  const v=document.getElementById('lbl-e-expiry').value;
+  document.getElementById('lbl-e-expiry').classList.toggle('unset',!v);
+  const el=document.getElementById('lbl-e-expiry-extra');
+  if(v==='provide_date'){el.innerHTML='';renderCal(el,'lbl-edit');}
+  else if(v==='default_to_label') el.innerHTML=`<div class="info-box">Label default: <strong>${expMap[currentLabel.expiry]||currentLabel.expiry}</strong></div>`;
+  else if(v==='never') el.innerHTML=`<div class="info-box">This label will <strong>never expire</strong>.</div>`;
+  else el.innerHTML='';
+}
+function saveLblEdit(){
+  if(!currentLabel)return;
+  currentLabel.extId=document.getElementById('lbl-e-extid').value;
+  currentLabel.name=document.getElementById('lbl-e-name').value;
+  currentLabel.desc=document.getElementById('lbl-e-desc').value;
+  const ev=document.getElementById('lbl-e-expiry').value;
+  if(ev==='provide_date'&&selectedDate)currentLabel.expiry=selectedDate;
+  else if(ev==='never')currentLabel.expiry='Never expire';
+  else if(ev&&ev!=='default_to_label')currentLabel.expiry=ev;
+  currentLabel.updatedBy='You';currentLabel.updatedAt='Just now';
+  showToaster('Label updated successfully',currentLabel.name);
+  openLblDetail(currentLabel.id);
+}
+function resetLblCreate(){
+  document.getElementById('lbl-c-id').value='LC-'+(10080+labels.length);
+  ['lbl-c-extid','lbl-c-name','lbl-c-desc'].forEach(id=>document.getElementById(id).value='');
+  const s=document.getElementById('lbl-c-expiry');s.selectedIndex=0;s.classList.add('unset');
+}
+function createLabel(){
+  const name=document.getElementById('lbl-c-name').value.trim();
+  if(!name){alert('Please enter a label name.');return;}
+  const ev=document.getElementById('lbl-c-expiry').value;
+  labels.push({id:document.getElementById('lbl-c-id').value,extId:document.getElementById('lbl-c-extid').value||'EXT-'+String(labels.length+1).padStart(3,'0'),name,desc:document.getElementById('lbl-c-desc').value,entity:currentLblTab,expiry:ev||'',updatedBy:'You',updatedAt:'Just now'});
+  showToaster('Label created successfully',name);
+  goTo('lbl-listing',currentLblTab);
+}
+
+/* ── Row menu ── */
+function toggleMenu(e,id){
+  e.stopPropagation();
+  const menu=document.getElementById(id);
+  const wasOpen=menu.classList.contains('open');
+  document.querySelectorAll('.row-menu').forEach(m=>m.classList.remove('open'));
+  if(!wasOpen)menu.classList.add('open');
+}
+document.addEventListener('click',()=>document.querySelectorAll('.row-menu').forEach(m=>m.classList.remove('open')));
+
+function archiveItem(id,type){document.querySelectorAll('.row-menu').forEach(m=>m.classList.remove('open'));showToaster('Item archived','');}
+function deleteFromMenu(id,type){
+  document.querySelectorAll('.row-menu').forEach(m=>m.classList.remove('open'));
+  deleteTargetId=id;deleteTargetType=type;
+  if(type==='lbl'){currentLabel=labels.find(l=>l.id===id);document.getElementById('delete-item-name').textContent=currentLabel?.name||'';}
+  else document.getElementById('delete-item-name').textContent=products[parseInt(id)]?.name||'this product';
+  document.getElementById('delete-modal').classList.add('show');
+}
+function showDeleteModal(type){deleteTargetType=type;document.getElementById('delete-item-name').textContent=type==='lbl'?(currentLabel?.name||''):'this item';document.getElementById('delete-modal').classList.add('show');}
+function closeDeleteModal(){document.getElementById('delete-modal').classList.remove('show');}
+function confirmDelete(){
+  if(deleteTargetType==='lbl'){labels=labels.filter(l=>l.id!==deleteTargetId);showToaster('Label deleted','');currentLabel=null;closeDeleteModal();goTo('lbl-listing',currentLblTab);}
+  else if(deleteTargetType==='prod'){const i=parseInt(deleteTargetId);if(!isNaN(i))products.splice(i,1);showToaster('Product deleted','');closeDeleteModal();renderEntTable();}
+  else closeDeleteModal();
+}
+
+/* ── Toaster ── */
+let toastTimer;
+function showToaster(title,sub){
+  const t=document.getElementById('toaster');
+  document.getElementById('toaster-title').textContent=title;
+  document.getElementById('toaster-sub').textContent=sub;
+  t.classList.remove('hidden','hide');
+  clearTimeout(toastTimer);
+  toastTimer=setTimeout(()=>{t.classList.add('hide');setTimeout(()=>t.classList.add('hidden'),300);},4000);
+}
+function hideToaster(){const t=document.getElementById('toaster');t.classList.add('hide');setTimeout(()=>t.classList.add('hidden'),300);}
+
+/* ── Calendar (labels edit) ── */
+function renderCal(container,target){
+  const y=calDate.getFullYear(),m=calDate.getMonth();
+  const fd=new Date(y,m,1).getDay(),dim=new Date(y,m+1,0).getDate();
+  const mn=['January','February','March','April','May','June','July','August','September','October','November','December'];
+  const dn=['Su','Mo','Tu','We','Th','Fr','Sa'];
+  const today=new Date();
+  let cells='';
+  for(let i=0;i<fd;i++){const d=new Date(y,m,0).getDate()-fd+1+i;cells+=`<div class="cal-day other">${d}</div>`;}
+  for(let d=1;d<=dim;d++){
+    const ds=`${mn[m]} ${d}, ${y}`;
+    const isT=d===today.getDate()&&m===today.getMonth()&&y===today.getFullYear();
+    cells+=`<div class="cal-day${isT?' today':''}${selectedDate===ds?' sel':''}" onclick="selectDate('${ds}','${target}')">${d}</div>`;
+  }
+  container.innerHTML=`<div class="cal-wrap"><div class="cal-header"><button class="cal-nav" onclick="chMonth(-1,'${target}')">‹</button><span class="cal-month-label">${mn[m]} ${y}</span><button class="cal-nav" onclick="chMonth(1,'${target}')">›</button></div><div class="cal-grid">${dn.map(d=>`<div class="cal-dname">${d}</div>`).join('')}${cells}</div></div>${selectedDate?`<div class="info-box" style="margin-top:8px">Selected: <strong>${selectedDate}</strong></div>`:''}`;
+}
+function chMonth(dir,target){calDate=new Date(calDate.getFullYear(),calDate.getMonth()+dir,1);const el=target==='lbl-edit'?document.getElementById('lbl-e-expiry-extra'):null;if(el)renderCal(el,target);}
+function selectDate(ds,target){selectedDate=ds;const el=target==='lbl-edit'?document.getElementById('lbl-e-expiry-extra'):null;if(el)renderCal(el,target);if(target==='lbl-edit')lblDirty();}
+</script>
+</body>
+</html>
