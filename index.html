@@ -8,8 +8,6 @@
 *{box-sizing:border-box;margin:0;padding:0}
 body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#f5f6fa;color:#1a2332;font-size:14px}
 .app{display:flex;height:100vh;overflow:hidden}
-
-/* Icon Rail */
 .icon-rail{width:52px;background:#fff;border-right:1px solid #e8eaf0;display:flex;flex-direction:column;align-items:center;padding:12px 0;gap:4px;flex-shrink:0;z-index:10}
 .rail-logo{width:28px;height:28px;margin-bottom:12px}
 .rail-icon{width:34px;height:34px;border-radius:8px;display:flex;align-items:center;justify-content:center;cursor:pointer;color:#6b7280;transition:all 0.15s}
@@ -20,16 +18,13 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
 .rail-collapse-btn{width:34px;height:34px;border-radius:8px;display:none;align-items:center;justify-content:center;cursor:pointer;color:#1a2332;transition:background 0.15s;margin-bottom:4px}
 .rail-collapse-btn:hover{background:#f0f4ff}
 .rail-collapse-btn.visible{display:flex}
-
-/* Sidebar */
 .sidebar{width:200px;background:#fff;border-right:1px solid #e8eaf0;display:flex;flex-direction:column;flex-shrink:0;overflow:hidden;transition:width 0.22s cubic-bezier(.4,0,.2,1)}
 .sidebar.collapsed{width:0;border-right:none}
 .sidebar-inner{width:200px;display:flex;flex-direction:column;height:100%;overflow-y:auto;overflow-x:hidden}
-.sidebar-top{padding:14px 16px;font-weight:700;font-size:13px;color:#111827;white-space:nowrap;border-bottom:1px solid #e8eaf0;flex-shrink:0}
+.sidebar-top{padding:14px 16px;font-weight:700;font-size:13px;color:#111827;border-bottom:1px solid #e8eaf0;flex-shrink:0;white-space:nowrap}
 .sidebar-section{padding:6px 0}
 .sidebar-item{padding:8px 16px;cursor:pointer;font-size:13px;color:#4b5563;display:flex;align-items:center;gap:8px;transition:background 0.12s;white-space:nowrap}
 .sidebar-item:hover{background:#f5f6fa;color:#1a2332}
-.sidebar-item.active{background:#f0f4ff;color:#1a73e8;font-weight:500}
 .sidebar-sub{padding:7px 16px 7px 28px;cursor:pointer;font-size:13px;color:#6b7280;transition:background 0.12s;white-space:nowrap}
 .sidebar-sub:hover{background:#f5f6fa;color:#1a2332}
 .sidebar-sub.active{color:#1a73e8;background:#f0f4ff;font-weight:500}
@@ -38,16 +33,13 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
 .sidebar-footer{flex-shrink:0;padding:12px 16px;border-top:1px solid #e8eaf0;display:flex;justify-content:flex-end;margin-top:auto}
 .collapse-btn{cursor:pointer;color:#1a2332;display:flex;align-items:center;justify-content:center;padding:4px;border-radius:6px;transition:background 0.15s}
 .collapse-btn:hover{background:#f0f4ff}
-
-/* Main */
 .main{flex:1;display:flex;flex-direction:column;overflow:hidden}
 .topbar{background:#fff;border-bottom:1px solid #e8eaf0;padding:0 28px;height:52px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0}
-.org-info{display:flex;align-items:center;gap:10px;font-weight:600;font-size:14px;color:#1a2332}
+.org-info{display:flex;align-items:center;gap:10px;font-weight:600;font-size:14px}
 .env-pill{background:#e8f5e9;color:#2e7d32;border:1px solid #a5d6a7;padding:2px 10px;border-radius:20px;font-size:12px;font-weight:500;cursor:pointer}
 .topbar-icons{display:flex;align-items:center;gap:14px}
 .topbar-icon{color:#6b7280;cursor:pointer;display:flex}
-.avatar{width:30px;height:30px;background:#e0e0e0;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:600;color:#555;cursor:pointer}
-
+.avatar{width:30px;height:30px;background:#e0e0e0;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:600;color:#555}
 .content{flex:1;overflow-y:auto;padding:28px 32px;background:#f5f6fa}
 .page{display:none}
 .page.active{display:block}
@@ -61,9 +53,9 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
 .card-name{font-size:15px;font-weight:600;color:#111827;margin-bottom:5px}
 .card-desc{font-size:13px;color:#6b7280;line-height:1.5}
 
-/* Back / headers */
+/* Navigation */
 .back-row{display:flex;align-items:baseline;gap:10px;margin-bottom:4px}
-.back-arrow-btn{display:flex;align-items:center;cursor:pointer;color:#111827;padding:2px}
+.back-arrow-btn{display:flex;align-items:center;cursor:pointer;padding:2px}
 .back-arrow-btn:hover svg{stroke:#1a73e8}
 .page-title{font-size:20px;font-weight:700;color:#111827}
 .page-sub{font-size:13px;color:#6b7280;margin-bottom:20px}
@@ -77,120 +69,165 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
 .search-input{width:100%;border:1px solid #d1d5db;border-radius:6px;padding:8px 12px 8px 34px;font-size:13px;color:#111827;outline:none;background:#fff;transition:border 0.15s}
 .search-input:focus{border-color:#3b82f6}
 .icon-btn{width:36px;height:36px;border:1px solid #d1d5db;border-radius:6px;background:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;color:#6b7280;flex-shrink:0}
-.icon-btn:hover{border-color:#9ca3af}
 
 /* Buttons */
-.btn-green{background:#16a34a;color:#fff;border:none;padding:9px 20px;border-radius:6px;font-size:13px;font-weight:600;cursor:pointer;display:inline-flex;align-items:center;gap:6px;transition:background 0.15s;white-space:nowrap}
+.btn-green{background:#16a34a;color:#fff;border:none;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;display:inline-flex;align-items:center;gap:6px;transition:background 0.15s;white-space:nowrap}
 .btn-green:hover{background:#15803d}
-.btn-green:disabled{background:#86efac;cursor:not-allowed}
-.btn-outline{background:#fff;color:#374151;border:1px solid #d1d5db;padding:9px 20px;border-radius:6px;font-size:13px;font-weight:500;cursor:pointer;transition:all 0.15s;white-space:nowrap}
+.btn-green:disabled{background:#86efac;cursor:not-allowed;opacity:.7}
+.btn-outline{background:#fff;color:#374151;border:1px solid #d1d5db;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:500;cursor:pointer;transition:all 0.15s;white-space:nowrap}
 .btn-outline:hover{background:#f9fafb}
 .btn-gray{background:#f3f4f6;color:#374151;border:1px solid #e5e7eb;padding:8px 16px;border-radius:6px;font-size:13px;font-weight:500;cursor:pointer;display:inline-flex;align-items:center;gap:6px;transition:all 0.15s}
 .btn-gray:hover{background:#e5e7eb}
-.btn-danger{background:#fff;color:#dc2626;border:1px solid #dc2626;padding:9px 20px;border-radius:6px;font-size:13px;font-weight:500;cursor:pointer;transition:all 0.15s}
+.btn-gray:disabled{opacity:.5;cursor:not-allowed}
+.btn-danger{background:#fff;color:#dc2626;border:1px solid #dc2626;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:500;cursor:pointer}
 .btn-danger:hover{background:#fef2f2}
+.btn-dots{width:38px;height:38px;background:#f0f2f5;border:none;border-radius:8px;display:flex;align-items:center;justify-content:center;cursor:pointer;flex-shrink:0;transition:background 0.15s}
+.btn-dots:hover{background:#e5e7eb}
+.sel-bar{display:none;align-items:center;gap:10px;margin-left:auto}
+.sel-bar.visible{display:flex}
+.sel-count{font-size:14px;font-weight:600;color:#111827;white-space:nowrap}
+.sel-action-btn{background:#16a34a;color:#fff;border:none;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;display:inline-flex;align-items:center;gap:8px}
+.sel-action-btn:hover{background:#15803d}
+.sel-cancel-btn{background:#f0f2f5;color:#374151;border:none;padding:9px 20px;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer}
 
 /* Table */
-.table-wrap{background:#fff;border:1px solid #e5e7eb;border-radius:8px;overflow:visible;margin-top:16px}
-.table-wrap table{border-radius:8px;overflow:hidden}
-table{width:100%;border-collapse:collapse}
+.table-wrap{background:#fff;border:1px solid #e5e7eb;border-radius:8px;overflow:visible;margin-top:8px}
+.table-wrap table{width:100%;border-collapse:collapse}
 thead tr{border-bottom:1px solid #e5e7eb}
 th{padding:11px 16px;text-align:left;font-size:12px;font-weight:600;color:#6b7280;background:#fff;white-space:nowrap}
 th .th-sub{font-weight:400;color:#9ca3af;font-size:11px;display:block;margin-top:1px}
-td{padding:13px 16px;border-bottom:1px solid #f3f4f6;font-size:13px;vertical-align:middle;color:#374151}
+td{padding:12px 16px;border-bottom:1px solid #f3f4f6;font-size:13px;vertical-align:middle;color:#374151}
 tr:last-child td{border-bottom:none}
 tbody tr{cursor:pointer;transition:background 0.1s}
 tbody tr:hover{background:#f9fafb}
+tbody tr.row-selected{background:#f0f9ff}
 .row-primary{font-weight:600;color:#111827;font-size:13px}
 .row-secondary{font-size:12px;color:#9ca3af;margin-top:2px}
-.id-chip{font-size:11px;color:#6b7280;background:#f3f4f6;padding:2px 7px;border-radius:4px;display:inline-block}
 .cb{width:15px;height:15px;cursor:pointer;accent-color:#1a73e8}
+.lbl-table-scroll{max-height:580px;overflow-y:auto}
+.lbl-count-row{display:flex;align-items:center;margin-bottom:4px;margin-top:12px}
+.lbl-count-text{font-size:12px;color:#9ca3af}
 
-/* Ellipsis */
+/* Ellipsis / row menu */
 .ellipsis-cell{position:relative;width:48px;text-align:center}
 .ellipsis-btn{background:none;border:none;cursor:pointer;color:#9ca3af;padding:4px 8px;border-radius:6px;font-size:18px;line-height:1;letter-spacing:2px;transition:background 0.12s}
 .ellipsis-btn:hover{background:#f3f4f6;color:#374151}
-.row-menu{position:absolute;right:8px;top:32px;background:#fff;border:1px solid #e5e7eb;border-radius:8px;box-shadow:0 4px 16px rgba(0,0,0,0.12);z-index:100;min-width:130px;overflow:hidden;display:none}
+.row-menu{position:fixed;background:#fff;border:1px solid #e5e7eb;border-radius:8px;box-shadow:0 4px 16px rgba(0,0,0,0.12);z-index:9000;min-width:150px;overflow:hidden;display:none}
 .row-menu.open{display:block}
 .row-menu-item{padding:9px 16px;font-size:13px;cursor:pointer;color:#374151;display:flex;align-items:center;gap:8px;transition:background 0.1s}
 .row-menu-item:hover{background:#f5f6fa}
-.row-menu-item.danger{color:#dc2626}
-.row-menu-item.danger:hover{background:#fef2f2}
+.dots-dropdown{position:fixed;background:#fff;border:1px solid #e5e7eb;border-radius:8px;box-shadow:0 4px 16px rgba(0,0,0,0.12);z-index:9000;min-width:170px;overflow:hidden;display:none}
+.dots-dropdown.open{display:block}
+.dots-dropdown-item{padding:10px 16px;font-size:13px;cursor:pointer;color:#374151;display:flex;align-items:center;gap:8px;transition:background 0.1s}
+.dots-dropdown-item:hover{background:#f5f6fa}
 
-/* Detail */
+/* ── CUSTOM SELECT DROPDOWN ── */
+/* The wrapper just provides relative positioning context */
+.cs-wrap{position:relative;width:100%}
+/* The visible "closed" trigger button */
+.cs-trigger{
+  width:100%;border:1px solid #d1d5db;border-radius:6px;
+  padding:9px 14px;font-size:14px;background:#fff;cursor:pointer;
+  display:flex;align-items:center;justify-content:space-between;gap:8px;
+  transition:border 0.15s;user-select:none;color:#111827;
+}
+.cs-trigger.placeholder{color:#9ca3af}
+.cs-trigger:hover{border-color:#9ca3af}
+.cs-trigger.is-open{border-color:#3b82f6;box-shadow:0 0 0 3px rgba(59,130,246,0.1)}
+.cs-trigger svg.chevron{transition:transform 0.2s;flex-shrink:0;color:#6b7280}
+.cs-trigger.is-open svg.chevron{transform:rotate(180deg)}
+/* The floating options panel — fixed to viewport, above everything */
+.cs-options-panel{
+  position:fixed;background:#fff;
+  border:1px solid #e5e7eb;border-radius:8px;
+  box-shadow:0 8px 24px rgba(0,0,0,0.14);
+  z-index:99999;overflow-y:auto;max-height:300px;
+  /* hidden by default */
+  display:none;
+}
+.cs-option{padding:10px 14px;font-size:13px;cursor:pointer;color:#374151;transition:background 0.1s}
+.cs-option:hover{background:#f5f6fa}
+.cs-option.selected{color:#1a73e8;font-weight:600;background:#f0f4ff}
+.cs-divider{height:1px;background:#e5e7eb;margin:4px 0;pointer-events:none}
+#cs-panel::-webkit-scrollbar{width:7px;background:#f3f4f6}
+#cs-panel::-webkit-scrollbar-track{background:#f3f4f6;border-radius:0 8px 8px 0}
+#cs-panel::-webkit-scrollbar-thumb{background:#c7cdd6;border-radius:4px;border:1px solid #f3f4f6}
+#cs-panel::-webkit-scrollbar-thumb:hover{background:#9ca3af}
+
+/* Detail / View */
 .detail-wrap{background:#fff;margin:-28px -32px;padding:28px 32px;min-height:100%}
-.detail-header{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:6px}
-.detail-title{font-size:20px;font-weight:700;color:#111827}
-.detail-meta{font-size:12px;color:#6b7280;margin-bottom:28px}
-.view-field{margin-bottom:22px}
-.view-label{font-size:12px;color:#6b7280;margin-bottom:4px;font-weight:500;text-transform:uppercase;letter-spacing:0.3px}
+.detail-title{font-size:20px;font-weight:700;color:#111827;margin-bottom:6px}
+.detail-meta{font-size:12px;color:#6b7280;margin-bottom:24px}
+.view-row{margin-bottom:18px}
+.view-label{font-size:12px;color:#6b7280;margin-bottom:3px}
 .view-value{font-size:14px;font-weight:500;color:#111827}
 
 /* Forms */
 .form-page{background:#fff;margin:-28px -32px;padding:32px 40px;min-height:100%}
-.form-grid-2{display:grid;grid-template-columns:1fr 1fr;gap:20px 28px}
-.form-max{max-width:440px}
-.form-group{margin-bottom:22px}
+.form-max{max-width:580px}
+.form-group{margin-bottom:20px}
 .form-label{display:block;font-size:14px;font-weight:600;color:#111827;margin-bottom:8px}
 .form-label-opt{font-weight:400;color:#9ca3af;font-size:13px;margin-left:4px}
 .form-input{width:100%;border:1px solid #d1d5db;border-radius:6px;padding:9px 14px;font-size:14px;color:#111827;outline:none;transition:border 0.15s;background:#fff}
 .form-input:focus{border-color:#3b82f6;box-shadow:0 0 0 3px rgba(59,130,246,0.1)}
 .form-input::placeholder{color:#9ca3af}
 .form-input[readonly]{background:#f9fafb;color:#9ca3af;cursor:not-allowed}
-.form-textarea{width:100%;border:1px solid #d1d5db;border-radius:6px;padding:9px 14px;font-size:14px;color:#111827;outline:none;resize:vertical;min-height:100px;background:#fff;font-family:inherit;transition:border 0.15s}
+.form-input.date-active{background:#fff;color:#111827;cursor:pointer;border-color:#3b82f6}
+.form-textarea{width:100%;border:1px solid #d1d5db;border-radius:6px;padding:9px 14px;font-size:14px;color:#111827;outline:none;resize:vertical;min-height:90px;background:#fff;font-family:inherit;transition:border 0.15s}
 .form-textarea:focus{border-color:#3b82f6;box-shadow:0 0 0 3px rgba(59,130,246,0.1)}
-.form-select{width:100%;border:1px solid #d1d5db;border-radius:6px;padding:9px 14px;font-size:14px;color:#111827;outline:none;background:#fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%236b7280' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E") no-repeat right 12px center;appearance:none;cursor:pointer;transition:border 0.15s}
-.form-select:focus{border-color:#3b82f6;box-shadow:0 0 0 3px rgba(59,130,246,0.1)}
-.form-select.unset{color:#9ca3af}
 .inline-field{display:flex;align-items:center;gap:12px}
-.inline-field .form-select{flex:1}
+.inline-field .cs-wrap{flex:1}
 .add-inline-btn{background:#f3f4f6;color:#374151;border:1px solid #e5e7eb;padding:9px 14px;border-radius:6px;font-size:13px;font-weight:500;cursor:pointer;white-space:nowrap;display:inline-flex;align-items:center;gap:5px;flex-shrink:0}
 .add-inline-btn:hover{background:#e5e7eb}
-.advanced-row{display:flex;align-items:center;gap:8px;cursor:pointer;margin-bottom:22px}
-.form-actions{display:flex;gap:10px;margin-top:8px}
+.form-ctas{display:flex;gap:10px;margin-top:28px;padding-top:20px;border-top:1px solid #e5e7eb}
+.info-box{background:#f0f9ff;border:1px solid #bae6fd;border-radius:6px;padding:10px 14px;font-size:13px;color:#0c4a6e;margin-top:8px}
 
-/* Label section in product form */
-.label-section{margin-top:22px}
-.label-section-title{font-size:14px;font-weight:600;color:#111827;margin-bottom:12px}
-.label-entry{background:#f9fafb;border:1px solid #e5e7eb;border-radius:8px;padding:16px;margin-bottom:12px;position:relative}
-.label-entry-remove{position:absolute;top:12px;right:12px;background:none;border:none;cursor:pointer;color:#9ca3af;font-size:18px;line-height:1;padding:0}
-.label-entry-remove:hover{color:#dc2626}
-.label-entry .form-group{margin-bottom:14px}
-.label-entry .form-group:last-child{margin-bottom:0}
-.expiry-sub{font-size:11px;color:#9ca3af;margin-top:4px;line-height:1.4}
+/* Label entry */
+.label-entry{border:1px solid #e5e7eb;border-radius:8px;padding:16px;margin-top:12px;background:#fff}
+.label-entry-row{display:flex;align-items:flex-start;gap:16px}
+.label-entry-col{flex:1;display:flex;flex-direction:column;gap:6px}
+.label-entry-col .form-label{margin-bottom:0;font-size:13px}
+.label-entry-actions{display:flex;gap:8px;margin-top:14px}
+.expiry-sub{font-size:11px;color:#9ca3af;margin-top:3px}
 
-/* Date picker */
-.dp-wrap{position:relative}
-.dp-panel{position:absolute;top:calc(100% + 6px);left:0;z-index:200;background:#fff;border:1px solid #e5e7eb;border-radius:10px;box-shadow:0 8px 24px rgba(0,0,0,0.12);padding:14px;min-width:260px;display:none}
-.dp-panel.open{display:block}
-.dp-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
-.dp-nav{background:none;border:none;cursor:pointer;font-size:16px;color:#6b7280;padding:4px 8px;border-radius:4px;line-height:1}
-.dp-nav:hover{background:#f3f4f6}
-.dp-month{font-weight:600;font-size:13px;color:#111827}
-.dp-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:1px}
-.dp-dn{text-align:center;font-size:11px;font-weight:600;color:#9ca3af;padding:3px 0}
-.dp-day{text-align:center;padding:6px 2px;border-radius:5px;cursor:pointer;font-size:12px;color:#374151;transition:all 0.12s}
-.dp-day:hover{background:#dbeafe;color:#1d4ed8}
-.dp-day.sel{background:#1a73e8;color:#fff;font-weight:600}
-.dp-day.today{font-weight:700;color:#1a73e8}
-.dp-day.other{color:#d1d5db;pointer-events:none}
+/* Chips */
+.label-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.label-chip{display:inline-flex;align-items:center;gap:6px;background:#eff6ff;border:1px solid #bfdbfe;border-radius:20px;padding:5px 12px;font-size:12px;font-weight:500;color:#1d4ed8;position:relative;cursor:default}
+.label-chip:hover .chip-tooltip{opacity:1}
+.chip-tooltip{position:absolute;bottom:calc(100% + 6px);left:50%;transform:translateX(-50%);background:#1a2332;color:#fff;font-size:11px;border-radius:6px;padding:6px 10px;white-space:nowrap;opacity:0;pointer-events:none;transition:opacity 0.15s;z-index:100}
+.chip-tooltip::after{content:'';position:absolute;top:100%;left:50%;transform:translateX(-50%);border:5px solid transparent;border-top-color:#1a2332}
+.chip-remove{background:none;border:none;cursor:pointer;color:#3b82f6;font-size:14px;line-height:1;padding:0}
+.chip-remove:hover{color:#dc2626}
 
-/* Info box */
-.info-box{background:#f0f9ff;border:1px solid #bae6fd;border-radius:6px;padding:10px 14px;font-size:13px;color:#0c4a6e;margin-top:8px;max-width:560px}
-
-/* Cal (labels edit) */
-.cal-wrap{border:1px solid #e5e7eb;border-radius:8px;padding:14px;margin-top:8px;background:#fff;max-width:280px}
+/* Calendar */
+.cal-wrap{border:1px solid #e5e7eb;border-radius:8px;padding:14px;margin-top:8px;background:#fff;max-width:270px}
 .cal-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:10px}
 .cal-nav{background:none;border:none;cursor:pointer;font-size:16px;color:#6b7280;padding:4px 8px;border-radius:4px}
 .cal-nav:hover{background:#f3f4f6}
-.cal-month-label{font-weight:600;font-size:13px}
+.cal-ml{font-weight:600;font-size:13px}
 .cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:1px}
-.cal-dname{text-align:center;font-size:11px;font-weight:600;color:#9ca3af;padding:3px}
+.cal-dn{text-align:center;font-size:11px;font-weight:600;color:#9ca3af;padding:3px}
 .cal-day{text-align:center;padding:6px 3px;border-radius:5px;cursor:pointer;font-size:12px;color:#374151;transition:all 0.12s}
 .cal-day:hover{background:#dbeafe;color:#1d4ed8}
 .cal-day.sel{background:#1a73e8;color:#fff;font-weight:600}
 .cal-day.today{font-weight:700;color:#1a73e8}
-.cal-day.other{color:#d1d5db}
+.cal-day.other{color:#d1d5db;pointer-events:none}
+.cal-confirm-btn{width:100%;margin-top:10px;background:#16a34a;color:#fff;border:none;padding:8px;border-radius:6px;font-size:13px;font-weight:600;cursor:pointer}
+.cal-confirm-btn:disabled{background:#86efac;cursor:not-allowed}
+
+/* Audit */
+.audit-entry{background:#fff;border:1px solid #e5e7eb;border-radius:8px;padding:14px 18px;margin-bottom:6px}
+.audit-date-label{font-size:12px;color:#9ca3af;margin-top:18px;margin-bottom:6px}
+.audit-date-label:first-child{margin-top:0}
+.audit-text{font-size:13px;color:#374151;line-height:1.5}
+.audit-text strong{color:#111827;font-weight:600}
+.audit-status{display:inline-flex;align-items:center;gap:5px;padding:2px 10px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid}
+.status-live{background:#f0fdf4;color:#16a34a;border-color:#86efac}
+.status-draft{background:#f9fafb;color:#374151;border-color:#d1d5db}
+.status-archived{background:#eff6ff;color:#1d4ed8;border-color:#bfdbfe}
+.audit-arrow{color:#9ca3af;margin:0 4px}
+.audit-comment{margin-top:6px;font-size:12px;color:#6b7280;display:flex;align-items:flex-start;gap:6px}
+.audit-field-change{margin-top:4px;font-size:12px;color:#6b7280;background:#f9fafb;border-radius:4px;padding:6px 10px;display:inline-block}
 
 /* Toaster */
 .toaster{position:fixed;top:20px;right:20px;background:#fff;border:1px solid #e5e7eb;border-left:4px solid #16a34a;border-radius:8px;padding:14px 16px;box-shadow:0 4px 16px rgba(0,0,0,0.1);display:flex;align-items:flex-start;gap:10px;min-width:300px;z-index:9999;animation:toastIn 0.25s ease;transition:opacity 0.3s,transform 0.3s}
@@ -199,22 +236,56 @@ tbody tr:hover{background:#f9fafb}
 .toast-icon{color:#16a34a;flex-shrink:0;margin-top:1px}
 .toast-title{font-size:13px;font-weight:600;color:#111827}
 .toast-sub{font-size:12px;color:#6b7280;margin-top:2px}
+.toast-link{color:#1a73e8;text-decoration:underline;cursor:pointer;font-size:12px}
 .toast-close{margin-left:auto;background:none;border:none;cursor:pointer;color:#9ca3af;font-size:16px;line-height:1}
-
-/* Modal */
-.modal-bg{position:fixed;inset:0;background:rgba(0,0,0,0.35);z-index:900;display:none;align-items:center;justify-content:center}
+.modal-bg{position:fixed;inset:0;background:rgba(0,0,0,0.35);z-index:9100;display:none;align-items:center;justify-content:center}
 .modal-bg.show{display:flex}
-.modal{background:#fff;border-radius:10px;padding:28px;max-width:420px;width:90%;box-shadow:0 8px 32px rgba(0,0,0,0.15)}
-.modal-title{font-size:16px;font-weight:700;margin-bottom:10px}
+.modal{background:#fff;border-radius:10px;padding:28px;max-width:440px;width:90%;box-shadow:0 8px 32px rgba(0,0,0,0.15)}
+.modal-title{font-size:16px;font-weight:700;margin-bottom:10px;color:#111827}
 .modal-body{font-size:14px;color:#4b5563;line-height:1.6;margin-bottom:24px}
 .modal-footer{display:flex;gap:10px;justify-content:flex-end}
 .hidden{display:none!important}
+/* ── COLLECTIONS ── */
+.col-status{display:inline-flex;align-items:center;gap:5px;padding:2px 10px;border-radius:20px;font-size:12px;font-weight:500;border:1px solid}
+.col-status.active{background:#f0fdf4;color:#16a34a;border-color:#86efac}
+.col-status.pending{background:#fefce8;color:#a16207;border-color:#fde68a}
+.col-status.calculating{background:#eff6ff;color:#1d4ed8;border-color:#bfdbfe}
+.col-status.paused{background:#f9fafb;color:#374151;border-color:#d1d5db}
+.col-status.error{background:#fef2f2;color:#dc2626;border-color:#fca5a5}
+.col-status.archived{background:#f5f3ff;color:#6d28d9;border-color:#c4b5fd}
+.rule-builder{border:1px solid #e5e7eb;border-radius:8px;padding:16px;background:#f9fafb;margin-bottom:16px}
+.rule-block{background:#fff;border:1px solid #e5e7eb;border-radius:8px;padding:14px;margin-bottom:10px}
+.rule-block-header{display:flex;align-items:center;gap:8px;margin-bottom:10px;font-size:12px;font-weight:600;color:#6b7280;text-transform:uppercase;letter-spacing:0.04em}
+.rule-row{display:grid;grid-template-columns:44px 1fr 1fr 1fr 24px;align-items:center;gap:8px;margin-bottom:8px}
+.rule-row:last-child{margin-bottom:0}
+.rule-logic-badge{background:#e0e7ff;color:#3730a3;border-radius:4px;padding:2px 8px;font-size:11px;font-weight:600;flex-shrink:0;min-width:36px;text-align:center;width:100%}
+.rule-logic-badge.or-badge{background:#fce7f3;color:#9d174d}
+.rule-cs{min-width:0;width:100%}
+.rule-remove-btn{background:none;border:none;cursor:pointer;color:#d1d5db;font-size:18px;line-height:1;padding:0 2px;flex-shrink:0}
+.rule-remove-btn:hover{color:#dc2626}
+.rule-add-btn{background:none;border:1px dashed #d1d5db;border-radius:6px;color:#6b7280;font-size:12px;font-weight:500;cursor:pointer;padding:6px 14px;display:inline-flex;align-items:center;gap:5px;margin-top:4px;transition:all 0.15s}
+.rule-add-btn:hover{border-color:#3b82f6;color:#3b82f6;background:#f0f4ff}
+.block-add-btn{background:none;border:1px dashed #d1d5db;border-radius:6px;color:#6b7280;font-size:12px;font-weight:500;cursor:pointer;padding:7px 16px;display:inline-flex;align-items:center;gap:6px;width:100%;justify-content:center;transition:all 0.15s;margin-top:4px}
+.block-add-btn:hover{border-color:#3b82f6;color:#3b82f6;background:#f0f4ff}
+.inter-logic-row{display:flex;align-items:center;gap:8px;margin-bottom:8px;font-size:12px;color:#6b7280}
+.inter-logic-row select{border:1px solid #e5e7eb;border-radius:4px;padding:3px 8px;font-size:12px;color:#374151;background:#fff;cursor:pointer}
+.rule-empty-state{text-align:center;color:#9ca3af;font-size:13px;padding:20px;border:1px dashed #e5e7eb;border-radius:8px}
+.sched-row{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.sched-num{width:70px;border:1px solid #d1d5db;border-radius:6px;padding:9px 10px;font-size:14px;color:#111827;outline:none;text-align:center}
+.sched-num:focus{border-color:#3b82f6}
+.col-detail-section{background:#fff;border:1px solid #e5e7eb;border-radius:8px;padding:20px;margin-bottom:14px}
+.col-detail-section-title{font-size:13px;font-weight:600;color:#6b7280;text-transform:uppercase;letter-spacing:0.04em;margin-bottom:14px}
+.col-meta-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px 28px}
+.count-badge{display:inline-flex;align-items:center;gap:5px;background:#f0fdf4;border:1px solid #86efac;border-radius:6px;padding:3px 10px;font-size:13px;font-weight:600;color:#16a34a}
+.eta-note{font-size:12px;color:#6b7280;margin-top:6px;display:flex;align-items:center;gap:5px}
+.char-count{font-size:11px;color:#9ca3af;text-align:right;margin-top:3px}
+.rule-block.error-block{border-color:#fca5a5;background:#fff5f5}
+.rule-block.error-block .rule-block-header{color:#dc2626}
 .sdiv{height:1px;background:#e5e7eb;margin:4px 0}
 </style>
 </head>
 <body>
 <div class="app">
-
 <!-- Icon Rail -->
 <div class="icon-rail">
   <svg class="rail-logo" viewBox="0 0 28 28" fill="none"><circle cx="14" cy="14" r="13" stroke="#e5e7eb" stroke-width="1.5"/><path d="M8 14a6 6 0 1 1 12 0" stroke="#f59e0b" stroke-width="2.5" stroke-linecap="round"/><path d="M14 8v12M8 14h12" stroke="#3b82f6" stroke-width="1.5" opacity=".4"/></svg>
@@ -234,20 +305,14 @@ tbody tr:hover{background:#f9fafb}
     <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><rect x="1" y="1" width="20" height="20" rx="4" stroke="#0f2044" stroke-width="1.8"/><rect x="14" y="1" width="7" height="20" rx="3" fill="#0f2044"/><path d="M9 8l3 3-3 3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
   </div>
 </div>
-
 <!-- Sidebar -->
 <div class="sidebar" id="sidebar">
   <div class="sidebar-inner">
     <div class="sidebar-top">Capillary</div>
     <div class="sidebar-section">
-      <div class="sidebar-item">aiRA</div>
-      <div class="sidebar-item">Loyalty</div>
-      <div class="sidebar-item">Engage</div>
-      <div class="sidebar-item">Rewards</div>
-      <div class="sidebar-item">Audiences</div>
-      <div class="sidebar-item">Channels</div>
-      <div class="sidebar-item">Member Care</div>
-      <div class="sidebar-item">Insights</div>
+      <div class="sidebar-item">aiRA</div><div class="sidebar-item">Loyalty</div><div class="sidebar-item">Engage</div>
+      <div class="sidebar-item">Rewards</div><div class="sidebar-item">Audiences</div><div class="sidebar-item">Channels</div>
+      <div class="sidebar-item">Member Care</div><div class="sidebar-item">Insights</div>
     </div>
     <div class="sdiv"></div>
     <div class="sidebar-section">
@@ -255,17 +320,13 @@ tbody tr:hover{background:#f9fafb}
       <div id="dm-sub">
         <div class="sidebar-sub" id="nav-entities" onclick="goTo('ent-cards')">Entities</div>
         <div class="sidebar-sub active" id="nav-labels" onclick="goTo('lbl-cards')">Labels</div>
-        <div class="sidebar-sub">Dataflows</div>
-        <div class="sidebar-sub">Imports</div>
-        <div class="sidebar-sub">Exports</div>
-        <div class="sidebar-sub">Event Notifications</div>
+        <div class="sidebar-sub" id="nav-collections" onclick="goTo('col-cards')">Collections</div>
+        <div class="sidebar-sub">Dataflows</div><div class="sidebar-sub">Imports</div>
+        <div class="sidebar-sub">Exports</div><div class="sidebar-sub">Event Notifications</div>
       </div>
     </div>
     <div class="sdiv"></div>
-    <div class="sidebar-section">
-      <div class="sidebar-item">Extensions</div>
-      <div class="sidebar-item">Settings</div>
-    </div>
+    <div class="sidebar-section"><div class="sidebar-item">Extensions</div><div class="sidebar-item">Settings</div></div>
     <div class="sidebar-footer">
       <div class="collapse-btn" onclick="toggleSidebar()">
         <svg width="22" height="22" viewBox="0 0 22 22" fill="none"><rect x="1" y="1" width="20" height="20" rx="4" stroke="#0f2044" stroke-width="1.8"/><rect x="1" y="1" width="7" height="20" rx="3" fill="#0f2044"/><path d="M11 8l-3 3 3 3" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -273,7 +334,6 @@ tbody tr:hover{background:#f9fafb}
     </div>
   </div>
 </div>
-
 <!-- Main -->
 <div class="main">
   <div class="topbar">
@@ -284,10 +344,9 @@ tbody tr:hover{background:#f9fafb}
       <div class="avatar">R</div>
     </div>
   </div>
-
   <div class="content">
 
-    <!-- ═══ LABELS PAGES ═══ -->
+    <!-- LABELS: Cards -->
     <div class="page active" id="page-lbl-cards">
       <div style="font-size:20px;font-weight:700;color:#111827;margin-bottom:3px">Labels</div>
       <div style="font-size:13px;color:#6b7280;margin-bottom:24px">Manage metadata labels applied to your entities</div>
@@ -298,87 +357,133 @@ tbody tr:hover{background:#f9fafb}
       </div>
     </div>
 
+    <!-- LABELS: Listing -->
     <div class="page" id="page-lbl-listing">
       <div class="back-row"><div class="back-arrow-btn" onclick="goTo('lbl-cards')"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M19 12H5M12 5l-7 7 7 7"/></svg></div><div class="page-title" id="lbl-entity-title">Product</div></div>
       <div class="page-sub">Labels</div>
       <div class="toolbar">
-        <div class="search-wrap"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg><input class="search-input" placeholder="Search labels..." oninput="filterLabels(this.value)"/></div>
-        <div class="icon-btn"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="4" y1="6" x2="20" y2="6"/><line x1="8" y1="12" x2="16" y2="12"/><line x1="11" y1="18" x2="13" y2="18"/></svg></div>
-        <div style="margin-left:auto"><button class="btn-green" onclick="goTo('lbl-create')">+ Create Label</button></div>
+        <div class="search-wrap"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg><input class="search-input" placeholder="Search by label name and IDs..." oninput="filterLabels(this.value)"/></div>
+        <div id="lbl-default-ctas" style="margin-left:auto;display:flex;align-items:center;gap:8px">
+          <button class="btn-green" onclick="goTo('lbl-create')">+ Create Label</button>
+          <div class="btn-dots" id="lbl-dots-btn" onclick="toggleDotsMenu(event,'lbl-dots-menu','lbl-dots-btn')">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="5" cy="12" r="1.5" fill="#374151"/><circle cx="12" cy="12" r="1.5" fill="#374151"/><circle cx="19" cy="12" r="1.5" fill="#374151"/></svg>
+          </div>
+          <div class="dots-dropdown" id="lbl-dots-menu">
+            <div class="dots-dropdown-item" onclick="goTo('lbl-archived')"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="21 8 21 21 3 21 3 8"/><rect x="1" y="3" width="22" height="5"/><line x1="10" y1="12" x2="14" y2="12"/></svg>Archived labels</div>
+            <div class="dots-dropdown-item" onclick="goTo('lbl-audit')"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>Audit logs</div>
+          </div>
+        </div>
+        <div class="sel-bar" id="lbl-sel-bar">
+          <span class="sel-count" id="lbl-sel-count">0 labels selected</span>
+          <button class="sel-action-btn" onclick="promptArchiveSelected()"><svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="21 8 21 21 3 21 3 8"/><rect x="1" y="3" width="22" height="5"/><line x1="10" y1="12" x2="14" y2="12"/></svg>Archive</button>
+          <button class="sel-cancel-btn" onclick="clearSelection()">Cancel</button>
+        </div>
       </div>
-      <div class="table-wrap"><table>
-        <thead><tr><th style="width:36px"><input type="checkbox" class="cb"/></th><th>Name ↕</th><th>Label ID<span class="th-sub">External ID</span></th><th>Expiry Configuration</th><th style="width:48px"></th></tr></thead>
+      <div class="lbl-count-row"><span class="lbl-count-text" id="lbl-count-text"></span></div>
+      <div class="table-wrap"><div class="lbl-table-scroll"><table>
+        <thead><tr>
+          <th style="width:36px"><input type="checkbox" class="cb" id="lbl-select-all" onchange="toggleSelectAll(this)"/></th>
+          <th>Name ↕</th><th>Label ID<span class="th-sub">External ID</span></th>
+          <th>Expiry Configuration</th><th>Updated on<span class="th-sub">Updated by</span></th>
+          <th style="width:48px"></th>
+        </tr></thead>
         <tbody id="lbl-tbody"></tbody>
-      </table></div>
+      </table></div></div>
     </div>
 
+    <!-- LABELS: Detail -->
     <div class="page" id="page-lbl-detail">
       <div class="detail-wrap">
         <div class="plain-back" onclick="goTo('lbl-listing',currentLblTab)"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M19 12H5M12 5l-7 7 7 7"/></svg><span id="lbl-back-label">Label</span></div>
-        <div class="detail-header"><div><div class="detail-title" id="lbl-dv-title"></div><div class="detail-meta" id="lbl-dv-meta"></div></div></div>
+        <div class="detail-title" id="lbl-dv-title"></div>
+        <div class="detail-meta" id="lbl-dv-meta"></div>
         <div style="max-width:520px">
-          <div class="view-field"><div class="view-label">Local ID</div><div class="view-value" id="lbl-dv-id"></div></div>
-          <div class="view-field"><div class="view-label">External ID</div><div class="view-value" id="lbl-dv-extid"></div></div>
-          <div class="view-field"><div class="view-label">Name</div><div class="view-value" id="lbl-dv-name"></div></div>
-          <div class="view-field"><div class="view-label">Description</div><div class="view-value" id="lbl-dv-desc"></div></div>
-          <div class="view-field"><div class="view-label">Expiry Configuration</div><div class="view-value" id="lbl-dv-expiry"></div></div>
-          <div style="display:flex;gap:10px;margin-top:8px">
-            <button class="btn-danger" onclick="showDeleteModal('lbl')">Delete</button>
-            <button class="btn-green" onclick="goTo('lbl-edit')">Edit</button>
+          <div class="view-row"><div class="view-label">Local ID</div><div class="view-value" id="lbl-dv-id"></div></div>
+          <div class="view-row"><div class="view-label">External ID</div><div class="view-value" id="lbl-dv-extid"></div></div>
+          <div class="view-row"><div class="view-label">Name</div><div class="view-value" id="lbl-dv-name"></div></div>
+          <div class="view-row"><div class="view-label">Description</div><div class="view-value" id="lbl-dv-desc"></div></div>
+          <div class="view-row"><div class="view-label">Expiry Configuration</div><div class="view-value" id="lbl-dv-expiry"></div></div>
+          <div class="form-ctas"><button class="btn-green" onclick="goTo('lbl-edit')">Edit</button></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- LABELS: Edit -->
+    <div class="page" id="page-lbl-edit">
+      <div class="detail-wrap">
+        <div class="plain-back" onclick="goTo('lbl-detail')"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M19 12H5M12 5l-7 7 7 7"/></svg><span id="lbl-edit-back">Edit Label</span></div>
+        <div style="max-width:520px">
+          <div class="form-group"><label class="form-label">Local ID</label><input class="form-input" id="lbl-e-id" readonly/></div>
+          <div class="form-group"><label class="form-label">External ID</label><input class="form-input" id="lbl-e-extid" oninput="lblDirty()"/></div>
+          <div class="form-group"><label class="form-label">Name</label><input class="form-input" id="lbl-e-name" oninput="lblDirty()"/></div>
+          <div class="form-group"><label class="form-label">Description</label><textarea class="form-textarea" id="lbl-e-desc" oninput="lblDirty()"></textarea></div>
+          <div class="form-group">
+            <label class="form-label">Expiry Configuration</label>
+            <div class="cs-wrap" id="cs-lbl-edit-expiry">
+              <!-- rendered by JS -->
+            </div>
+            <div id="lbl-e-expiry-extra"></div>
+          </div>
+          <div class="form-ctas">
+            <button class="btn-outline" onclick="goTo('lbl-detail')">Cancel</button>
+            <button class="btn-green" id="lbl-save-btn" disabled onclick="saveLblEdit()">Save</button>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="page" id="page-lbl-edit">
-      <div class="plain-back" onclick="goTo('lbl-detail')"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M19 12H5M12 5l-7 7 7 7"/></svg><span id="lbl-edit-back">Edit Label</span></div>
-        <div style="max-width:520px">
-        <div style="display:flex;justify-content:flex-end;gap:10px;margin-bottom:24px">
-          <button class="btn-outline" onclick="goTo('lbl-detail')">Cancel</button>
-          <button class="btn-green" id="lbl-save-btn" disabled onclick="saveLblEdit()">Save</button>
-        </div>
-        <div class="form-group"><label class="form-label">Local ID</label><input class="form-input" id="lbl-e-id" readonly/></div>
-        <div class="form-group"><label class="form-label">External ID</label><input class="form-input" id="lbl-e-extid" oninput="lblDirty()"/></div>
-        <div class="form-group"><label class="form-label">Name</label><input class="form-input" id="lbl-e-name" oninput="lblDirty()"/></div>
-        <div class="form-group"><label class="form-label">Description</label><textarea class="form-textarea" id="lbl-e-desc" oninput="lblDirty()"></textarea></div>
-        <div class="form-group">
-          <label class="form-label">Expiry Configuration</label>
-          <select class="form-select unset" id="lbl-e-expiry" onchange="handleLblEditExpiry();lblDirty()">
-            <option value="" disabled selected>Select expiry type</option>
-            <option value="provide_date">Provide date</option>
-            <option value="default_to_label">Default to label</option>
-            <option value="never">Never expire</option>
-          </select>
-          <div id="lbl-e-expiry-extra"></div>
-        </div>
-        <div style="display:flex;gap:10px;margin-top:8px">
-          <button class="btn-danger" onclick="showDeleteModal('lbl')">Delete</button>
-        </div>
-        </div>
-    </div>
-
+    <!-- LABELS: Create -->
     <div class="page" id="page-lbl-create">
-      <div class="plain-back" onclick="goTo('lbl-listing',currentLblTab)"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>Create Label</div>
-      <div style="max-width:520px">
-        <div class="form-group"><label class="form-label">Label ID</label><input class="form-input" id="lbl-c-id" readonly placeholder="Auto-generated"/></div>
-        <div class="form-group"><label class="form-label">External ID</label><input class="form-input" id="lbl-c-extid" placeholder="e.g. EXT-001"/></div>
-        <div class="form-group"><label class="form-label">Label Name</label><input class="form-input" id="lbl-c-name" placeholder="Enter label name"/></div>
-        <div class="form-group"><label class="form-label">Description<span class="form-label-opt">(Optional)</span></label><textarea class="form-textarea" id="lbl-c-desc" placeholder="Enter a brief description"></textarea></div>
-        <div class="form-group">
-          <label class="form-label">Expiry Configuration</label>
-          <select class="form-select unset" id="lbl-c-expiry" onchange="this.classList.toggle('unset',!this.value)">
-            <option value="" disabled selected>Select expiry configuration</option>
-            <option value="end_month">Expire at end of current month</option>
-            <option value="end_year">Expire at end of current year</option>
-            <option value="end_year_plus1">Expire at end of current year + 1 year</option>
-            <option value="round_month">Round expiration to end of month</option>
-          </select>
+      <div class="detail-wrap">
+        <div class="plain-back" onclick="goTo('lbl-listing',currentLblTab)"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>Create Label</div>
+        <div style="max-width:520px">
+          <div class="form-group"><label class="form-label">Label ID</label><input class="form-input" id="lbl-c-id" readonly placeholder="Auto-generated"/></div>
+          <div class="form-group"><label class="form-label">External ID</label><input class="form-input" id="lbl-c-extid" placeholder="e.g. EXT-001"/></div>
+          <div class="form-group"><label class="form-label">Label Name</label><input class="form-input" id="lbl-c-name" placeholder="Enter label name"/></div>
+          <div class="form-group"><label class="form-label">Description<span class="form-label-opt">(Optional)</span></label><textarea class="form-textarea" id="lbl-c-desc" placeholder="Enter a brief description"></textarea></div>
+          <div class="form-group">
+            <label class="form-label">Expiry Configuration</label>
+            <div class="cs-wrap" id="cs-lbl-create-expiry">
+              <!-- rendered by JS -->
+            </div>
+            <div id="lbl-c-expiry-extra"></div>
+          </div>
+          <div class="form-ctas"><button class="btn-outline" onclick="goTo('lbl-listing',currentLblTab)">Cancel</button><button class="btn-green" onclick="createLabel()">Add</button></div>
         </div>
-        <div class="form-actions"><button class="btn-green" onclick="createLabel()">Add</button><button class="btn-outline" onclick="goTo('lbl-listing',currentLblTab)">Cancel</button></div>
       </div>
     </div>
 
-    <!-- ═══ ENTITIES PAGES ═══ -->
+    <!-- LABELS: Archived -->
+    <div class="page" id="page-lbl-archived">
+      <div class="back-row" style="margin-bottom:4px"><div class="back-arrow-btn" onclick="goTo('lbl-listing',currentLblTab)"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M19 12H5M12 5l-7 7 7 7"/></svg></div><div class="page-title">Archived Labels</div></div>
+      <div class="page-sub">Labels that have been archived</div>
+      <div class="toolbar" style="margin-bottom:0">
+        <div style="flex:1"></div>
+        <div class="sel-bar" id="arch-sel-bar">
+          <span class="sel-count" id="arch-sel-count">0 selected</span>
+          <button class="sel-action-btn" onclick="unarchiveSelected()"><svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="21 8 21 21 3 21 3 8"/><rect x="1" y="3" width="22" height="5"/><line x1="10" y1="12" x2="14" y2="12"/></svg>Unarchive</button>
+          <button class="sel-cancel-btn" onclick="clearArchiveSelection()">Cancel</button>
+        </div>
+      </div>
+      <div class="table-wrap"><div class="lbl-table-scroll"><table>
+        <thead><tr>
+          <th style="width:36px"><input type="checkbox" class="cb" id="arch-select-all" onchange="toggleArchiveSelectAll(this)"/></th>
+          <th>Name ↕</th><th>Label ID<span class="th-sub">External ID</span></th>
+          <th>Expiry Configuration</th><th>Archived on<span class="th-sub">Updated by</span></th>
+          <th style="width:48px"></th>
+        </tr></thead>
+        <tbody id="lbl-archived-tbody"></tbody>
+      </table></div></div>
+    </div>
+
+    <!-- LABELS: Audit -->
+    <div class="page" id="page-lbl-audit">
+      <div class="back-row" style="margin-bottom:4px"><div class="back-arrow-btn" onclick="goTo('lbl-listing',currentLblTab)"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M19 12H5M12 5l-7 7 7 7"/></svg></div><div class="page-title">Audit Logs</div></div>
+      <div class="page-sub">Track all actions performed on labels and assignments</div>
+      <div id="audit-log-container"></div>
+    </div>
+
+    <!-- ENTITIES: Cards -->
     <div class="page" id="page-ent-cards">
       <div style="font-size:20px;font-weight:700;color:#111827;margin-bottom:3px">Entities</div>
       <div style="font-size:13px;color:#6b7280;margin-bottom:24px">Lorem ipsum</div>
@@ -389,62 +494,290 @@ tbody tr:hover{background:#f9fafb}
       </div>
     </div>
 
+    <!-- ENTITIES: Listing -->
     <div class="page" id="page-ent-listing">
       <div class="back-row"><div class="back-arrow-btn" onclick="goTo('ent-cards')"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M19 12H5M12 5l-7 7 7 7"/></svg></div><div class="page-title" id="ent-entity-title">Product SKU</div></div>
       <div style="margin-bottom:16px"></div>
       <div class="toolbar">
         <div class="search-wrap"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg><input class="search-input" placeholder="Search..." oninput="filterProducts(this.value)"/></div>
         <div class="icon-btn"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="4" y1="6" x2="20" y2="6"/><line x1="8" y1="12" x2="16" y2="12"/><line x1="11" y1="18" x2="13" y2="18"/></svg></div>
-        <div style="margin-left:auto"><button class="btn-green" onclick="goTo('ent-create',null,null)">+ New product</button></div>
+        <div style="margin-left:auto"><button class="btn-green" onclick="goTo('ent-create')">+ New product</button></div>
       </div>
       <div class="table-wrap"><table>
-        <thead><tr>
-          <th>Product name<span class="th-sub">Product SKU</span></th>
-          <th>Category</th><th>Attributes</th>
-          <th>Updated on<span class="th-sub">Updated by</span></th>
-          <th style="width:48px"></th>
-        </tr></thead>
+        <thead><tr><th>Product name<span class="th-sub">Product SKU</span></th><th>Category</th><th>Attributes</th><th>Updated on<span class="th-sub">Updated by</span></th><th style="width:48px"></th></tr></thead>
         <tbody id="ent-tbody"></tbody>
       </table></div>
     </div>
 
-    <!-- Product Create / Edit (shared form) -->
+    <!-- ENTITIES: View -->
+    <div class="page" id="page-ent-view">
+      <div class="detail-wrap">
+        <div class="plain-back" onclick="goTo('ent-listing',currentEntTab)"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M19 12H5M12 5l-7 7 7 7"/></svg><span id="ent-view-title">Product</span></div>
+        <div style="max-width:560px">
+          <div class="view-row"><div class="view-label">Product name</div><div class="view-value" id="ev-name"></div></div>
+          <div class="view-row"><div class="view-label">Product SKU</div><div class="view-value" id="ev-sku"></div></div>
+          <div class="view-row"><div class="view-label">EAN</div><div class="view-value" id="ev-ean"></div></div>
+          <div class="view-row"><div class="view-label">Description</div><div class="view-value" id="ev-desc"></div></div>
+          <div class="view-row"><div class="view-label">Brand</div><div class="view-value" id="ev-brand"></div></div>
+          <div class="view-row"><div class="view-label">Category</div><div class="view-value" id="ev-category"></div></div>
+          <div class="view-row"><div class="view-label">Attributes</div><div class="view-value" id="ev-attributes"></div></div>
+          <div class="view-row"><div class="view-label">Labels</div><div id="ev-labels-content"><span style="color:#9ca3af;font-size:14px">No labels assigned</span></div></div>
+          <div class="form-ctas"><button class="btn-green" onclick="editCurrentProduct()">Edit</button></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ENTITIES: Create/Edit -->
     <div class="page" id="page-ent-create">
       <div class="form-page">
-        <div class="plain-back" onclick="goTo('ent-listing',currentEntTab)" id="prod-form-back-btn">New product</div>
-        <div class="form-grid-2" style="max-width:880px;margin-bottom:22px">
+        <div class="plain-back" onclick="goTo('ent-listing',currentEntTab)"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M19 12H5M12 5l-7 7 7 7"/></svg><span id="prod-form-title">New product</span></div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px 28px;max-width:880px;margin-bottom:20px">
           <div class="form-group" style="margin-bottom:0"><label class="form-label">Product SKU</label><input class="form-input" id="p-sku" placeholder="WIFI-PASS-365"/></div>
           <div class="form-group" style="margin-bottom:0"><label class="form-label">EAN<span class="form-label-opt">(Optional)</span></label><input class="form-input" id="p-ean" placeholder="8901234567897"/></div>
         </div>
         <div class="form-group form-max"><label class="form-label">Product name</label><input class="form-input" id="p-name" placeholder="Annual Network License"/></div>
-        <div class="form-group form-max"><label class="form-label">Description</label><textarea class="form-textarea" id="p-desc" placeholder="Provides year-long secure access..."></textarea></div>
-        <div class="form-group form-max">
-          <label class="form-label">Brand</label>
-          <div class="inline-field"><select class="form-select" id="p-brand"><option value="">Select brand</option><option value="Infrasphere">Infrasphere</option><option value="TechCorp">TechCorp</option></select><button class="add-inline-btn">+ Add brand</button></div>
+        <div class="form-group form-max"><label class="form-label">Description</label><textarea class="form-textarea" id="p-desc"></textarea></div>
+        <div class="form-group form-max"><label class="form-label">Brand</label>
+          <div class="inline-field">
+            <div class="cs-wrap" id="cs-p-brand"></div>
+            <button class="add-inline-btn">+ Add brand</button>
+          </div>
         </div>
-        <div class="form-group form-max">
-          <label class="form-label">Category</label>
-          <div class="inline-field"><select class="form-select" id="p-category"><option value="">Select category</option><option value="Network">Network</option><option value="Software">Software</option><option value="Hardware">Hardware</option></select><button class="add-inline-btn">+ Add category</button></div>
+        <div class="form-group form-max"><label class="form-label">Category</label>
+          <div class="inline-field">
+            <div class="cs-wrap" id="cs-p-cat"></div>
+            <button class="add-inline-btn">+ Add category</button>
+          </div>
         </div>
-        <div class="form-group form-max">
-          <label class="form-label">Attributes</label>
-          <div class="inline-field"><select class="form-select" id="p-attr"><option value="">Select attribute</option><option value="Annual pack">Annual pack</option><option value="wireless">wireless</option><option value="superfast">superfast</option><option value="30m reach">30m reach</option></select><button class="add-inline-btn">+ Add attribute</button></div>
+        <div class="form-group form-max"><label class="form-label">Attributes</label>
+          <div class="inline-field">
+            <div class="cs-wrap" id="cs-p-attr"></div>
+            <button class="add-inline-btn">+ Add attribute</button>
+          </div>
         </div>
-
-        <!-- Label section -->
-        <div class="form-max" style="margin-bottom:22px">
-          <button class="btn-gray" onclick="addLabelEntry('prod-label-entries')">+ Add label</button>
-          <div id="prod-label-entries"></div>
+        <div class="form-max" style="margin-bottom:22px" id="label-section">
+          <div id="prod-label-entry-wrap"></div>
+          <div class="label-chips" id="prod-label-chips"></div>
+          <div style="margin-top:12px">
+            <button class="btn-gray" id="add-label-btn" onclick="showLabelEntry()">+ Add label</button>
+          </div>
         </div>
-
-        <div class="advanced-row form-max" style="margin-bottom:22px">
-          <div><div style="font-size:14px;font-weight:600;color:#111827">Advanced details <span style="font-weight:400;color:#9ca3af;font-size:13px">(Optional)</span></div><div style="font-size:12px;color:#9ca3af;margin-top:2px">Add additional product information</div></div>
+        <div style="display:flex;align-items:center;gap:8px;cursor:pointer;margin-bottom:22px;max-width:580px">
+          <div><div style="font-size:14px;font-weight:600;color:#111827">Advanced details<span style="font-weight:400;color:#9ca3af;font-size:13px"> (Optional)</span></div><div style="font-size:12px;color:#9ca3af;margin-top:2px">Add additional product information</div></div>
           <svg width="16" height="16" fill="none" stroke="#9ca3af" stroke-width="2" viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
         </div>
-        <div class="form-actions" id="prod-form-actions">
-          <button class="btn-green" id="prod-submit-btn" onclick="submitProduct()">Add product</button>
-          <button class="btn-outline" onclick="goTo('ent-listing',currentEntTab)">Preview</button>
+        <div class="form-ctas">
           <button class="btn-outline" onclick="goTo('ent-listing',currentEntTab)">Cancel</button>
+          <button class="btn-outline">Preview</button>
+          <button class="btn-green" id="prod-submit-btn" onclick="submitProduct()">Add product</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- COLLECTIONS: Entity Cards -->
+    <div class="page" id="page-col-cards">
+      <div style="font-size:20px;font-weight:700;color:#111827;margin-bottom:3px">Collections</div>
+      <div style="font-size:13px;color:#6b7280;margin-bottom:24px">Rule-based automated groupings of items, updated on a schedule</div>
+      <div class="cards-grid">
+        <div class="entity-card" onclick="goTo('col-listing','Products')"><div class="card-icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div><div class="card-name">Products</div><div class="card-desc">Dynamic groupings of product SKUs based on attributes, categories, and custom fields</div></div>
+        <div class="entity-card" onclick="goTo('col-listing','Locations')"><div class="card-icon-box"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div><div class="card-name">Locations</div><div class="card-desc">Dynamic groupings of stores by zone, concept, city, or geo-coordinates</div></div>
+      </div>
+    </div>
+
+    <!-- COLLECTIONS: Listing -->
+    <div class="page" id="page-col-listing">
+      <div class="back-row"><div class="back-arrow-btn" onclick="goTo('col-cards')"><svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M19 12H5M12 5l-7 7 7 7"/></svg></div><div class="page-title" id="col-entity-title">Products</div></div>
+      <div class="page-sub">Collections</div>
+      <div class="toolbar">
+        <div class="search-wrap"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg><input class="search-input" placeholder="Search by name or external ID..." oninput="filterCollections(this.value)"/></div>
+        <div class="icon-btn" title="Filter by status" onclick="toggleColFilter()"><svg width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><line x1="4" y1="6" x2="20" y2="6"/><line x1="8" y1="12" x2="16" y2="12"/><line x1="11" y1="18" x2="13" y2="18"/></svg></div>
+        <div id="col-filter-panel" style="display:none;position:fixed;background:#fff;border:1px solid #e5e7eb;border-radius:8px;box-shadow:0 4px 16px rgba(0,0,0,0.12);z-index:9000;min-width:200px;padding:8px 0">
+          <div style="padding:6px 14px;font-size:11px;font-weight:600;color:#9ca3af;text-transform:uppercase">Filter by status</div>
+          <div class="row-menu-item" onclick="setColFilter('')">All</div>
+          <div class="row-menu-item" onclick="setColFilter('active')">Active</div>
+          <div class="row-menu-item" onclick="setColFilter('pending')">Pending Calculation</div>
+          <div class="row-menu-item" onclick="setColFilter('calculating')">Calculating</div>
+          <div class="row-menu-item" onclick="setColFilter('paused')">Paused</div>
+          <div class="row-menu-item" onclick="setColFilter('error')">Error</div>
+          <div class="row-menu-item" onclick="setColFilter('archived')">Archived</div>
+        </div>
+        <div style="margin-left:auto"><button class="btn-green" onclick="goTo('col-create')">+ Create Collection</button></div>
+      </div>
+      <div class="lbl-count-row"><span class="lbl-count-text" id="col-count-text"></span><span id="col-filter-badge" style="margin-left:8px;font-size:12px;color:#1a73e8;font-weight:500;cursor:pointer" onclick="setColFilter('')"></span></div>
+      <div class="table-wrap"><div class="lbl-table-scroll"><table>
+        <thead><tr>
+          <th>Name</th>
+          <th>Status</th>
+          <th>Item count</th>
+          <th>Refresh frequency</th>
+          <th>Last calculated<span class="th-sub">Next run</span></th>
+          <th style="width:48px"></th>
+        </tr></thead>
+        <tbody id="col-tbody"></tbody>
+      </table></div></div>
+    </div>
+
+    <!-- COLLECTIONS: Detail / View -->
+    <div class="page" id="page-col-detail">
+      <div class="detail-wrap">
+        <div class="plain-back" onclick="goTo('col-listing',currentColTab)"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M19 12H5M12 5l-7 7 7 7"/></svg><span id="col-detail-back">Collections</span></div>
+        <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:16px;margin-bottom:20px;flex-wrap:wrap">
+          <div>
+            <div class="detail-title" id="col-dv-title"></div>
+            <div class="detail-meta" id="col-dv-meta"></div>
+          </div>
+          <div style="display:flex;gap:8px;flex-wrap:wrap" id="col-detail-actions">
+            <button class="btn-gray" id="col-calc-now-btn" onclick="colCalculateNow()"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-.08-4.11"/></svg>Manual refresh</button>
+            <button class="btn-green" onclick="goTo('col-edit')">Edit</button>
+            <div class="btn-dots" id="col-detail-dots" onclick="toggleDotsMenu(event,'col-detail-overflow','col-detail-dots')"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="5" cy="12" r="1.5" fill="#374151"/><circle cx="12" cy="12" r="1.5" fill="#374151"/><circle cx="19" cy="12" r="1.5" fill="#374151"/></svg></div>
+            <div class="dots-dropdown" id="col-detail-overflow">
+              <div class="dots-dropdown-item" id="col-pause-item" onclick="colTogglePause()"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>Pause schedule</div>
+              <div class="dots-dropdown-item" onclick="colDuplicate()"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>Duplicate</div>
+              <div class="sdiv"></div>
+              <div class="dots-dropdown-item" style="color:#dc2626" onclick="colArchivePrompt()"><svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="21 8 21 21 3 21 3 8"/><rect x="1" y="3" width="22" height="5"/><line x1="10" y1="12" x2="14" y2="12"/></svg>Archive</div>
+            </div>
+          </div>
+        </div>
+        <div id="col-eta-bar"></div>
+        <div class="col-detail-section">
+          <div class="col-detail-section-title">Details</div>
+          <div class="col-meta-grid">
+            <div class="view-row" style="margin-bottom:0"><div class="view-label">Status</div><div class="view-value" id="col-dv-status"></div></div>
+            <div class="view-row" style="margin-bottom:0"><div class="view-label">Item count</div><div class="view-value" id="col-dv-count"></div></div>
+            <div class="view-row" style="margin-bottom:0"><div class="view-label">External ID</div><div class="view-value" id="col-dv-extid"></div></div>
+            <div class="view-row" style="margin-bottom:0"><div class="view-label">Refresh frequency</div><div class="view-value" id="col-dv-freq"></div></div>
+            <div class="view-row" style="margin-bottom:0"><div class="view-label">Last calculated</div><div class="view-value" id="col-dv-lastcalc"></div></div>
+            <div class="view-row" style="margin-bottom:0"><div class="view-label">Next scheduled run</div><div class="view-value" id="col-dv-nextrun"></div></div>
+            <div class="view-row" style="margin-bottom:0;grid-column:1/-1"><div class="view-label">Description</div><div class="view-value" id="col-dv-desc"></div></div>
+          </div>
+        </div>
+        <div class="col-detail-section">
+          <div class="col-detail-section-title">Membership criteria</div>
+          <div id="col-dv-rules"></div>
+        </div>
+        <div id="col-audit-tab-section" style="margin-top:16px">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px">
+            <div style="font-size:14px;font-weight:600;color:#111827">Audit history</div>
+          </div>
+          <div id="col-dv-audit"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- COLLECTIONS: Create -->
+    <div class="page" id="page-col-create">
+      <div class="form-page">
+        <div class="plain-back" onclick="goTo('col-listing',currentColTab)"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M19 12H5M12 5l-7 7 7 7"/></svg><span id="col-form-title">Create collection</span></div>
+        <div style="max-width:640px">
+
+          <div style="font-size:13px;font-weight:600;color:#6b7280;text-transform:uppercase;letter-spacing:.04em;margin-bottom:14px;padding-bottom:6px;border-bottom:1px solid #e5e7eb">Basic info</div>
+          <div class="form-group"><label class="form-label">Collection name</label><input class="form-input" id="col-c-name" placeholder="e.g. Summer Clearance" maxlength="60" oninput="updateCharCount('col-c-name','col-c-name-count',60)"/><div class="char-count"><span id="col-c-name-count">0</span>/60</div></div>
+          <div class="form-group"><label class="form-label">External ID<span class="form-label-opt">(Optional)</span></label><input class="form-input" id="col-c-extid" placeholder="e.g. COLL-001" maxlength="50"/><div style="font-size:12px;color:#9ca3af;margin-top:3px">Alphanumeric, hyphens, underscores only</div></div>
+          <div class="form-group"><label class="form-label">Description<span class="form-label-opt">(Optional)</span></label><textarea class="form-textarea" id="col-c-desc" placeholder="Describe what items this collection groups together" maxlength="255" oninput="updateCharCount('col-c-desc','col-c-desc-count',255)"></textarea><div class="char-count"><span id="col-c-desc-count">0</span>/255</div></div>
+
+          <div style="font-size:13px;font-weight:600;color:#6b7280;text-transform:uppercase;letter-spacing:.04em;margin-bottom:14px;padding-bottom:6px;border-bottom:1px solid #e5e7eb;margin-top:8px">Refresh schedule</div>
+          <div class="form-group">
+            <label class="form-label">Refresh frequency</label>
+            <div id="col-c-freq-wrap">
+              <select id="col-c-freq-select" onchange="freqSelectChange('c')" style="width:200px;border:1px solid #d1d5db;border-radius:6px;padding:9px 14px;font-size:14px;color:#111827;background:#fff;cursor:pointer;appearance:auto">
+                <option value="minute">Minute</option>
+                <option value="hour">Hour</option>
+                <option value="day" selected>Day</option>
+                <option value="month">Month</option>
+                <option value="manual">Manual refresh</option>
+                <option value="__adv__" style="color:#1a73e8">▸ Advanced frequencies</option>
+              </select>
+              <div id="col-c-adv-wrap" style="display:none;margin-top:10px">
+                <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
+                  <label style="display:flex;align-items:center;gap:8px;cursor:pointer;padding:8px 14px;border:1px solid #d1d5db;border-radius:6px;font-size:13px;color:#374151;background:#fff" id="col-c-adv-days-label">
+                    <input type="radio" name="col-c-adv" value="adv_days" onchange="freqAdvChange('c','adv_days')" style="accent-color:#1a73e8"/> Every X days
+                  </label>
+                  <label style="display:flex;align-items:center;gap:8px;cursor:pointer;padding:8px 14px;border:1px solid #d1d5db;border-radius:6px;font-size:13px;color:#374151;background:#fff" id="col-c-adv-weeks-label">
+                    <input type="radio" name="col-c-adv" value="adv_weeks" onchange="freqAdvChange('c','adv_weeks')" style="accent-color:#1a73e8"/> Every X weeks
+                  </label>
+                </div>
+                <div id="col-c-adv-val-wrap" style="display:none;margin-top:10px;display:flex;align-items:center;gap:8px">
+                  <span style="font-size:14px;color:#374151">Every</span>
+                  <input type="number" min="1" max="999" value="1" id="col-c-adv-n" class="sched-num"/>
+                  <span id="col-c-adv-unit-label" style="font-size:14px;color:#374151">days</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div style="font-size:13px;font-weight:600;color:#6b7280;text-transform:uppercase;letter-spacing:.04em;margin-bottom:14px;padding-bottom:6px;border-bottom:1px solid #e5e7eb;margin-top:8px">Membership criteria</div>
+          <div id="col-c-rule-builder"></div>
+          <div id="col-c-rule-controls" style="margin-top:8px"></div>
+
+          <div class="form-ctas">
+            <button class="btn-outline" onclick="goTo('col-listing',currentColTab)">Cancel</button>
+            <button class="btn-green" onclick="submitCollection()">Save collection</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- COLLECTIONS: Edit -->
+    <div class="page" id="page-col-edit">
+      <div class="form-page">
+        <div class="plain-back" onclick="goTo('col-detail')"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>Edit collection</div>
+        <div style="max-width:640px">
+          <div style="font-size:13px;font-weight:600;color:#6b7280;text-transform:uppercase;letter-spacing:.04em;margin-bottom:14px;padding-bottom:6px;border-bottom:1px solid #e5e7eb">Basic info</div>
+          <div class="form-group"><label class="form-label">Collection name</label><input class="form-input" id="col-e-name" maxlength="60" oninput="updateCharCount('col-e-name','col-e-name-count',60);colEditDirtyFn()"/><div class="char-count"><span id="col-e-name-count">0</span>/60</div></div>
+          <div class="form-group"><label class="form-label">External ID<span class="form-label-opt">(Optional)</span></label><input class="form-input" id="col-e-extid" oninput="colEditDirtyFn()"/></div>
+          <div class="form-group"><label class="form-label">Description<span class="form-label-opt">(Optional)</span></label><textarea class="form-textarea" id="col-e-desc" maxlength="255" oninput="updateCharCount('col-e-desc','col-e-desc-count',255);colEditDirtyFn()"></textarea><div class="char-count"><span id="col-e-desc-count">0</span>/255</div></div>
+          <div style="font-size:13px;font-weight:600;color:#6b7280;text-transform:uppercase;letter-spacing:.04em;margin-bottom:14px;padding-bottom:6px;border-bottom:1px solid #e5e7eb;margin-top:8px">Refresh schedule</div>
+          <div class="form-group">
+            <label class="form-label">Refresh frequency</label>
+            <div id="col-e-freq-wrap">
+              <select id="col-e-freq-select" onchange="freqSelectChange('e')" style="width:200px;border:1px solid #d1d5db;border-radius:6px;padding:9px 14px;font-size:14px;color:#111827;background:#fff;cursor:pointer;appearance:auto">
+                <option value="minute">Minute</option>
+                <option value="hour">Hour</option>
+                <option value="day">Day</option>
+                <option value="month">Month</option>
+                <option value="manual">Manual refresh</option>
+                <option value="__adv__" style="color:#1a73e8">▸ Advanced frequencies</option>
+              </select>
+              <div id="col-e-adv-wrap" style="display:none;margin-top:10px">
+                <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap">
+                  <label style="display:flex;align-items:center;gap:8px;cursor:pointer;padding:8px 14px;border:1px solid #d1d5db;border-radius:6px;font-size:13px;color:#374151;background:#fff">
+                    <input type="radio" name="col-e-adv" value="adv_days" onchange="freqAdvChange('e','adv_days')" style="accent-color:#1a73e8"/> Every X days
+                  </label>
+                  <label style="display:flex;align-items:center;gap:8px;cursor:pointer;padding:8px 14px;border:1px solid #d1d5db;border-radius:6px;font-size:13px;color:#374151;background:#fff">
+                    <input type="radio" name="col-e-adv" value="adv_weeks" onchange="freqAdvChange('e','adv_weeks')" style="accent-color:#1a73e8"/> Every X weeks
+                  </label>
+                </div>
+                <div id="col-e-adv-val-wrap" style="display:none;margin-top:10px;display:flex;align-items:center;gap:8px">
+                  <span style="font-size:14px;color:#374151">Every</span>
+                  <input type="number" min="1" max="999" value="1" id="col-e-adv-n" class="sched-num" oninput="colEditDirtyFn()"/>
+                  <span id="col-e-adv-unit-label" style="font-size:14px;color:#374151">days</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div style="font-size:13px;font-weight:600;color:#6b7280;text-transform:uppercase;letter-spacing:.04em;margin-bottom:14px;padding-bottom:6px;border-bottom:1px solid #e5e7eb;margin-top:8px">Membership criteria</div>
+          <div id="col-e-rule-builder"></div>
+          <div id="col-e-rule-controls" style="margin-top:8px"></div>
+          <div class="form-ctas">
+            <button class="btn-outline" onclick="goTo('col-detail')">Cancel</button>
+            <button class="btn-green" id="col-e-save-btn" disabled onclick="saveColEdit()">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- COLLECTIONS: Duplicate modal (inline page) -->
+    <div class="page" id="page-col-duplicate">
+      <div class="detail-wrap">
+        <div class="plain-back" onclick="goTo('col-detail')"><svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path d="M19 12H5M12 5l-7 7 7 7"/></svg>Duplicate collection</div>
+        <div style="max-width:480px">
+          <div class="info-box" style="margin-bottom:20px">Rules and refresh schedule will be copied. The duplicate starts as <strong>Pending Calculation</strong> and will not auto-run.</div>
+          <div class="form-group"><label class="form-label">New collection name</label><input class="form-input" id="col-dup-name" placeholder="Enter name"/></div>
+          <div class="form-group"><label class="form-label">External ID<span class="form-label-opt">(Optional)</span></label><input class="form-input" id="col-dup-extid" placeholder="Leave blank to auto-generate"/></div>
+          <div class="form-ctas">
+            <button class="btn-outline" onclick="goTo('col-detail')">Cancel</button>
+            <button class="btn-green" onclick="confirmDuplicate()">Create duplicate</button>
+          </div>
         </div>
       </div>
     </div>
@@ -453,322 +786,392 @@ tbody tr:hover{background:#f9fafb}
 </div>
 </div>
 
-<!-- Delete Modal -->
-<div class="modal-bg" id="delete-modal">
+<!-- Modals -->
+<div class="modal-bg" id="archive-confirm-modal">
   <div class="modal">
-    <div class="modal-title">Delete?</div>
-    <div class="modal-body">Are you sure you want to delete <strong id="delete-item-name"></strong>? This action cannot be undone.</div>
-    <div class="modal-footer"><button class="btn-outline" onclick="closeDeleteModal()">Cancel</button><button class="btn-danger" onclick="confirmDelete()">Delete</button></div>
+    <div class="modal-title">Archive label?</div>
+    <div class="modal-body">This will remove the label from all items. If you restore it later, assignments must be added again.</div>
+    <div class="modal-footer"><button class="btn-outline" onclick="closeAllModals()">Cancel</button><button class="btn-green" onclick="doArchive()">Archive</button></div>
   </div>
 </div>
-
+<div class="modal-bg" id="delete-lbl-modal">
+  <div class="modal">
+    <div class="modal-title">Delete Label?</div>
+    <div class="modal-body">Labels currently used in <strong>promotions and campaigns</strong> will not be removed — only future attachment will be prevented. Delete <strong id="delete-lbl-name"></strong>?</div>
+    <div class="modal-footer"><button class="btn-outline" onclick="closeAllModals()">Cancel</button><button class="btn-danger" onclick="confirmDeleteLabel()">Delete</button></div>
+  </div>
+</div>
+<div class="modal-bg" id="chip-remove-modal">
+  <div class="modal">
+    <div class="modal-title">Remove Label?</div>
+    <div class="modal-body">Are you sure you want to remove this label? This entity would not be part of promotions and campaigns where this label would be used.</div>
+    <div class="modal-footer"><button class="btn-outline" onclick="closeAllModals()">Cancel</button><button class="btn-danger" onclick="confirmChipRemove()">Remove</button></div>
+  </div>
+</div>
+<div class="modal-bg" id="col-archive-modal">
+  <div class="modal">
+    <div class="modal-title">Archive collection?</div>
+    <div class="modal-body" id="col-archive-modal-body">The schedule will be stopped and all item memberships will be cleared. Downstream systems will receive an empty set.</div>
+    <div class="modal-footer"><button class="btn-outline" onclick="closeAllModals()">Cancel</button><button class="btn-danger" onclick="confirmColArchive()">Archive</button></div>
+  </div>
+</div>
 <!-- Toaster -->
 <div class="toaster hidden" id="toaster">
   <div class="toast-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg></div>
-  <div style="flex:1"><div class="toast-title" id="toaster-title"></div><div class="toast-sub" id="toaster-sub"></div></div>
+  <div style="flex:1"><div class="toast-title" id="toaster-title"></div><div id="toaster-sub-wrap"></div></div>
   <button class="toast-close" onclick="hideToaster()">✕</button>
 </div>
 
+<!-- Floating dropdown panel -->
+<div id="cs-panel" style="display:none;position:fixed;background:#fff;border:1px solid #e5e7eb;border-radius:8px;box-shadow:0 4px 20px rgba(0,0,0,0.13);z-index:99999;overflow:visible;min-width:180px;padding:4px 0;box-sizing:border-box;"></div>
+
 <script>
-const expMap={end_month:'Expire at end of current month',end_year:'Expire at end of current year',end_year_plus1:'Expire at end of current year + 1 year',round_month:'Round expiration to end of month','':"—"};
+/* ═══════════════════════════════════════
+   CUSTOM SELECT
+   - csData stores all select state
+   - ONE floating panel (#cs-panel) on body
+   - options ONLY rendered when open
+════════════════════════════════════════ */
+const csData = {};
+let activeCsId = null;
 
-let labels=[
-  {id:'LC-10021',extId:'EXT-SC-001',name:'Summer Clearance',desc:'Seasonal clearance',entity:'Product',expiry:'end_year',updatedBy:'Priya Mehta',updatedAt:'Mar 24, 2025'},
-  {id:'LC-10057',extId:'EXT-FS-004',name:'Flash Sale',desc:'Flash sale label',entity:'Product',expiry:'end_month',updatedBy:'Vikram Nair',updatedAt:'Mar 15, 2025'},
-  {id:'LC-10034',extId:'EXT-TL-002',name:'Tier-1 Location',desc:'Premium tier',entity:'Location',expiry:'round_month',updatedBy:'Rahul Sharma',updatedAt:'Mar 21, 2025'},
-  {id:'LC-10041',extId:'EXT-VC-003',name:'VIP Customer',desc:'VIP segment',entity:'Customers',expiry:'end_year_plus1',updatedBy:'Ananya Singh',updatedAt:'Mar 18, 2025'},
-];
+function getPanel() { return document.getElementById('cs-panel'); }
 
-let products=[
-  {sku:'WIFI-PASS-001',name:'Office Wi-Fi Access',category:'Network',attributes:'wireless',updatedOn:'23/02/2026',updatedBy:'Rick Sanchez'},
-  {sku:'WIFI-PASS-002',name:'Visitor Wi-Fi Pass',category:'Network',attributes:'wireless',updatedOn:'23/02/2026',updatedBy:'Rick Sanchez'},
-  {sku:'WIFI-PASS-003',name:'Enterprise Email Account',category:'Network',attributes:'superfast',updatedOn:'23/02/2026',updatedBy:'Rick Sanchez'},
-  {sku:'WIFI-PASS-004',name:'Annual Network License',category:'Network',attributes:'-',updatedOn:'23/02/2026',updatedBy:'Rick Sanchez'},
-  {sku:'WIFI-PASS-005',name:'Corporate VPN Access',category:'Network',attributes:'-',updatedOn:'23/02/2026',updatedBy:'Rick Sanchez'},
-  {sku:'WIFI-PASS-006',name:'Cloud Storage Subscription',category:'Network',attributes:'30m reach',updatedOn:'23/02/2026',updatedBy:'Rick Sanchez'},
-  {sku:'WIFI-PASS-007',name:'Project Management Tool Access',category:'Network',attributes:'superfast',updatedOn:'23/02/2026',updatedBy:'Rick Sanchez'},
-];
-
-let currentLblTab='Product',currentEntTab='Product',currentLabel=null,lblEditDirty=false;
-let deleteTargetId='',deleteTargetType='';
-let editingProductIdx=null; // null = create, number = edit
-let labelEntryCount=0;
-let sidebarOpen=true;
-let calDate=new Date(),selectedDate=null;
-
-/* ── Sidebar ── */
-function toggleSidebar(){
-  sidebarOpen=!sidebarOpen;
-  document.getElementById('sidebar').classList.toggle('collapsed',!sidebarOpen);
-  document.getElementById('rail-expand-btn').classList.toggle('visible',!sidebarOpen);
-}
-function toggleDM(){
-  const s=document.getElementById('dm-sub'),c=document.getElementById('dm-chev');
-  const open=s.style.display!=='none';
-  s.style.display=open?'none':'block';
-  c.classList.toggle('open',!open);
+function csCreate(id, opts, placeholder, initVal, onChange) {
+  csData[id] = { opts: opts, val: initVal || '', placeholder: placeholder || 'Select…', onChange: onChange };
+  csRender(id);
 }
 
-/* ── Navigation ── */
-function goTo(page,tab,productIdx){
+function csRender(id) {
+  const wrap = document.getElementById(id);
+  if (!wrap) return;
+  const d = csData[id];
+  if (!d) return;
+  const label = d.opts.find(function(o){ return o.v === d.val && o.v !== '__div__'; });
+  const displayText = d.val && label ? label.l : d.placeholder;
+  const isPlaceholder = !d.val;
+  const isOpen = activeCsId === id;
+  wrap.innerHTML = '<button type="button" onclick="csToggle(event,\'' + id + '\')" style="' +
+    'width:100%;border:1px solid ' + (isOpen ? '#3b82f6' : '#d1d5db') + ';border-radius:6px;' +
+    'padding:9px 14px;font-size:14px;background:#fff;cursor:pointer;' +
+    'display:flex;align-items:center;justify-content:space-between;gap:8px;' +
+    'color:' + (isPlaceholder ? '#9ca3af' : '#111827') + ';text-align:left;' +
+    (isOpen ? 'box-shadow:0 0 0 3px rgba(59,130,246,0.1);' : '') +
+    '">' +
+    '<span>' + displayText + '</span>' +
+    '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#6b7280" stroke-width="2" style="flex-shrink:0;transition:transform 0.2s;transform:rotate(' + (isOpen?'180':'0') + 'deg)"><path d="M6 9l6 6 6-6"/></svg>' +
+    '</button>';
+  wrap.dataset.val = d.val;
+}
+
+function csToggle(e, id) {
+  e.stopPropagation();
+  if (activeCsId === id) { csClose(); return; }
+  csClose();
+  activeCsId = id;
+  csRender(id);
+
+  // Measure the WRAPPER div (not the button) for accurate width & position
+  var wrap = document.getElementById(id);
+  var trigger = wrap.querySelector('button');
+  var rect = wrap.getBoundingClientRect();
+  var d = csData[id];
+  var panel = getPanel();
+
+  // Build options HTML
+  var html = '';
+  for (var i = 0; i < d.opts.length; i++) {
+    var o = d.opts[i];
+    if (o.v === '__div__') {
+      html += '<div style="height:1px;background:#e5e7eb;margin:4px 0;pointer-events:none"></div>';
+    } else {
+      var isSel = d.val === o.v;
+      html += '<div onclick="csPick(event,\'' + id + '\',\'' + o.v + '\')" style="' +
+        'padding:10px 16px;font-size:13px;cursor:pointer;white-space:nowrap;' +
+        'color:' + (isSel ? '#1a73e8' : '#374151') + ';' +
+        'font-weight:' + (isSel ? '600' : '400') + ';' +
+        'background:' + (isSel ? '#f0f4ff' : 'transparent') + ';" ' +
+        'onmouseover="this.style.background=\'' + (isSel?'#e8f0fe':'#f5f6fa') + '\'" ' +
+        'onmouseout="this.style.background=\'' + (isSel?'#f0f4ff':'transparent') + '\'">' +
+        o.l + '</div>';
+    }
+  }
+  panel.innerHTML = html;
+
+  // Position: match wrapper width exactly, place directly below
+  var w = rect.width * 2;
+  var left = rect.left;
+
+  // First place below to measure panel height
+  panel.style.cssText = [
+    'display:block',
+    'position:fixed',
+    'visibility:hidden',
+    'width:' + w + 'px',
+    'top:0px',
+    'left:' + left + 'px',
+    'background:#fff',
+    'border:1px solid #e5e7eb',
+    'border-radius:8px',
+    'box-shadow:0 4px 20px rgba(0,0,0,0.13)',
+    'z-index:99999',
+    'padding:4px 0',
+    'box-sizing:border-box'
+  ].join(';');
+
+  // Now measure actual rendered height and decide direction
+  var panelH = panel.offsetHeight;
+  var spaceBelow = window.innerHeight - rect.bottom - 8;
+  var top = (spaceBelow >= panelH) ? (rect.bottom + 4) : (rect.top - panelH - 4);
+
+  // Final position
+  panel.style.cssText = [
+    'display:block',
+    'position:fixed',
+    'visibility:visible',
+    'width:' + w + 'px',
+    'top:' + top + 'px',
+    'left:' + left + 'px',
+    'background:#fff',
+    'border:1px solid #e5e7eb',
+    'border-radius:8px',
+    'box-shadow:0 4px 20px rgba(0,0,0,0.13)',
+    'z-index:99999',
+    'padding:4px 0',
+    'box-sizing:border-box'
+  ].join(';');
+}
+
+function csPick(e, id, val) {
+  e.preventDefault();
+  e.stopPropagation();
+  if (!csData[id] || val === '__div__') return;
+  csData[id].val = val;
+  csClose();
+  csRender(id);
+  if (csData[id].onChange) csData[id].onChange(val);
+}
+
+function csClose() {
+  var panel = getPanel();
+  if (panel) { panel.style.display = 'none'; panel.innerHTML = ''; }
+  if (activeCsId) { csRender(activeCsId); }
+  activeCsId = null;
+}
+
+function csGet(id) { return (csData[id] && csData[id].val) || ''; }
+
+document.addEventListener('click', function(e) {
+  if (!e.target.closest('#cs-panel') && !e.target.closest('.cs-wrap')) csClose();
+  if (!e.target.closest('.row-menu') && !e.target.closest('.dots-dropdown') &&
+      !e.target.closest('.btn-dots') && !e.target.closest('.ellipsis-btn')) closeAllDropdowns();
+});
+window.addEventListener('scroll', function(){ if(activeCsId) { var wrap=document.getElementById(activeCsId); if(wrap){var rect=wrap.getBoundingClientRect();var panel=getPanel();var panelH=panel.offsetHeight;var top=(window.innerHeight-rect.bottom-8>=panelH)?(rect.bottom+4):(rect.top-panelH-4);panel.style.top=top+'px';panel.style.left=rect.left+'px';}} }, true);
+window.addEventListener('resize', csClose);
+
+/* ═══════════════════════════════
+   DATA
+═══════════════════════════════ */
+const expMap = {
+  fixed_date:'Expire on a fixed date', after_x_days:'Expire after X days',
+  never:'Never expire', end_month:'Expire at end of current month',
+  end_year:'Expire at end of current year', end_year_plus1:'Expire at end of current year + 1 year',
+  round_month:'Round expiration to end of month', default_to_label:'Default to label', '':"—"
+};
+
+const EXPIRY_OPTS_CREATE = [
+  {v:'fixed_date',l:'Expire on a fixed date'},
+  {v:'after_x_days',l:'Expire after X days'},
+  {v:'never',l:'Never expire'},
+  {v:'__div__',l:''},
+  {v:'end_month',l:'Expire at end of current month'},
+  {v:'end_year',l:'Expire at end of current year'},
+  {v:'end_year_plus1',l:'Expire at end of current year + 1 year'},
+  {v:'round_month',l:'Round expiration to end of month'},
+];
+const EXPIRY_OPTS_EDIT = EXPIRY_OPTS_CREATE;
+
+const users = ['Priya Mehta','Vikram Nair','Rahul Sharma','Ananya Singh','Siddharth Iyer','Deepika Rao'];
+const expiryKeys = ['end_year','end_month','round_month','end_year_plus1','fixed_date','after_x_days'];
+const labelNames = ['Summer Clearance','Flash Sale','New Arrival','Winter Sale','Mega Offer','Festive Deal','Clearance Run','Year End','Premium Pick','Budget Saver','Tier Gold','VIP Member','Loyalty Plus','Seasonal Fav','Top Seller','Hot Deal','Bundle Save','Weekend Only','Limited Time','Staff Pick','Eco Choice','Best Value','Early Bird','Last Chance','Member Excl','Group Buy','Bulk Saver','Referral Win','Launch Promo','Flash Friday','Cyber Monday','Black Friday','End of Season','Overstocked','Heritage Line','Signature','Curated','Spotlight','Editor Pick','Fan Fav','Community','Daily Deal','Weekly Special','Monthly Must','Quarterly Best','Annual Pick','Spring Fresh','Summer Splash','Autumn Glow','Winter Warmth'];
+
+function makeLbl(i, entity) {
+  const nm = labelNames[i % labelNames.length] + (i >= labelNames.length ? ' ' + (Math.floor(i/labelNames.length)+1) : '');
+  return {id:'LC-'+(10020+i), extId:'EXT-'+String(i+1).padStart(3,'0'), name:nm, desc:'Label description '+i, entity, expiry:expiryKeys[i%expiryKeys.length], updatedBy:users[i%users.length], updatedAt:'Mar '+(1+i%28)+', 2025'};
+}
+let labels = [...Array(50)].map((_,i)=>makeLbl(i,'Product'));
+labels.push(...[...Array(15)].map((_,i)=>makeLbl(i,'Customers')));
+labels.push(...[...Array(10)].map((_,i)=>makeLbl(i,'Location')));
+let archivedLabels = [];
+let products = [
+  {sku:'WIFI-PASS-001',name:'Office Wi-Fi Access',category:'Network',attributes:'wireless',brand:'Infrasphere',ean:'89012',desc:'Office wifi.',price:'5000 INR',updatedOn:'23/02/2026',updatedBy:'Rick Sanchez',chips:[]},
+  {sku:'WIFI-PASS-002',name:'Visitor Wi-Fi Pass',category:'Network',attributes:'wireless',brand:'Infrasphere',ean:'',desc:'',price:'',updatedOn:'23/02/2026',updatedBy:'Rick Sanchez',chips:[]},
+  {sku:'WIFI-PASS-003',name:'Enterprise Email',category:'Network',attributes:'superfast',brand:'TechCorp',ean:'',desc:'',price:'',updatedOn:'23/02/2026',updatedBy:'Rick Sanchez',chips:[]},
+  {sku:'WIFI-PASS-004',name:'Annual Network License',category:'Network',attributes:'-',brand:'Infrasphere',ean:'',desc:'',price:'',updatedOn:'23/02/2026',updatedBy:'Rick Sanchez',chips:[]},
+];
+
+let currentLblTab='Product', currentEntTab='Product', currentLabel=null, currentProductIdx=null;
+let deleteTarget={}, editingProductIdx=null, sidebarOpen=true, lblEditDirty=false;
+let selectedLabelIds=new Set(), selectedArchiveIds=new Set();
+let productChips=[], chipToRemoveIdx=null, labelEntryOpen=false;
+let archiveMode='';
+
+const auditLogs=[
+  {date:'25 Jan, 2025, 12:30 PM IST',user:'Harsh Deo',action:'archived the label',entity:'Summer Clearance',actionType:'Label Archived',oldStatus:'active',newStatus:'archived'},
+  {date:'24 Jan, 2025, 09:15 AM IST',user:'Priya Mehta',action:'updated the label',entity:'Flash Sale',actionType:'Label Updated',changes:[{field:'Name',from:'"flash sale"',to:'"Flash Sale"'},{field:'Expiry config',from:'"End of Month"',to:'"End of Year"'}]},
+  {date:'23 Jan, 2025, 03:45 PM IST',user:'System',action:'auto-expired assignment',entity:'Winter Promo',actionType:'Label Assignment Auto-Expired',source:'System Expiry'},
+  {date:'22 Jan, 2025, 11:00 AM IST',user:'Vikram Nair',action:'assigned label to entity',entity:'Summer Clearance → SKU-001',actionType:'Label Assigned (Manual - UI)'},
+  {date:'21 Jan, 2025, 02:30 PM IST',user:'System',action:'completed bulk label assignment',entity:'Job #BLK-8821',actionType:'Bulk Label Assignment Completed',comment:'Total rows: 1,240 | Successful: 1,235 | Failed: 5'},
+  {date:'20 Jan, 2025, 10:00 AM IST',user:'Rahul Sharma',action:'started bulk label assignment',entity:'Job #BLK-8821',actionType:'Bulk Label Assignment Started',source:'Bulk Upload',comment:'File: summer_labels_jan.csv | Rows: 1,240'},
+  {date:'19 Jan, 2025, 04:00 PM IST',user:'Ananya Singh',action:'removed label assignment',entity:'VIP Customer → CUST-2291',actionType:'Label Assignment Removed (Manual - UI)'},
+  {date:'18 Jan, 2025, 01:20 PM IST',user:'Neha Gupta',action:'created the label',entity:'Year End Promo',actionType:'Label Created'},
+  {date:'17 Jan, 2025, 09:50 AM IST',user:'System',action:'auto-created label via bulk upload',entity:'Holiday Bundle',actionType:'Label Auto-Created (via Bulk Upload)',source:'Bulk Upload'},
+  {date:'16 Jan, 2025, 03:15 PM IST',user:'Siddharth Iyer',action:'updated assignment expiry',entity:'Flash Sale → SKU-290',actionType:'Label Assignment Expiry Updated (Manual - UI)',changes:[{field:'Expiry',from:'"31/01/2025"',to:'"28/02/2025"'}]},
+];
+
+/* ═══ SIDEBAR ═══ */
+function toggleSidebar(){sidebarOpen=!sidebarOpen;document.getElementById('sidebar').classList.toggle('collapsed',!sidebarOpen);document.getElementById('rail-expand-btn').classList.toggle('visible',!sidebarOpen);}
+function toggleDM(){const s=document.getElementById('dm-sub'),c=document.getElementById('dm-chev');const open=s.style.display!=='none';s.style.display=open?'none':'block';c.classList.toggle('open',!open);}
+
+/* ═══ NAVIGATION ═══ */
+function goTo(page, tab) {
+  csClose();
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
   document.getElementById('page-'+page).classList.add('active');
   document.querySelectorAll('.sidebar-sub').forEach(s=>s.classList.remove('active'));
-  if(page.startsWith('lbl')) document.getElementById('nav-labels').classList.add('active');
-  if(page.startsWith('ent')) document.getElementById('nav-entities').classList.add('active');
-  if(tab){if(page.startsWith('lbl'))currentLblTab=tab;if(page.startsWith('ent'))currentEntTab=tab;}
-  if(page==='lbl-listing'){renderLblTable();document.getElementById('lbl-entity-title').textContent=currentLblTab;}
-  if(page==='lbl-create')resetLblCreate();
-  if(page==='lbl-edit')loadLblEdit();
-  if(page==='ent-listing'){renderEntTable();document.getElementById('ent-entity-title').textContent=currentEntTab+' SKU';}
-  if(page==='ent-create'){
-    editingProductIdx=(productIdx!==undefined&&productIdx!==null)?productIdx:null;
-    setupProductForm();
-  }
+  if (page.startsWith('lbl')||page==='lbl-audit') document.getElementById('nav-labels').classList.add('active');
+  if (page.startsWith('ent')) document.getElementById('nav-entities').classList.add('active');
+  if (tab) { if(page.startsWith('lbl')) currentLblTab=tab; if(page.startsWith('ent')) currentEntTab=tab; }
+  if (page==='lbl-listing') { clearSelection(); renderLblTable(); document.getElementById('lbl-entity-title').textContent=currentLblTab; }
+  if (page==='lbl-create') resetLblCreate();
+  if (page==='lbl-edit') loadLblEdit();
+  if (page==='lbl-archived') { clearArchiveSelection(); renderArchivedTable(); }
+  if (page==='lbl-audit') renderAuditLog();
+  if (page==='ent-listing') { renderEntTable(); document.getElementById('ent-entity-title').textContent=currentEntTab+' SKU'; }
+  if (page==='ent-create') setupProductForm();
+  closeAllDropdowns();
   window.scrollTo(0,0);
 }
 
-/* ── Product Form (create + edit shared) ── */
-function setupProductForm(){
-  const isEdit=editingProductIdx!==null;
-  // back btn text
-  const backBtn=document.getElementById('prod-form-back-btn');
-  backBtn.childNodes[backBtn.childNodes.length-1].textContent=isEdit?' Edit product':' New product';
-  // submit btn text
-  document.getElementById('prod-submit-btn').textContent=isEdit?'Save product':'Add product';
-  // clear label entries
-  document.getElementById('prod-label-entries').innerHTML='';
-  labelEntryCount=0;
+/* ═══ DROPDOWNS (row menus / dots) ═══ */
+function toggleDotsMenu(e,menuId,btnId){e.stopPropagation();const menu=document.getElementById(menuId);const btn=document.getElementById(btnId);const wasOpen=menu.classList.contains('open');closeAllDropdowns();if(!wasOpen){const r=btn.getBoundingClientRect();menu.style.top=(r.bottom+4)+'px';menu.style.left=(r.right-175)+'px';menu.classList.add('open');}}
+function toggleMenu(e,id){e.stopPropagation();const menu=document.getElementById(id);const wasOpen=menu.classList.contains('open');closeAllDropdowns();if(!wasOpen){const r=e.currentTarget.getBoundingClientRect();menu.style.top=(r.bottom+4)+'px';menu.style.left=(r.right-155)+'px';menu.classList.add('open');}}
+function closeAllDropdowns(){document.querySelectorAll('.row-menu,.dots-dropdown').forEach(m=>m.classList.remove('open'));}
 
-  if(isEdit){
-    const p=products[editingProductIdx];
-    document.getElementById('p-sku').value=p.sku;
-    document.getElementById('p-ean').value=p.ean||'';
-    document.getElementById('p-name').value=p.name;
-    document.getElementById('p-desc').value=p.desc||'';
-    document.getElementById('p-brand').value=p.brand||'';
-    document.getElementById('p-category').value=p.category||'';
-    document.getElementById('p-attr').value=p.attributes!=='-'?p.attributes:'';
+/* ═══ LABEL SELECTION ═══ */
+function toggleSelectAll(cb){const rows=labels.filter(l=>l.entity===currentLblTab);if(cb.checked) rows.forEach(l=>selectedLabelIds.add(l.id));else selectedLabelIds.clear();updateSelUI();renderLblTable();}
+function toggleRowSelect(id,cb){if(cb.checked) selectedLabelIds.add(id);else selectedLabelIds.delete(id);updateSelUI();}
+function updateSelUI(){const n=selectedLabelIds.size;document.getElementById('lbl-default-ctas').style.display=n>0?'none':'flex';document.getElementById('lbl-sel-bar').classList.toggle('visible',n>0);if(n>0) document.getElementById('lbl-sel-count').textContent=n+' label'+(n>1?'s':'')+' selected';}
+function clearSelection(){selectedLabelIds.clear();const cb=document.getElementById('lbl-select-all');if(cb) cb.checked=false;updateSelUI();renderLblTable();}
+function promptArchiveSelected(){archiveMode='selected';document.getElementById('archive-confirm-modal').classList.add('show');}
+function promptArchiveSingle(id){archiveMode=id;document.getElementById('archive-confirm-modal').classList.add('show');}
+function doArchive(){
+  closeAllModals();
+  if(archiveMode==='selected'){
+    const ids=[...selectedLabelIds];
+    archivedLabels.push(...labels.filter(l=>ids.includes(l.id)).map(l=>({...l,archivedAt:'Just now'})));
+    labels=labels.filter(l=>!ids.includes(l.id));
+    showToasterArchived(ids.length+' label'+(ids.length>1?'s':'')+' archived');
+    clearSelection(); renderLblTable();
   } else {
-    ['p-sku','p-ean','p-name','p-desc'].forEach(id=>document.getElementById(id).value='');
-    document.getElementById('p-brand').value='';
-    document.getElementById('p-category').value='';
-    document.getElementById('p-attr').value='';
+    const lbl=labels.find(l=>l.id===archiveMode);if(!lbl) return;
+    archivedLabels.push({...lbl,archivedAt:'Just now'});
+    labels=labels.filter(l=>l.id!==archiveMode);
+    showToasterArchived('1 label archived');
+    renderLblTable();
   }
 }
+function archiveSingle(id){closeAllDropdowns();promptArchiveSingle(id);}
 
-function submitProduct(){
-  const name=document.getElementById('p-name').value.trim();
-  if(!name){alert('Please enter a product name.');return;}
-  const data={
-    sku:document.getElementById('p-sku').value||'SKU-NEW',
-    name,
-    desc:document.getElementById('p-desc').value,
-    brand:document.getElementById('p-brand').value,
-    category:document.getElementById('p-category').value||'—',
-    attributes:document.getElementById('p-attr').value||'-',
-    updatedOn:new Date().toLocaleDateString('en-GB'),
-    updatedBy:'You'
-  };
-  if(editingProductIdx!==null){
-    products[editingProductIdx]={...products[editingProductIdx],...data};
-    showToaster('Product updated successfully',name);
-  } else {
-    products.push(data);
-    showToaster('Product created successfully',name);
-  }
-  goTo('ent-listing',currentEntTab);
+/* ═══ ARCHIVE SELECTION ═══ */
+function toggleArchiveSelectAll(cb){if(cb.checked) archivedLabels.filter(l=>l.entity===currentLblTab).forEach(l=>selectedArchiveIds.add(l.id));else selectedArchiveIds.clear();updateArchUI();renderArchivedTable();}
+function toggleArchiveRowSelect(id,cb){if(cb.checked) selectedArchiveIds.add(id);else selectedArchiveIds.delete(id);updateArchUI();}
+function updateArchUI(){const n=selectedArchiveIds.size;document.getElementById('arch-sel-bar').classList.toggle('visible',n>0);if(n>0) document.getElementById('arch-sel-count').textContent=n+' label'+(n>1?'s':'')+' selected';}
+function clearArchiveSelection(){selectedArchiveIds.clear();const cb=document.getElementById('arch-select-all');if(cb) cb.checked=false;updateArchUI();renderArchivedTable();}
+function unarchiveSelected(){doUnarchive([...selectedArchiveIds]);}
+function unarchiveSingle(id){doUnarchive([id]);}
+function doUnarchive(ids){
+  const toU=archivedLabels.filter(l=>ids.includes(l.id));
+  toU.forEach(l=>{const{archivedAt,...r}=l;labels.push(r);});
+  archivedLabels=archivedLabels.filter(l=>!ids.includes(l.id));
+  showToaster(ids.length+' label'+(ids.length>1?'s':'')+' unarchived',ids.length===1?toU[0].name:'');
+  clearArchiveSelection(); goTo('lbl-listing',currentLblTab);
 }
 
-/* ── Add Label Entry (used in product form) ── */
-function addLabelEntry(containerId){
-  const wrap=document.getElementById(containerId);
-  const id=labelEntryCount++;
-  const entry=document.createElement('div');
-  entry.className='label-entry';
-  entry.id='lentry-'+id;
-  entry.innerHTML=`
-    <button class="label-entry-remove" onclick="removeLabelEntry(${id})" title="Remove">×</button>
-    <!-- Label field -->
-    <div class="form-group">
-      <label class="form-label" style="font-size:14px;font-weight:600;color:#111827;margin-bottom:8px;display:block">Label</label>
-      <div class="inline-field">
-        <select class="form-select unset" id="le-label-${id}" onchange="this.classList.toggle('unset',!this.value)">
-          <option value="" disabled selected>Select label</option>
-          <option value="cool_stuff">Cool Stuff</option>
-          <option value="clearance">Clearance</option>
-        </select>
-        <button class="add-inline-btn" type="button">+ Add label</button>
-      </div>
-    </div>
-    <!-- Expiry field -->
-    <div class="form-group" style="margin-bottom:0">
-      <label class="form-label" style="font-size:14px;font-weight:600;color:#111827;margin-bottom:8px;display:block">Expiry configuration</label>
-      <div class="dp-wrap" id="dp-wrap-${id}">
-        <div class="inline-field">
-          <select class="form-select unset" id="le-expiry-${id}" onchange="onExpiryChange(this,${id})">
-            <option value="" disabled selected>Select expiry configuration</option>
-            <option value="same_as_label">Same as label</option>
-            <option value="manual_date">Manual date</option>
-            <option value="never_expire">Never expire</option>
-          </select>
-          <button class="add-inline-btn" type="button" style="visibility:hidden">placeholder</button>
-        </div>
-        <div class="dp-panel" id="dp-panel-${id}"></div>
-      </div>
-      <div class="expiry-sub">Define the duration for which this label is applied to the SKU</div>
-    </div>`;
-  wrap.appendChild(entry);
-}
-
-function removeLabelEntry(id){const el=document.getElementById('lentry-'+id);if(el)el.remove();}
-
-function onExpiryChange(sel,id){
-  sel.classList.toggle('unset',!sel.value);
-  const panel=document.getElementById('dp-panel-'+id);
-  if(sel.value==='manual_date'){
-    renderDp(id);
-    panel.classList.add('open');
-    setTimeout(()=>{
-      function oc(e){const w=document.getElementById('dp-wrap-'+id);if(!w||!w.contains(e.target)){panel.classList.remove('open');document.removeEventListener('click',oc);}}
-      document.addEventListener('click',oc);
-    },10);
-  } else {
-    panel.classList.remove('open');
-    // remove date input if exists
-    const inp=document.getElementById('le-date-inp-'+id);
-    if(inp){inp.remove();document.getElementById('le-expiry-'+id).style.display='';}
-  }
-}
-
-function renderDp(id,yr,mo){
-  const now=new Date();
-  yr=yr!==undefined?yr:now.getFullYear();
-  mo=mo!==undefined?mo:now.getMonth();
-  const fd=new Date(yr,mo,1).getDay(),dim=new Date(yr,mo+1,0).getDate();
-  const mn=['January','February','March','April','May','June','July','August','September','October','November','December'];
-  const dn=['Su','Mo','Tu','We','Th','Fr','Sa'];
-  const sel=document.getElementById('le-expiry-'+id);
-  const stored=sel?sel.dataset.pickedDate||'':'';
-  let cells='';
-  for(let i=0;i<fd;i++) cells+=`<div class="dp-day other"></div>`;
-  for(let d=1;d<=dim;d++){
-    const ds=`${String(d).padStart(2,'0')}/${String(mo+1).padStart(2,'0')}/${yr}`;
-    const isT=d===now.getDate()&&mo===now.getMonth()&&yr===now.getFullYear();
-    const isSel=stored===ds;
-    cells+=`<div class="dp-day${isT?' today':''}${isSel?' sel':''}" onclick="pickDate(${id},'${ds}',${yr},${mo})">${d}</div>`;
-  }
-  const prevYr=mo===0?yr-1:yr, prevMo=mo===0?11:mo-1;
-  const nextYr=mo===11?yr+1:yr, nextMo=mo===11?0:mo+1;
-  const panel=document.getElementById('dp-panel-'+id);
-  if(panel) panel.innerHTML=`
-    <div class="dp-header">
-      <button class="dp-nav" onclick="renderDp(${id},${prevYr},${prevMo});event.stopPropagation()">‹</button>
-      <span class="dp-month">${mn[mo]} ${yr}</span>
-      <button class="dp-nav" onclick="renderDp(${id},${nextYr},${nextMo});event.stopPropagation()">›</button>
-    </div>
-    <div class="dp-grid">
-      ${dn.map(d=>`<div class="dp-dn">${d}</div>`).join('')}
-      ${cells}
-    </div>`;
-}
-
-function pickDate(id,ds,yr,mo){
-  const sel=document.getElementById('le-expiry-'+id);
-  if(sel) sel.dataset.pickedDate=ds;
-  // Hide select, show input with date
-  if(sel) sel.style.display='none';
-  let inp=document.getElementById('le-date-inp-'+id);
-  if(!inp){
-    inp=document.createElement('input');
-    inp.className='form-input';
-    inp.id='le-date-inp-'+id;
-    inp.readOnly=true;
-    inp.style.cursor='pointer';
-    inp.style.flex='1';
-    // clicking re-opens calendar
-    inp.onclick=(e)=>{
-      e.stopPropagation();
-      const panel=document.getElementById('dp-panel-'+id);
-      renderDp(id,yr,mo);
-      panel.classList.add('open');
-      setTimeout(()=>{
-        function oc(e2){const w=document.getElementById('dp-wrap-'+id);if(!w||!w.contains(e2.target)){panel.classList.remove('open');document.removeEventListener('click',oc);}}
-        document.addEventListener('click',oc);
-      },10);
-    };
-    // insert before the hidden-btn placeholder
-    const inlineField=sel.closest('.inline-field');
-    if(inlineField) inlineField.insertBefore(inp,inlineField.children[1]);
-  }
-  inp.value=ds;
-  inp.style.display='block';
-  document.getElementById('dp-panel-'+id).classList.remove('open');
-}
-
-/* ── Products Table ── */
-function renderEntTable(filter=''){
-  const tbody=document.getElementById('ent-tbody');
-  const rows=filter?products.filter(p=>p.name.toLowerCase().includes(filter.toLowerCase())):products;
-  if(!rows.length){tbody.innerHTML=`<tr><td colspan="5" style="text-align:center;color:#9ca3af;padding:32px">No products yet.</td></tr>`;return;}
-  tbody.innerHTML=rows.map((p,i)=>`
-    <tr onclick="void(0)">
-      <td><div class="row-primary">${p.name}</div><div class="row-secondary">${p.sku}</div></td>
-      <td>${p.category}</td>
-      <td style="color:#6b7280">${p.attributes}</td>
-      <td><div class="row-primary">${p.updatedOn}</div><div class="row-secondary">${p.updatedBy}</div></td>
-      <td class="ellipsis-cell" onclick="event.stopPropagation()">
-        <button class="ellipsis-btn" onclick="toggleMenu(event,'pmenu-${i}')">···</button>
-        <div class="row-menu" id="pmenu-${i}">
-          <div class="row-menu-item" onclick="editProduct(${i})">
-            <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
-            Edit
-          </div>
-          <div class="row-menu-item" onclick="archiveItem(${i},'prod')">
-            <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="21 8 21 21 3 21 3 8"/><rect x="1" y="3" width="22" height="5"/><line x1="10" y1="12" x2="14" y2="12"/></svg>
-            Archive
-          </div>
-          <div class="row-menu-item danger" onclick="deleteFromMenu(${i},'prod')">
-            <svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v6M14 11v6"/><path d="M9 6V4h6v2"/></svg>
-            Delete
-          </div>
-        </div>
-      </td>
-    </tr>`).join('');
-}
-function filterProducts(v){renderEntTable(v);}
-function editProduct(idx){
-  document.querySelectorAll('.row-menu').forEach(m=>m.classList.remove('open'));
-  goTo('ent-create',currentEntTab,idx);
-}
-
-/* ── Labels Table ── */
-function renderLblTable(filter=''){
+/* ═══ LABELS TABLE ═══ */
+function renderLblTable(filter){
+  filter=filter||'';
   const tbody=document.getElementById('lbl-tbody');
-  const rows=labels.filter(l=>l.entity===currentLblTab&&(!filter||l.name.toLowerCase().includes(filter.toLowerCase())));
-  if(!rows.length){tbody.innerHTML=`<tr><td colspan="5" style="text-align:center;color:#9ca3af;padding:32px">No labels yet.</td></tr>`;return;}
-  tbody.innerHTML=rows.map(l=>`
-    <tr onclick="openLblDetail('${l.id}')">
-      <td><input type="checkbox" class="cb" onclick="event.stopPropagation()"/></td>
-      <td><div class="row-primary">${l.name}</div></td>
-      <td><div class="row-primary">${l.id}</div><div class="row-secondary">${l.extId}</div></td>
-      <td style="font-size:12px;color:#4b5563">${expMap[l.expiry]||l.expiry}</td>
-      <td class="ellipsis-cell" onclick="event.stopPropagation()">
-        <button class="ellipsis-btn" onclick="toggleMenu(event,'lmenu-${l.id}')">···</button>
-        <div class="row-menu" id="lmenu-${l.id}">
-          <div class="row-menu-item" onclick="archiveItem('${l.id}','lbl')"><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="21 8 21 21 3 21 3 8"/><rect x="1" y="3" width="22" height="5"/><line x1="10" y1="12" x2="14" y2="12"/></svg>Archive</div>
-          <div class="row-menu-item danger" onclick="deleteFromMenu('${l.id}','lbl')"><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14H6L5 6"/><path d="M10 11v6M14 11v6"/><path d="M9 6V4h6v2"/></svg>Delete</div>
-        </div>
-      </td>
-    </tr>`).join('');
+  const all=labels.filter(l=>l.entity===currentLblTab);
+  const rows=filter?all.filter(l=>l.name.toLowerCase().includes(filter.toLowerCase())||l.id.toLowerCase().includes(filter)||l.extId.toLowerCase().includes(filter)):all;
+  const ct=document.getElementById('lbl-count-text');
+  if(ct) ct.textContent=filter?rows.length+' of '+all.length+' labels':all.length+' labels total';
+  if(!rows.length){tbody.innerHTML='<tr><td colspan="6" style="text-align:center;color:#9ca3af;padding:32px">No labels found.</td></tr>';return;}
+  tbody.innerHTML=rows.map(l=>{const isSel=selectedLabelIds.has(l.id);return(
+    '<tr class="'+(isSel?'row-selected':'')+'" onclick="openLblDetail(\''+l.id+'\')">' +
+    '<td><input type="checkbox" class="cb" '+(isSel?'checked':'')+' onclick="event.stopPropagation();toggleRowSelect(\''+l.id+'\',this)"/></td>'+
+    '<td><div class="row-primary">'+l.name+'</div></td>'+
+    '<td><div class="row-primary">'+l.id+'</div><div class="row-secondary">'+l.extId+'</div></td>'+
+    '<td style="font-size:12px;color:#4b5563">'+(expMap[l.expiry]||l.expiry)+'</td>'+
+    '<td><div class="row-primary">'+l.updatedAt+'</div><div class="row-secondary">'+l.updatedBy+'</div></td>'+
+    '<td class="ellipsis-cell" onclick="event.stopPropagation()">'+
+      '<button class="ellipsis-btn" onclick="toggleMenu(event,\'lmenu-'+l.id+'\')">···</button>'+
+      '<div class="row-menu" id="lmenu-'+l.id+'">'+
+        '<div class="row-menu-item" onclick="archiveSingle(\''+l.id+'\')">'+
+          '<svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="21 8 21 21 3 21 3 8"/><rect x="1" y="3" width="22" height="5"/><line x1="10" y1="12" x2="14" y2="12"/></svg>Archive'+
+        '</div>'+
+      '</div>'+
+    '</td></tr>'
+  );}).join('');
 }
 function filterLabels(v){renderLblTable(v);}
+
+/* ═══ ARCHIVED TABLE ═══ */
+function renderArchivedTable(){
+  const tbody=document.getElementById('lbl-archived-tbody');
+  const rows=archivedLabels.filter(l=>l.entity===currentLblTab);
+  if(!rows.length){tbody.innerHTML='<tr><td colspan="6" style="text-align:center;color:#9ca3af;padding:32px">No archived labels.</td></tr>';return;}
+  tbody.innerHTML=rows.map(l=>{const isSel=selectedArchiveIds.has(l.id);return(
+    '<tr class="'+(isSel?'row-selected':'')+'">'+
+    '<td><input type="checkbox" class="cb" '+(isSel?'checked':'')+' onclick="event.stopPropagation();toggleArchiveRowSelect(\''+l.id+'\',this)"/></td>'+
+    '<td><div class="row-primary">'+l.name+'</div></td>'+
+    '<td><div class="row-primary">'+l.id+'</div><div class="row-secondary">'+l.extId+'</div></td>'+
+    '<td style="font-size:12px;color:#4b5563">'+(expMap[l.expiry]||l.expiry)+'</td>'+
+    '<td><div class="row-primary">'+(l.archivedAt||l.updatedAt)+'</div><div class="row-secondary">'+l.updatedBy+'</div></td>'+
+    '<td class="ellipsis-cell" onclick="event.stopPropagation()">'+
+      '<button class="ellipsis-btn" onclick="toggleMenu(event,\'amenu-'+l.id+'\')">···</button>'+
+      '<div class="row-menu" id="amenu-'+l.id+'">'+
+        '<div class="row-menu-item" onclick="unarchiveSingle(\''+l.id+'\')">'+
+          '<svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="21 8 21 21 3 21 3 8"/><rect x="1" y="3" width="22" height="5"/><line x1="10" y1="12" x2="14" y2="12"/></svg>Unarchive'+
+        '</div>'+
+      '</div>'+
+    '</td></tr>'
+  );}).join('');
+}
+
+/* ═══ AUDIT LOG ═══ */
+function renderAuditLog(){
+  const c=document.getElementById('audit-log-container');
+  c.innerHTML=auditLogs.map(log=>{
+    let statusHtml='';
+    if(log.oldStatus&&log.newStatus) statusHtml=' <span class="audit-status status-'+log.oldStatus+'">● '+log.oldStatus+'</span><span class="audit-arrow">→</span><span class="audit-status status-'+log.newStatus+'">● '+log.newStatus+'</span>';
+    let extra='';
+    if(log.changes) extra+='<div class="audit-field-change">'+log.changes.map(c=>'<span style="font-weight:500">'+c.field+':</span> '+c.from+' → '+c.to).join(' &nbsp;|&nbsp; ')+'</div>';
+    if(log.comment) extra+='<div class="audit-comment"><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg><span>'+log.comment+'</span></div>';
+    if(log.source) extra+='<div class="audit-comment" style="margin-top:2px"><span style="background:#f0f4ff;color:#1a73e8;border-radius:4px;padding:2px 7px;font-size:11px;font-weight:500">'+log.source+'</span></div>';
+    return '<div class="audit-date-label">'+log.date+'</div>'+
+      '<div class="audit-entry"><div class="audit-text"><strong>'+log.user+'</strong> '+log.action+' <strong>'+log.entity+'</strong>'+statusHtml+'</div>'+
+      '<div style="margin-top:2px;font-size:11px;color:#9ca3af">'+log.actionType+'</div>'+extra+'</div>';
+  }).join('');
+}
+
+/* ═══ LABEL DETAIL ═══ */
 function openLblDetail(id){
-  currentLabel=labels.find(l=>l.id===id);if(!currentLabel)return;
+  currentLabel=labels.find(l=>l.id===id); if(!currentLabel) return;
   currentLblTab=currentLabel.entity;
   document.getElementById('lbl-back-label').textContent=currentLabel.name;
   document.getElementById('lbl-dv-title').textContent=currentLabel.name;
-  document.getElementById('lbl-dv-meta').textContent=`Updated by ${currentLabel.updatedBy} · ${currentLabel.updatedAt}`;
+  document.getElementById('lbl-dv-meta').textContent='Updated by '+currentLabel.updatedBy+' · '+currentLabel.updatedAt;
   document.getElementById('lbl-dv-id').textContent=currentLabel.id;
   document.getElementById('lbl-dv-extid').textContent=currentLabel.extId;
   document.getElementById('lbl-dv-name').textContent=currentLabel.name;
@@ -776,112 +1179,818 @@ function openLblDetail(id){
   document.getElementById('lbl-dv-expiry').textContent=expMap[currentLabel.expiry]||currentLabel.expiry;
   goTo('lbl-detail');
 }
+
+/* ═══ LABEL EDIT ═══ */
 function loadLblEdit(){
-  if(!currentLabel)return;
+  if(!currentLabel) return;
   lblEditDirty=false;
   document.getElementById('lbl-save-btn').disabled=true;
   document.getElementById('lbl-edit-back').textContent=currentLabel.name;
   document.getElementById('lbl-e-id').value=currentLabel.id;
   document.getElementById('lbl-e-extid').value=currentLabel.extId;
   document.getElementById('lbl-e-name').value=currentLabel.name;
-  document.getElementById('lbl-e-desc').value=currentLabel.desc;
-  document.getElementById('lbl-e-expiry').value='';
-  document.getElementById('lbl-e-expiry').classList.add('unset');
-  document.getElementById('lbl-e-expiry-extra').innerHTML='';
+  document.getElementById('lbl-e-desc').value=currentLabel.desc||'';
+  // Build expiry dropdown with current value pre-selected
+  csCreate('cs-lbl-edit-expiry', EXPIRY_OPTS_EDIT, 'Select expiry type', currentLabel.expiry, function(val){
+    handleLblEditExpiry(val); lblDirty();
+  });
+  // Render extra UI for existing value
+  handleLblEditExpiry(currentLabel.expiry, true);
 }
-function lblDirty(){lblEditDirty=true;document.getElementById('lbl-save-btn').disabled=false;}
-function handleLblEditExpiry(){
-  const v=document.getElementById('lbl-e-expiry').value;
-  document.getElementById('lbl-e-expiry').classList.toggle('unset',!v);
-  const el=document.getElementById('lbl-e-expiry-extra');
-  if(v==='provide_date'){el.innerHTML='';renderCal(el,'lbl-edit');}
-  else if(v==='default_to_label') el.innerHTML=`<div class="info-box">Label default: <strong>${expMap[currentLabel.expiry]||currentLabel.expiry}</strong></div>`;
-  else if(v==='never') el.innerHTML=`<div class="info-box">This label will <strong>never expire</strong>.</div>`;
-  else el.innerHTML='';
+function lblDirty(){lblEditDirty=true; document.getElementById('lbl-save-btn').disabled=false;}
+
+function handleLblEditExpiry(val, isInit){
+  const el=document.getElementById('lbl-e-expiry-extra'); el.innerHTML='';
+  if(val==='fixed_date'){
+    const w=document.createElement('div'); w.style.marginTop='8px'; w.id='e-fixeddate-wrap';
+    if(isInit&&currentLabel.expiryDate) w.dataset.picked=currentLabel.expiryDate;
+    el.appendChild(w); renderInlineCal('e-fixeddate-wrap','e-fixed');
+  } else if(val==='after_x_days'){
+    el.innerHTML='<div style="margin-top:8px;display:flex;align-items:center;gap:10px"><input type="number" min="1" class="form-input" style="max-width:160px" placeholder="Number of days" id="e-xdays" value="'+(isInit&&currentLabel.expiryDays?currentLabel.expiryDays:'')+'" oninput="lblDirty()"/><span style="font-size:13px;color:#6b7280">days</span></div>';
+  } else if(val==='default_to_label'){
+    el.innerHTML='<div class="info-box">Label default: <strong>'+(expMap[currentLabel.expiry]||currentLabel.expiry)+'</strong></div>';
+  } else if(val==='never'){
+    el.innerHTML='<div class="info-box">This label will <strong>never expire</strong>.</div>';
+  }
+  if(!isInit) lblDirty();
 }
+
 function saveLblEdit(){
-  if(!currentLabel)return;
+  if(!currentLabel) return;
   currentLabel.extId=document.getElementById('lbl-e-extid').value;
   currentLabel.name=document.getElementById('lbl-e-name').value;
   currentLabel.desc=document.getElementById('lbl-e-desc').value;
-  const ev=document.getElementById('lbl-e-expiry').value;
-  if(ev==='provide_date'&&selectedDate)currentLabel.expiry=selectedDate;
-  else if(ev==='never')currentLabel.expiry='Never expire';
-  else if(ev&&ev!=='default_to_label')currentLabel.expiry=ev;
-  currentLabel.updatedBy='You';currentLabel.updatedAt='Just now';
-  showToaster('Label updated successfully',currentLabel.name);
-  openLblDetail(currentLabel.id);
+  const ev=csGet('cs-lbl-edit-expiry');
+  if(ev&&ev!=='default_to_label'){
+    currentLabel.expiry=ev;
+    if(ev==='fixed_date'){const w=document.getElementById('e-fixeddate-wrap');if(w) currentLabel.expiryDate=w.dataset.picked||'';}
+    if(ev==='after_x_days'){const x=document.getElementById('e-xdays');if(x) currentLabel.expiryDays=x.value;}
+  }
+  currentLabel.updatedBy='You'; currentLabel.updatedAt='Just now';
+  showToaster('Label updated successfully',currentLabel.name); openLblDetail(currentLabel.id);
 }
+
+/* ═══ LABEL CREATE ═══ */
 function resetLblCreate(){
-  document.getElementById('lbl-c-id').value='LC-'+(10080+labels.length);
+  document.getElementById('lbl-c-id').value='LC-'+(10020+labels.length);
   ['lbl-c-extid','lbl-c-name','lbl-c-desc'].forEach(id=>document.getElementById(id).value='');
-  const s=document.getElementById('lbl-c-expiry');s.selectedIndex=0;s.classList.add('unset');
+  document.getElementById('lbl-c-expiry-extra').innerHTML='';
+  // Build fresh dropdown — no initial value
+  csCreate('cs-lbl-create-expiry', EXPIRY_OPTS_CREATE, 'Select expiry configuration', '', function(val){
+    handleLblCreateExpiry(val);
+  });
 }
+
+function handleLblCreateExpiry(val){
+  const el=document.getElementById('lbl-c-expiry-extra'); el.innerHTML='';
+  if(val==='fixed_date'){
+    const w=document.createElement('div'); w.style.marginTop='8px'; w.id='c-fixeddate-wrap';
+    el.appendChild(w); renderInlineCal('c-fixeddate-wrap','c-fixed');
+  } else if(val==='after_x_days'){
+    el.innerHTML='<div style="margin-top:8px;display:flex;align-items:center;gap:10px"><input type="number" min="1" class="form-input" style="max-width:160px" placeholder="Number of days" id="c-xdays"/><span style="font-size:13px;color:#6b7280">days</span></div>';
+  }
+}
+
 function createLabel(){
-  const name=document.getElementById('lbl-c-name').value.trim();
-  if(!name){alert('Please enter a label name.');return;}
-  const ev=document.getElementById('lbl-c-expiry').value;
-  labels.push({id:document.getElementById('lbl-c-id').value,extId:document.getElementById('lbl-c-extid').value||'EXT-'+String(labels.length+1).padStart(3,'0'),name,desc:document.getElementById('lbl-c-desc').value,entity:currentLblTab,expiry:ev||'',updatedBy:'You',updatedAt:'Just now'});
-  showToaster('Label created successfully',name);
-  goTo('lbl-listing',currentLblTab);
+  const name=document.getElementById('lbl-c-name').value.trim(); if(!name){alert('Please enter a label name.');return;}
+  const ev=csGet('cs-lbl-create-expiry');
+  labels.push({id:document.getElementById('lbl-c-id').value, extId:document.getElementById('lbl-c-extid').value||'EXT-'+String(labels.length+1).padStart(3,'0'), name, desc:document.getElementById('lbl-c-desc').value, entity:currentLblTab, expiry:ev||'', updatedBy:'You', updatedAt:'Just now'});
+  showToaster('Label created successfully',name); goTo('lbl-listing',currentLblTab);
 }
 
-/* ── Row menu ── */
-function toggleMenu(e,id){
-  e.stopPropagation();
-  const menu=document.getElementById(id);
-  const wasOpen=menu.classList.contains('open');
-  document.querySelectorAll('.row-menu').forEach(m=>m.classList.remove('open'));
-  if(!wasOpen)menu.classList.add('open');
-}
-document.addEventListener('click',()=>document.querySelectorAll('.row-menu').forEach(m=>m.classList.remove('open')));
-
-function archiveItem(id,type){document.querySelectorAll('.row-menu').forEach(m=>m.classList.remove('open'));showToaster('Item archived','');}
-function deleteFromMenu(id,type){
-  document.querySelectorAll('.row-menu').forEach(m=>m.classList.remove('open'));
-  deleteTargetId=id;deleteTargetType=type;
-  if(type==='lbl'){currentLabel=labels.find(l=>l.id===id);document.getElementById('delete-item-name').textContent=currentLabel?.name||'';}
-  else document.getElementById('delete-item-name').textContent=products[parseInt(id)]?.name||'this product';
-  document.getElementById('delete-modal').classList.add('show');
-}
-function showDeleteModal(type){deleteTargetType=type;document.getElementById('delete-item-name').textContent=type==='lbl'?(currentLabel?.name||''):'this item';document.getElementById('delete-modal').classList.add('show');}
-function closeDeleteModal(){document.getElementById('delete-modal').classList.remove('show');}
-function confirmDelete(){
-  if(deleteTargetType==='lbl'){labels=labels.filter(l=>l.id!==deleteTargetId);showToaster('Label deleted','');currentLabel=null;closeDeleteModal();goTo('lbl-listing',currentLblTab);}
-  else if(deleteTargetType==='prod'){const i=parseInt(deleteTargetId);if(!isNaN(i))products.splice(i,1);showToaster('Product deleted','');closeDeleteModal();renderEntTable();}
-  else closeDeleteModal();
-}
-
-/* ── Toaster ── */
-let toastTimer;
-function showToaster(title,sub){
-  const t=document.getElementById('toaster');
-  document.getElementById('toaster-title').textContent=title;
-  document.getElementById('toaster-sub').textContent=sub;
-  t.classList.remove('hidden','hide');
-  clearTimeout(toastTimer);
-  toastTimer=setTimeout(()=>{t.classList.add('hide');setTimeout(()=>t.classList.add('hidden'),300);},4000);
-}
-function hideToaster(){const t=document.getElementById('toaster');t.classList.add('hide');setTimeout(()=>t.classList.add('hidden'),300);}
-
-/* ── Calendar (labels edit) ── */
-function renderCal(container,target){
-  const y=calDate.getFullYear(),m=calDate.getMonth();
-  const fd=new Date(y,m,1).getDay(),dim=new Date(y,m+1,0).getDate();
+/* ═══ INLINE CALENDAR (for fixed_date in label forms) ═══ */
+function renderInlineCal(wid,prefix,yr,mo){
+  const wrap=document.getElementById(wid); if(!wrap) return;
+  const now=new Date(); yr=yr!==undefined?yr:now.getFullYear(); mo=mo!==undefined?mo:now.getMonth();
+  const fd=new Date(yr,mo,1).getDay(), dim=new Date(yr,mo+1,0).getDate();
   const mn=['January','February','March','April','May','June','July','August','September','October','November','December'];
   const dn=['Su','Mo','Tu','We','Th','Fr','Sa'];
-  const today=new Date();
-  let cells='';
-  for(let i=0;i<fd;i++){const d=new Date(y,m,0).getDate()-fd+1+i;cells+=`<div class="cal-day other">${d}</div>`;}
+  const stored=wrap.dataset.picked||'';
+  const pY=mo===0?yr-1:yr, pM=mo===0?11:mo-1, nY=mo===11?yr+1:yr, nM=mo===11?0:mo+1;
+  let cells=''; for(let i=0;i<fd;i++) cells+='<div class="cal-day other"></div>';
   for(let d=1;d<=dim;d++){
-    const ds=`${mn[m]} ${d}, ${y}`;
-    const isT=d===today.getDate()&&m===today.getMonth()&&y===today.getFullYear();
-    cells+=`<div class="cal-day${isT?' today':''}${selectedDate===ds?' sel':''}" onclick="selectDate('${ds}','${target}')">${d}</div>`;
+    const ds=String(d).padStart(2,'0')+'/'+String(mo+1).padStart(2,'0')+'/'+yr;
+    const isT=d===now.getDate()&&mo===now.getMonth()&&yr===now.getFullYear();
+    cells+='<div class="cal-day'+(isT?' today':'')+(stored===ds?' sel':'')+'" onclick="pickInlineCal(\''+wid+'\',\''+prefix+'\',\''+ds+'\','+yr+','+mo+')">'+d+'</div>';
   }
-  container.innerHTML=`<div class="cal-wrap"><div class="cal-header"><button class="cal-nav" onclick="chMonth(-1,'${target}')">‹</button><span class="cal-month-label">${mn[m]} ${y}</span><button class="cal-nav" onclick="chMonth(1,'${target}')">›</button></div><div class="cal-grid">${dn.map(d=>`<div class="cal-dname">${d}</div>`).join('')}${cells}</div></div>${selectedDate?`<div class="info-box" style="margin-top:8px">Selected: <strong>${selectedDate}</strong></div>`:''}`;
+  wrap.innerHTML=(stored?'<input class="form-input date-active" style="margin-bottom:8px;max-width:200px" readonly value="'+stored+'" onclick="renderInlineCal(\''+wid+'\',\''+prefix+'\','+yr+','+mo+')"/>':'')
+    +'<div class="cal-wrap" style="max-width:260px"><div class="cal-header"><button class="cal-nav" onclick="renderInlineCal(\''+wid+'\',\''+prefix+'\','+pY+','+pM+')">‹</button><span class="cal-ml">'+mn[mo]+' '+yr+'</span><button class="cal-nav" onclick="renderInlineCal(\''+wid+'\',\''+prefix+'\','+nY+','+nM+')">›</button></div><div class="cal-grid">'+dn.map(d=>'<div class="cal-dn">'+d+'</div>').join('')+cells+'</div><button class="cal-confirm-btn" '+(stored?'':'disabled')+' onclick="confirmInlineCal(\''+wid+'\',\''+prefix+'\')">Confirm</button></div>';
 }
-function chMonth(dir,target){calDate=new Date(calDate.getFullYear(),calDate.getMonth()+dir,1);const el=target==='lbl-edit'?document.getElementById('lbl-e-expiry-extra'):null;if(el)renderCal(el,target);}
-function selectDate(ds,target){selectedDate=ds;const el=target==='lbl-edit'?document.getElementById('lbl-e-expiry-extra'):null;if(el)renderCal(el,target);if(target==='lbl-edit')lblDirty();}
+function pickInlineCal(wid,prefix,ds,yr,mo){const w=document.getElementById(wid);if(w) w.dataset.picked=ds;renderInlineCal(wid,prefix,yr,mo);if(prefix==='e-fixed') lblDirty();}
+function confirmInlineCal(wid,prefix){const w=document.getElementById(wid);if(!w) return;const s=w.dataset.picked;w.innerHTML='<input class="form-input date-active" style="max-width:200px;cursor:pointer" readonly value="'+s+'" onclick="renderInlineCal(\''+wid+'\',\''+prefix+'\')"/>';if(prefix==='e-fixed') lblDirty();}
+
+/* ═══ PRODUCTS ═══ */
+function renderEntTable(filter){
+  filter=filter||'';
+  const tbody=document.getElementById('ent-tbody');
+  const rows=filter?products.filter(p=>p.name.toLowerCase().includes(filter.toLowerCase())):products;
+  if(!rows.length){tbody.innerHTML='<tr><td colspan="5" style="text-align:center;color:#9ca3af;padding:32px">No products.</td></tr>';return;}
+  tbody.innerHTML=rows.map((p,i)=>
+    '<tr onclick="openProductView('+i+')"><td><div class="row-primary">'+p.name+'</div><div class="row-secondary">'+p.sku+'</div></td>'+
+    '<td>'+p.category+'</td><td style="color:#6b7280">'+p.attributes+'</td>'+
+    '<td><div class="row-primary">'+p.updatedOn+'</div><div class="row-secondary">'+p.updatedBy+'</div></td>'+
+    '<td class="ellipsis-cell" onclick="event.stopPropagation()">'+
+      '<button class="ellipsis-btn" onclick="toggleMenu(event,\'pmenu-'+i+'\')">···</button>'+
+      '<div class="row-menu" id="pmenu-'+i+'">'+
+        '<div class="row-menu-item" onclick="editProduct('+i+')"><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>Edit</div>'+
+        '<div class="row-menu-item" onclick="showToaster(\'Item archived\',\'\')"><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="21 8 21 21 3 21 3 8"/><rect x="1" y="3" width="22" height="5"/><line x1="10" y1="12" x2="14" y2="12"/></svg>Archive</div>'+
+      '</div>'+
+    '</td></tr>'
+  ).join('');
+}
+function filterProducts(v){renderEntTable(v);}
+
+function openProductView(idx){
+  currentProductIdx=idx; const p=products[idx];
+  document.getElementById('ent-view-title').textContent=p.name;
+  document.getElementById('ev-name').textContent=p.name||'—';
+  document.getElementById('ev-sku').textContent=p.sku||'—';
+  document.getElementById('ev-ean').textContent=p.ean||'—';
+  document.getElementById('ev-desc').textContent=p.desc||'—';
+  document.getElementById('ev-brand').textContent=p.brand||'—';
+  document.getElementById('ev-category').textContent=p.category||'—';
+  document.getElementById('ev-attributes').textContent=p.attributes||'—';
+  const chips=p.chips||[];
+  const lc=document.getElementById('ev-labels-content');
+  if(chips.length){
+    lc.innerHTML='<div class="label-chips" style="margin-top:0">'+chips.map(c=>'<div class="label-chip"><svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>'+c.labelName+'<span class="chip-tooltip">'+c.expiryDisplay+'</span></div>').join('')+'</div>';
+  } else lc.innerHTML='<span style="color:#9ca3af;font-size:14px">No labels assigned</span>';
+  goTo('ent-view');
+}
+function editCurrentProduct(){editProduct(currentProductIdx);}
+function editProduct(idx){closeAllDropdowns();editingProductIdx=idx;goTo('ent-create',currentEntTab);}
+
+function setupProductForm(){
+  const isEdit=editingProductIdx!==null;
+  document.getElementById('prod-form-title').textContent=isEdit?'Edit product':'New product';
+  document.getElementById('prod-submit-btn').textContent=isEdit?'Save product':'Add product';
+  document.getElementById('prod-label-entry-wrap').innerHTML='';
+  labelEntryOpen=false;
+  document.getElementById('add-label-btn').disabled=false;
+  productChips=isEdit&&products[editingProductIdx]&&products[editingProductIdx].chips?[...products[editingProductIdx].chips]:[];
+  renderChips();
+  const bOpts=[{v:'',l:'Select brand'},{v:'Infrasphere',l:'Infrasphere'},{v:'TechCorp',l:'TechCorp'}];
+  const cOpts=[{v:'',l:'Select category'},{v:'Network',l:'Network'},{v:'Software',l:'Software'}];
+  const aOpts=[{v:'',l:'Select attribute'},{v:'Annual pack',l:'Annual pack'},{v:'wireless',l:'wireless'},{v:'superfast',l:'superfast'},{v:'30m reach',l:'30m reach'}];
+  const p=isEdit?products[editingProductIdx]:{};
+  csCreate('cs-p-brand',bOpts,'Select brand',p.brand||'',null);
+  csCreate('cs-p-cat',cOpts,'Select category',p.category||'',null);
+  csCreate('cs-p-attr',aOpts,'Select attribute',(p.attributes&&p.attributes!=='-')?p.attributes:'',null);
+  if(isEdit){document.getElementById('p-sku').value=p.sku||'';document.getElementById('p-ean').value=p.ean||'';document.getElementById('p-name').value=p.name||'';document.getElementById('p-desc').value=p.desc||'';}
+  else{['p-sku','p-ean','p-name','p-desc'].forEach(id=>document.getElementById(id).value='');editingProductIdx=null;}
+}
+
+function submitProduct(){
+  const name=document.getElementById('p-name').value.trim(); if(!name){alert('Enter product name.');return;}
+  const data={sku:document.getElementById('p-sku').value||'SKU-NEW',name,desc:document.getElementById('p-desc').value,brand:csGet('cs-p-brand'),category:csGet('cs-p-cat')||'—',attributes:csGet('cs-p-attr')||'-',ean:document.getElementById('p-ean').value,updatedOn:new Date().toLocaleDateString('en-GB'),updatedBy:'You',chips:[...productChips]};
+  if(editingProductIdx!==null){products[editingProductIdx]={...products[editingProductIdx],...data};showToaster('Product updated',name);}
+  else{products.push(data);showToaster('Product created',name);}
+  editingProductIdx=null; goTo('ent-listing',currentEntTab);
+}
+
+/* ═══ LABEL ENTRY IN PRODUCT FORM ═══ */
+function showLabelEntry(){
+  if(labelEntryOpen) return;
+  labelEntryOpen=true;
+  document.getElementById('add-label-btn').disabled=true;
+  const wrap=document.getElementById('prod-label-entry-wrap');
+  const lOpts=[{v:'',l:'Select label'},{v:'cool_stuff',l:'Cool Stuff'},{v:'clearance',l:'Clearance'},{v:'flash',l:'Flash Sale'},{v:'vip',l:'VIP Member'}];
+  const eOpts=[{v:'',l:'Select duration'},{v:'same_as_label',l:'Same as label'},{v:'manual_date',l:'Manual date'},{v:'never_expire',l:'Never expire'}];
+  wrap.innerHTML=
+    '<div class="label-entry">'+
+      '<div class="label-entry-row">'+
+        '<div class="label-entry-col">'+
+          '<label class="form-label" style="font-size:13px;font-weight:600;color:#111827;margin-bottom:0">Label name</label>'+
+          '<div class="cs-wrap" id="cs-le-label"></div>'+
+        '</div>'+
+        '<div class="label-entry-col" id="le-expiry-col">'+
+          '<label class="form-label" style="font-size:13px;font-weight:600;color:#9ca3af;margin-bottom:0" id="le-expiry-lbl">Label assignment expiry</label>'+
+          '<div class="cs-wrap" id="cs-le-expiry" style="pointer-events:none;opacity:0.45"></div>'+
+          '<div class="expiry-sub">Duration of label assignment</div>'+
+        '</div>'+
+      '</div>'+
+      '<div class="label-entry-actions">'+
+        '<button class="btn-outline" onclick="cancelLabelEntry()" style="padding:7px 16px;font-size:13px">Cancel</button>'+
+        '<button class="btn-green" id="le-confirm-btn" onclick="confirmLabelEntry()" style="padding:7px 16px;font-size:13px" disabled>Confirm</button>'+
+      '</div>'+
+    '</div>';
+  // Build both selects
+  setTimeout(()=>{
+    csCreate('cs-le-label', lOpts, 'Select label', '', function(val){
+      if(val){
+        const col=document.getElementById('cs-le-expiry');
+        const lbl=document.getElementById('le-expiry-lbl');
+        if(col){col.style.pointerEvents='';col.style.opacity='';}
+        if(lbl) lbl.style.color='#111827';
+      }
+      checkLeConfirm();
+    });
+    csCreate('cs-le-expiry', eOpts, 'Select duration', '', function(val){
+      checkLeConfirm();
+    });
+  }, 0);
+}
+
+function checkLeConfirm(){
+  const lv=csGet('cs-le-label'), ev=csGet('cs-le-expiry');
+  const btn=document.getElementById('le-confirm-btn');
+  if(btn) btn.disabled=!(lv&&ev);
+}
+
+function cancelLabelEntry(){
+  labelEntryOpen=false;
+  document.getElementById('prod-label-entry-wrap').innerHTML='';
+  document.getElementById('add-label-btn').disabled=false;
+  csClose();
+}
+
+function confirmLabelEntry(){
+  const lv=csGet('cs-le-label'), ev=csGet('cs-le-expiry');
+  if(!lv||!ev) return;
+  const lNames={cool_stuff:'Cool Stuff',clearance:'Clearance',flash:'Flash Sale',vip:'VIP Member'};
+  const expD={same_as_label:'Same as label',manual_date:'Manual date selected',never_expire:'Never expire'};
+  productChips.push({labelName:lNames[lv]||lv, expiry:ev, expiryDisplay:expD[ev]||ev});
+  cancelLabelEntry();
+  renderChips();
+}
+
+function renderChips(){
+  const wrap=document.getElementById('prod-label-chips'); if(!wrap) return;
+  wrap.innerHTML=productChips.map((c,i)=>
+    '<div class="label-chip">'+
+      '<svg width="12" height="12" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"/><line x1="7" y1="7" x2="7.01" y2="7"/></svg>'+
+      c.labelName+'<span class="chip-tooltip">'+c.expiryDisplay+'</span>'+
+      '<button class="chip-remove" onclick="promptChipRemove('+i+')">×</button>'+
+    '</div>'
+  ).join('');
+}
+function promptChipRemove(idx){chipToRemoveIdx=idx;document.getElementById('chip-remove-modal').classList.add('show');}
+function confirmChipRemove(){if(chipToRemoveIdx!==null) productChips.splice(chipToRemoveIdx,1);chipToRemoveIdx=null;closeAllModals();renderChips();}
+
+/* ═══ LABEL DELETE ═══ */
+function showLabelDeleteModal(id){closeAllDropdowns();deleteTarget={id,type:'lbl'};currentLabel=labels.find(l=>l.id===id)||currentLabel;document.getElementById('delete-lbl-name').textContent=currentLabel?currentLabel.name:'';document.getElementById('delete-lbl-modal').classList.add('show');}
+function confirmDeleteLabel(){labels=labels.filter(l=>l.id!==String(deleteTarget.id));showToaster('Label deleted','');currentLabel=null;closeAllModals();goTo('lbl-listing',currentLblTab);}
+function closeAllModals(){document.querySelectorAll('.modal-bg').forEach(m=>m.classList.remove('show'));}
+
+/* ═══════════════════════════════════════
+   COLLECTIONS
+═══════════════════════════════════════ */
+let currentColTab = 'Products';
+let currentCollectionIdx = null;
+let colEditDirty = false;
+let colFilterStatus = '';
+
+/* ─── DATA ─── */
+const colFreqUnits = [{v:'minutes',l:'Minutes'},{v:'hours',l:'Hours'},{v:'days',l:'Days'},{v:'weeks',l:'Weeks'},{v:'months',l:'Months'},{v:'__div__',l:''},{v:'manual',l:'Manual refresh'}];
+
+const COL_FIELDS_PRODUCTS = [
+  {v:'sku',        l:'SKU code',       type:'string'},
+  {v:'name',       l:'Product name',   type:'string'},
+  {v:'brand',      l:'Brand',          type:'rigid'},
+  {v:'category',   l:'Category',       type:'rigid'},
+  {v:'attribute',  l:'Attribute',      type:'string'},
+  {v:'label',      l:'Label',          type:'enum'},
+  {v:'status',     l:'Status',         type:'enum'},
+  {v:'price',      l:'Price',          type:'numeric'},
+  {v:'stock',      l:'Stock quantity', type:'numeric'},
+  {v:'created_date',l:'Created date',  type:'date'},
+];
+const COL_FIELDS_LOCATIONS = [
+  {v:'city',l:'City',type:'string'},{v:'state',l:'State',type:'string'},
+  {v:'country',l:'Country',type:'string'},{v:'zone',l:'Zone',type:'rigid'},
+  {v:'status',l:'Status',type:'enum'},{v:'store_code',l:'Store code',type:'string'},
+  {v:'zip',l:'Zip code',type:'string'}
+];
+
+function colFields() {
+  return currentColTab === 'Products' ? COL_FIELDS_PRODUCTS : COL_FIELDS_LOCATIONS;
+}
+
+function colOperatorsByType(type) {
+  if(type==='numeric') return [{v:'eq',l:'Equals'},{v:'neq',l:'Not equals'},{v:'gt',l:'Greater than'},{v:'lt',l:'Less than'},{v:'gte',l:'≥'},{v:'lte',l:'≤'},{v:'between',l:'Between'}];
+  if(type==='date') return [{v:'on',l:'On'},{v:'before',l:'Before'},{v:'after',l:'After'},{v:'between',l:'Between'},{v:'within_last',l:'Within last X days'},{v:'in_next',l:'In next X days'}];
+  if(type==='rigid') return [{v:'eq',l:'Equals'},{v:'neq',l:'Not equals'},{v:'in',l:'In list'}];
+  return [{v:'eq',l:'Equals'},{v:'neq',l:'Not equals'},{v:'contains',l:'Contains'},{v:'starts_with',l:'Starts with'},{v:'ends_with',l:'Ends with'},{v:'is_empty',l:'Is empty'},{v:'in',l:'In list'}];
+}
+
+/* collections data store */
+let collections = [
+  {id:'CG-1001',name:'Flash Sale Items',extId:'COLL-FS-001',desc:'All products eligible for flash sale promotions',entity:'Products',status:'active',count:342,freqN:1,freqUnit:'hours',lastCalc:'28 Mar, 2026, 10:45 AM IST',nextRun:'28 Mar, 2026, 11:45 AM IST',createdBy:'Priya Mehta',createdAt:'01 Jan, 2026',rules:[{interLogic:'and',conditions:[{field:'category',op:'eq',val:'Electronics'},{field:'stock',op:'gt',val:'10'}]}]},
+  {id:'CG-1002',name:'Summer Clearance',extId:'COLL-SC-002',desc:'Products in clearance for the summer season',entity:'Products',status:'pending',count:0,freqN:1,freqUnit:'days',lastCalc:'—',nextRun:'—',createdBy:'Vikram Nair',createdAt:'25 Mar, 2026',rules:[{interLogic:'and',conditions:[{field:'category',op:'eq',val:'Apparel'},{field:'price',op:'lte',val:'500'}]}]},
+  {id:'CG-1003',name:'High Value Products',extId:'COLL-HV-003',desc:'Premium products above a price threshold',entity:'Products',status:'active',count:127,freqN:7,freqUnit:'days',lastCalc:'27 Mar, 2026, 12:00 PM IST',nextRun:'03 Apr, 2026, 12:00 PM IST',createdBy:'Rahul Sharma',createdAt:'10 Feb, 2026',rules:[{interLogic:'and',conditions:[{field:'price',op:'gte',val:'5000'}]}]},
+  {id:'CG-1004',name:'Tier 1 Metro Stores',extId:'COLL-T1-004',desc:'',entity:'Locations',status:'active',count:48,freqN:1,freqUnit:'weeks',lastCalc:'25 Mar, 2026, 09:00 AM IST',nextRun:'01 Apr, 2026, 09:00 AM IST',createdBy:'Ananya Singh',createdAt:'15 Jan, 2026',rules:[{interLogic:'and',conditions:[{field:'zone',op:'eq',val:'Metro'},{field:'city',op:'in',val:'Mumbai,Delhi,Bangalore'}]}]},
+  {id:'CG-1005',name:'Paused Test Group',extId:'',desc:'Testing collection — paused',entity:'Products',status:'paused',count:15,freqN:30,freqUnit:'minutes',lastCalc:'20 Mar, 2026, 03:00 PM IST',nextRun:'Paused',createdBy:'You',createdAt:'20 Mar, 2026',rules:[{interLogic:'and',conditions:[{field:'brand',op:'eq',val:'Nike'}]}]},
+  {id:'CG-1006',name:'Broken Field Group',extId:'',desc:'A group with an invalid field reference',entity:'Products',status:'error',count:0,freqN:1,freqUnit:'days',lastCalc:'10 Mar, 2026, 08:00 AM IST',nextRun:'Halted',createdBy:'System',createdAt:'01 Mar, 2026',rules:[{interLogic:'and',conditions:[{field:'__deleted__',op:'eq',val:'something'},{field:'price',op:'gt',val:'100'}]}],hasInvalidField:true},
+];
+
+const colAuditLogs = [
+  {date:'28 Mar, 2026, 10:45 AM',user:'System',email:'system@capillary.com',actionType:'Calculated',actionDesc:'Membership was recalculated successfully',entity:'Flash Sale Items',entityType:'Collection',module:'Data Management'},
+  {date:'27 Mar, 2026, 02:10 PM',user:'Priya Mehta',email:'priya.mehta@bigbasket.com',actionType:'Edit',actionDesc:'Membership criteria was updated',entity:'Flash Sale Items',entityType:'Collection',module:'Data Management'},
+  {date:'15 Mar, 2026, 09:30 AM',user:'Vikram Nair',email:'vikram.nair@bigbasket.com',actionType:'Pause',actionDesc:'Refresh schedule was paused',entity:'Flash Sale Items',entityType:'Collection',module:'Data Management'},
+  {date:'10 Mar, 2026, 04:15 PM',user:'Rahul Sharma',email:'rahul.sharma@bigbasket.com',actionType:'Edit',actionDesc:'Refresh frequency was changed to Every 1 Hour',entity:'Flash Sale Items',entityType:'Collection',module:'Data Management'},
+  {date:'01 Jan, 2026, 11:00 AM',user:'Priya Mehta',email:'priya.mehta@bigbasket.com',actionType:'Created',actionDesc:'Collection was created',entity:'Flash Sale Items',entityType:'Collection',module:'Data Management'},
+];
+
+/* ─── NAVIGATION ─── */
+// Extend goTo to handle collections
+const _origGoTo = goTo;
+goTo = function(page, tab) {
+  if(page.startsWith('col')) {
+    csClose();
+    document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+    const el = document.getElementById('page-'+page);
+    if(!el){console.warn('page not found: page-'+page);return;}
+    el.classList.add('active');
+    document.querySelectorAll('.sidebar-sub').forEach(s=>s.classList.remove('active'));
+    document.getElementById('nav-collections').classList.add('active');
+    if(tab) currentColTab=tab;
+    if(page==='col-listing'){renderColTable();document.getElementById('col-entity-title').textContent=currentColTab;}
+    if(page==='col-create') setupColCreate();
+    if(page==='col-edit') setupColEdit();
+    if(page==='col-duplicate'){const c=collections[currentCollectionIdx];document.getElementById('col-dup-name').value=(c?c.name+' (Copy)':'');document.getElementById('col-dup-extid').value='';}
+    closeAllDropdowns();
+    window.scrollTo(0,0);
+  } else {
+    _origGoTo(page, tab);
+    // also update collections nav active state
+    const nc = document.getElementById('nav-collections');
+    if(nc && !page.startsWith('col')) nc.classList.remove('active');
+  }
+};
+
+/* ─── FILTER ─── */
+let colFilterPanelOpen = false;
+function toggleColFilter(){
+  colFilterPanelOpen=!colFilterPanelOpen;
+  const p=document.getElementById('col-filter-panel');
+  if(colFilterPanelOpen){
+    const btn=document.querySelector('[onclick="toggleColFilter()"]');
+    const r=btn.getBoundingClientRect();
+    p.style.cssText='display:block;position:fixed;top:'+(r.bottom+4)+'px;left:'+r.left+'px;background:#fff;border:1px solid #e5e7eb;border-radius:8px;box-shadow:0 4px 16px rgba(0,0,0,.12);z-index:9000;min-width:200px;padding:8px 0';
+  } else { p.style.display='none'; }
+}
+function setColFilter(s){colFilterStatus=s;colFilterPanelOpen=false;document.getElementById('col-filter-panel').style.display='none';const b=document.getElementById('col-filter-badge');if(b) b.textContent=s?('Filtered: '+s+' ✕'):'';renderColTable();}
+
+/* ─── TABLE ─── */
+function renderColTable(filter){
+  filter=filter||'';
+  const tbody=document.getElementById('col-tbody');
+  let rows=collections.filter(c=>c.entity===currentColTab);
+  if(colFilterStatus) rows=rows.filter(c=>c.status===colFilterStatus);
+  else rows=rows.filter(c=>c.status!=='archived');
+  if(filter) rows=rows.filter(c=>c.name.toLowerCase().includes(filter.toLowerCase())||(c.extId||'').toLowerCase().includes(filter.toLowerCase()));
+  const ct=document.getElementById('col-count-text');
+  if(ct) ct.textContent=rows.length+' collection'+(rows.length!==1?'s':'')+(filter||colFilterStatus?' (filtered)':' total');
+  if(!rows.length){tbody.innerHTML='<tr><td colspan="6" style="text-align:center;color:#9ca3af;padding:32px">No collections found.</td></tr>';return;}
+  tbody.innerHTML=rows.map((c,i)=>{
+    const realIdx=collections.indexOf(c);
+    const statusLabel={active:'Active',pending:'Pending Calculation',calculating:'Calculating',paused:'Paused',error:'Error',archived:'Archived'}[c.status]||c.status;
+    return '<tr onclick="openColDetail('+realIdx+')">'+
+      '<td><div class="row-primary">'+c.name+'</div><div class="row-secondary">'+(c.extId||'—')+'</div></td>'+
+      '<td><span class="col-status '+c.status+'">'+statusLabel+'</span></td>'+
+      '<td style="font-weight:600;color:#111827">'+(c.count>0?c.count.toLocaleString():c.status==='active'?'0':'—')+'</td>'+
+      '<td style="font-size:13px;color:#374151">'+(c.freqUnit==='manual'?'Manual refresh':('Every '+c.freqN+' '+c.freqUnit))+'</td>'+
+      '<td><div class="row-primary" style="font-size:12px">'+c.lastCalc+'</div><div class="row-secondary">'+c.nextRun+'</div></td>'+
+      '<td class="ellipsis-cell" onclick="event.stopPropagation()">'+
+        '<button class="ellipsis-btn" onclick="toggleMenu(event,\'cmenu-'+realIdx+'\')">···</button>'+
+        '<div class="row-menu" id="cmenu-'+realIdx+'">'+
+          (c.status!=='calculating'?'<div class="row-menu-item" onclick="colCalcFromTable('+realIdx+')"><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>Manual refresh</div>':'<div class="row-menu-item" style="color:#9ca3af;cursor:not-allowed"><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>Manual refresh</div>')+
+          '<div class="row-menu-item" onclick="editColFromTable('+realIdx+')"><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>Edit</div>'+
+          '<div class="row-menu-item" onclick="colDupFromTable('+realIdx+')"><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>Duplicate</div>'+
+          '<div class="sdiv"></div>'+
+          '<div class="row-menu-item" style="color:#dc2626" onclick="colArchiveFromTable('+realIdx+')"><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="21 8 21 21 3 21 3 8"/><rect x="1" y="3" width="22" height="5"/><line x1="10" y1="12" x2="14" y2="12"/></svg>Archive</div>'+
+        '</div>'+
+      '</td></tr>';
+  }).join('');
+}
+function filterCollections(v){renderColTable(v);}
+function colCalcFromTable(idx){closeAllDropdowns();currentCollectionIdx=idx;_doCalculate(idx);renderColTable();}
+function editColFromTable(idx){closeAllDropdowns();currentCollectionIdx=idx;goTo('col-edit');}
+function colDupFromTable(idx){closeAllDropdowns();currentCollectionIdx=idx;goTo('col-duplicate');}
+function colArchiveFromTable(idx){closeAllDropdowns();currentCollectionIdx=idx;colArchivePromptDirect();}
+
+/* ─── DETAIL ─── */
+function openColDetail(idx){
+  currentCollectionIdx=idx;
+  const c=collections[idx];
+  document.getElementById('col-detail-back').textContent=currentColTab+' Collections';
+  document.getElementById('col-dv-title').textContent=c.name;
+  document.getElementById('col-dv-meta').textContent='ID: '+c.id+(c.extId?' · External ID: '+c.extId:'')+' · Created by '+c.createdBy+' on '+c.createdAt;
+  const statusLabel={active:'Active',pending:'Pending Calculation',calculating:'Calculating',paused:'Paused',error:'Error',archived:'Archived'}[c.status]||c.status;
+  document.getElementById('col-dv-status').innerHTML='<span class="col-status '+c.status+'">'+(c.status==='calculating'?'Processing...':statusLabel)+'</span>';
+  document.getElementById('col-dv-count').innerHTML=c.status==='calculating'?'<span style="color:#9ca3af;font-style:italic">Processing...</span>':(c.count>0?'<span class="count-badge"><svg width="13" height="13" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>'+c.count.toLocaleString()+' items</span>':'<span style="color:#9ca3af">—</span>');
+  document.getElementById('col-dv-extid').textContent=c.extId||'—';
+  document.getElementById('col-dv-freq').textContent=c.freqUnit==='manual'?'Manual refresh':('Every '+c.freqN+' '+c.freqUnit);
+  document.getElementById('col-dv-lastcalc').textContent=c.status==='calculating'?'Processing...':(c.lastCalc||'—');
+  document.getElementById('col-dv-nextrun').textContent=c.nextRun||'—';
+  document.getElementById('col-dv-desc').textContent=c.desc||'—';
+  // ETA bar
+  const eta=document.getElementById('col-eta-bar');
+  if(c.status==='calculating') eta.innerHTML='<div class="info-box" style="margin-bottom:14px">⏳ Calculation in progress. Expected in ~2 mins.</div>';
+  else if(c.status==='error') eta.innerHTML='<div style="background:#fef2f2;border:1px solid #fca5a5;border-radius:6px;padding:10px 14px;font-size:13px;color:#dc2626;margin-bottom:14px;display:flex;align-items:center;gap:8px"><svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>'+(c.hasInvalidField?'Halted — membership criteria references a deleted field. Edit the rules to resume.':'Last calculation failed. Will retry on next scheduled run.')+' </div>';
+  else eta.innerHTML='';
+  // Rules
+  renderColRulesReadonly('col-dv-rules', c.rules||[], c.hasInvalidField);
+  // action button states
+  const calcBtn=document.getElementById('col-calc-now-btn');
+  if(calcBtn) calcBtn.disabled=(c.status==='calculating');
+  const pauseItem=document.getElementById('col-pause-item');
+  if(pauseItem) pauseItem.innerHTML=(c.status==='paused'?'<svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polygon points="5 3 19 12 5 21 5 3"/></svg>Resume schedule':'<svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>Pause schedule');
+  // audit
+  renderColAudit();
+  goTo('col-detail');
+}
+
+function renderColRulesReadonly(containerId, rules, hasInvalidField){
+  const el=document.getElementById(containerId);
+  if(!rules||!rules.length){el.innerHTML='<div class="rule-empty-state">No criteria defined.</div>';return;}
+  const fieldMap={};COL_FIELDS_PRODUCTS.concat(COL_FIELDS_LOCATIONS).forEach(f=>fieldMap[f.v]=f.l);
+  const opMap={eq:'equals',neq:'not equals',gt:'>',lt:'<',gte:'≥',lte:'≤',between:'between',contains:'contains',starts_with:'starts with',ends_with:'ends with',is_empty:'is empty',in:'in list',on:'on',before:'before',after:'after',within_last:'within last',in_next:'in next'};
+  let html='';
+  const logicLabel=rules[0]&&rules[0].interLogic==='any'?'ANY':'ALL';
+  if(rules.length>1) html+='<div style="font-size:12px;color:#6b7280;margin-bottom:8px">Match <strong>'+logicLabel+'</strong> of the following blocks:</div>';
+  rules.forEach((block,bi)=>{
+    if(bi>0) html+='<div style="font-size:11px;font-weight:600;color:#6b7280;text-align:center;margin:6px 0">'+(rules[0].interLogic==='any'?'OR':'AND')+'</div>';
+    html+='<div class="rule-block'+(hasInvalidField&&bi===0?' error-block':'')+'"><div class="rule-block-header">Block '+(bi+1)+'</div>';
+    (block.conditions||[]).forEach((cond,ci)=>{
+      const isInvalid=cond.field==='__deleted__';
+      html+='<div class="rule-row" style="display:grid;grid-template-columns:44px 1fr 28px;align-items:center;gap:8px">';
+      if(ci>0) html+='<span class="rule-logic-badge '+(block.intraLogic==='or'?'or-badge':'')+'">'+( block.intraLogic==='or'?'OR':'AND')+'</span>';
+      else html+='<span></span>';
+      html+='<span style="font-size:13px;'+(isInvalid?'color:#dc2626;font-style:italic':'color:#374151')+'">'+(isInvalid?'⚠ Unknown/Deleted Field':(fieldMap[cond.field]||cond.field))+' <span style="color:#9ca3af">'+(opMap[cond.op]||cond.op)+'</span> <strong>'+(cond.val||'')+'</strong></span>';
+      html+='</div>';
+    });
+    html+='</div>';
+  });
+  el.innerHTML=html;
+}
+
+function renderColAudit(){
+  const el=document.getElementById('col-dv-audit'); if(!el) return;
+  const iconMap={
+    'Calculated':'<svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="23 4 23 10 17 10"/><path d="M20.49 15a9 9 0 1 1-.08-4.11"/></svg>',
+    'Edit':'<svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>',
+    'Pause':'<svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>',
+    'Created':'<svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>',
+    'Archive':'<svg width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="21 8 21 21 3 21 3 8"/><rect x="1" y="3" width="22" height="5"/><line x1="10" y1="12" x2="14" y2="12"/></svg>',
+  };
+  el.innerHTML=`
+    <table style="width:100%;border-collapse:collapse;font-size:13px">
+      <thead>
+        <tr style="border-bottom:1px solid #e5e7eb">
+          <th style="text-align:left;padding:10px 16px 10px 0;font-size:12px;font-weight:600;color:#374151;white-space:nowrap;width:160px">Date and time</th>
+          <th style="text-align:left;padding:10px 16px;font-size:12px;font-weight:600;color:#374151">
+            Activity
+            <div style="font-size:11px;font-weight:400;color:#9ca3af;margin-top:1px">Description</div>
+          </th>
+          <th style="text-align:left;padding:10px 16px;font-size:12px;font-weight:600;color:#374151">
+            Entity
+            <div style="font-size:11px;font-weight:400;color:#9ca3af;margin-top:1px">Entity type</div>
+          </th>
+          <th style="text-align:left;padding:10px 0 10px 16px;font-size:12px;font-weight:600;color:#374151;white-space:nowrap">Performed by</th>
+        </tr>
+      </thead>
+      <tbody>
+        ${colAuditLogs.map(log=>`
+          <tr style="border-bottom:1px solid #f3f4f6">
+            <td style="padding:14px 16px 14px 0;color:#374151;font-size:13px;vertical-align:top;white-space:nowrap">${log.date}</td>
+            <td style="padding:14px 16px;vertical-align:top">
+              <div style="display:flex;align-items:center;gap:7px;font-weight:600;color:#111827;margin-bottom:3px">
+                <span style="color:#6b7280;flex-shrink:0">${iconMap[log.actionType]||iconMap['Edit']}</span>
+                ${log.actionType}
+              </div>
+              <div style="font-size:12px;color:#6b7280">${log.actionDesc}</div>
+            </td>
+            <td style="padding:14px 16px;vertical-align:top">
+              <div style="font-weight:500;color:#111827;margin-bottom:3px;text-decoration:underline;cursor:pointer">${log.entity}</div>
+              <div style="font-size:12px;color:#6b7280;display:flex;align-items:center;gap:6px">
+                ${log.entityType}
+                <span style="color:#d1d5db">|</span>
+                ${log.module}
+              </div>
+            </td>
+            <td style="padding:14px 0 14px 16px;vertical-align:top">
+              <div style="font-weight:500;color:#111827;margin-bottom:3px">${log.user}</div>
+              <div style="font-size:12px;color:#6b7280">${log.email}</div>
+            </td>
+          </tr>
+        `).join('')}
+      </tbody>
+    </table>`;
+}
+
+/* ─── CALCULATE ─── */
+function colCalculateNow(){_doCalculate(currentCollectionIdx);}
+function _doCalculate(idx){
+  const c=collections[idx]; if(!c||c.status==='calculating') return;
+  c.status='calculating';
+  c._prevCount=c.count;
+  c._prevLastCalc=c.lastCalc;
+  showToaster('Manual refresh started', c.name+' · ~2 mins');
+  // immediately refresh detail view to show Processing state
+  if(document.getElementById('page-col-detail').classList.contains('active')&&currentCollectionIdx===idx) openColDetail(idx);
+  renderColTable();
+  setTimeout(()=>{
+    c.status='active';
+    c.count=Math.floor(Math.random()*500)+20;
+    const now=new Date();
+    c.lastCalc=now.toLocaleDateString('en-GB',{day:'2-digit',month:'short',year:'numeric'})+', '+now.toLocaleTimeString('en-GB',{hour:'2-digit',minute:'2-digit'})+ ' IST';
+    const next=new Date(now.getTime()+c.freqN*({minutes:60000,hours:3600000,days:86400000,weeks:604800000,months:2592000000}[c.freqUnit]||86400000));
+    c.nextRun=c.freqUnit==='manual'?'On demand':next.toLocaleDateString('en-GB',{day:'2-digit',month:'short',year:'numeric'})+', '+next.toLocaleTimeString('en-GB',{hour:'2-digit',minute:'2-digit'})+' IST';
+    showToaster('Refresh complete', c.name+' · '+c.count+' items');
+    if(document.getElementById('page-col-detail').classList.contains('active')&&currentCollectionIdx===idx) openColDetail(idx);
+    renderColTable();
+  },2500);
+}
+
+/* ─── PAUSE / RESUME ─── */
+function colTogglePause(){
+  closeAllDropdowns();
+  const c=collections[currentCollectionIdx]; if(!c) return;
+  if(c.status==='paused'){c.status='active';c.nextRun='Resuming...';showToaster('Schedule resumed',c.name);}
+  else{c.status='paused';c.nextRun='Paused';showToaster('Schedule paused',c.name);}
+  openColDetail(currentCollectionIdx);
+}
+
+/* ─── ARCHIVE ─── */
+function colArchivePrompt(){closeAllDropdowns();document.getElementById('col-archive-modal').classList.add('show');}
+function colArchivePromptDirect(){document.getElementById('col-archive-modal').classList.add('show');}
+function confirmColArchive(){
+  closeAllModals();
+  const c=collections[currentCollectionIdx]; if(!c) return;
+  c.status='archived'; c.count=0; c.nextRun='Halted';
+  showToaster('Collection archived', c.name);
+  goTo('col-listing', currentColTab);
+}
+
+/* ─── DUPLICATE ─── */
+function colDuplicate(){closeAllDropdowns();goTo('col-duplicate');}
+function confirmDuplicate(){
+  const name=document.getElementById('col-dup-name').value.trim();
+  if(!name){alert('Please enter a name.');return;}
+  const src=collections[currentCollectionIdx];
+  const newId='CG-'+(2000+collections.length);
+  const newExtId=document.getElementById('col-dup-extid').value.trim()||'';
+  collections.push({...src,id:newId,name,extId:newExtId,status:'pending',count:0,lastCalc:'—',nextRun:'—',createdBy:'You',createdAt:'Just now'});
+  showToaster('Collection duplicated',name);
+  goTo('col-listing',currentColTab);
+}
+
+/* ─── RULE BUILDER ─── */
+let colCreateRules=[];
+let colEditRules=[];
+
+function initRuleBuilder(containerId, controlsId, rulesArr, onChangeCallback){
+  renderRuleBuilder(containerId, controlsId, rulesArr, onChangeCallback);
+}
+
+function renderRuleBuilder(containerId, controlsId, rulesArr, onChange){
+  const el=document.getElementById(containerId);
+  const ctrl=document.getElementById(controlsId);
+  if(!el) return;
+  const fields=colFields();
+  const fieldOpts=[{v:'',l:'Select field'},...fields];
+  const interVal = rulesArr.length ? (rulesArr[0].interLogic||'and') : 'and';
+
+  let html='';
+
+  /* ── Criteria-level AND/OR dropdown ── */
+  html+='<div style="display:flex;align-items:center;gap:8px;margin-bottom:14px">';
+  html+='<span style="font-size:13px;color:#6b7280">Logic</span>';
+  html+='<select onchange="rbInterChange(\''+containerId+'\',\''+controlsId+'\',this.value)" style="border:1px solid #d1d5db;border-radius:8px;padding:6px 28px 6px 12px;font-size:13px;font-weight:600;color:#111827;background:#fff;cursor:pointer;appearance:auto;min-width:80px">';
+  html+='<option value="and"'+(interVal==='and'?' selected':'')+'>AND</option>';
+  html+='<option value="or"'+(interVal==='or'?' selected':'')+'>OR</option>';
+  html+='</select>';
+  html+='</div>';
+
+  /* ── Blocks ── */
+  rulesArr.forEach((block,bi)=>{
+    if(bi>0){
+      /* separator label between blocks */
+      html+='<div style="display:flex;align-items:center;gap:8px;margin:10px 0">';
+      html+='<div style="flex:1;height:1px;background:#e5e7eb"></div>';
+      html+='<span style="font-size:11px;font-weight:700;color:#fff;padding:2px 10px;background:'+(interVal==='or'?'#7c3aed':'#1a73e8')+';border-radius:20px">'+(interVal==='or'?'OR':'AND')+'</span>';
+      html+='<div style="flex:1;height:1px;background:#e5e7eb"></div>';
+      html+='</div>';
+    }
+
+    const intraVal = block.intraLogic||'and';
+    html+='<div class="rule-block" id="rb-block-'+containerId+'-'+bi+'">';
+
+    /* Block header: "Block N" + intra AND/OR toggle + remove */
+    html+='<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px">';
+    html+='<div style="display:flex;align-items:center;gap:10px">';
+    html+='<span style="font-size:12px;font-weight:700;color:#374151;text-transform:uppercase;letter-spacing:.05em">Block '+(bi+1)+'</span>';
+    html+='<select onchange="rbIntraChange(\''+containerId+'\',\''+controlsId+'\','+bi+',this.value)" style="border:1px solid #d1d5db;border-radius:8px;padding:4px 24px 4px 10px;font-size:12px;font-weight:600;color:#111827;background:#fff;cursor:pointer;appearance:auto;min-width:72px">';
+    html+='<option value="and"'+(intraVal==='and'?' selected':'')+'>AND</option>';
+    html+='<option value="or"'+(intraVal==='or'?' selected':'')+'>OR</option>';
+    html+='</select>';
+    html+='</div>';
+    html+=(rulesArr.length>1?'<button class="rule-remove-btn" title="Remove block" onclick="rbRemoveBlock(\''+containerId+'\',\''+controlsId+'\','+bi+')">✕</button>':'<span></span>');
+    html+='</div>';
+
+    /* Condition rows */
+    (block.conditions||[]).forEach((cond,ci)=>{
+      if(ci>0){
+        /* intra-badge between rows */
+        html+='<div style="display:flex;align-items:center;gap:6px;margin:4px 0 4px 0">';
+        html+='<span style="font-size:11px;font-weight:700;color:'+(intraVal==='or'?'#7c3aed':'#1a73e8')+';padding:1px 8px;background:'+(intraVal==='or'?'#f5f3ff':'#eff6ff')+';border-radius:20px;border:1px solid '+(intraVal==='or'?'#ddd6fe':'#bfdbfe')+';">'+(intraVal==='or'?'OR':'AND')+'</span>';
+        html+='</div>';
+      }
+      html+='<div style="display:grid;grid-template-columns:1fr 1fr 1fr 28px;gap:8px;align-items:center;margin-bottom:4px;" id="rb-cond-'+containerId+'-'+bi+'-'+ci+'">';
+      html+='<div class="rule-cs cs-wrap" id="rb-f-'+containerId+'-'+bi+'-'+ci+'"></div>';
+      html+='<div class="rule-cs cs-wrap" id="rb-o-'+containerId+'-'+bi+'-'+ci+'"></div>';
+      html+='<input class="form-input" style="height:38px;font-size:13px;width:100%;" placeholder="Value" value="'+(cond.val||'')+'" oninput="rbValChange(\''+containerId+'\',\''+controlsId+'\','+bi+','+ci+',this.value)" id="rb-v-'+containerId+'-'+bi+'-'+ci+'"/>';
+      html+='<button class="rule-remove-btn" style="justify-self:center" onclick="rbRemoveCond(\''+containerId+'\',\''+controlsId+'\','+bi+','+ci+')">'+(((block.conditions||[]).length>1)?'✕':'')+'</button>';
+      html+='</div>';
+    });
+
+    /* Add condition button — enabled only when last row is complete */
+    const lastCond=block.conditions[block.conditions.length-1];
+    const lastComplete=lastCond&&lastCond.field&&lastCond.op&&lastCond.val;
+    html+='<button class="rule-add-btn" style="margin-top:8px;'+(lastComplete?'':'opacity:0.4;cursor:not-allowed;pointer-events:none')+'" '+(lastComplete?'onclick="rbAddCond(\''+containerId+'\',\''+controlsId+'\','+bi+')"':'disabled')+'>+ Add condition</button>';
+    html+='</div>';
+  });
+
+  el.innerHTML=html;
+
+  /* Hydrate dropdowns */
+  rulesArr.forEach((block,bi)=>{
+    (block.conditions||[]).forEach((cond,ci)=>{
+      const fType=(fields.find(f=>f.v===cond.field)||{type:'string'}).type;
+      const opOpts=[{v:'',l:'Select operator'},...colOperatorsByType(fType)];
+      csCreate('rb-f-'+containerId+'-'+bi+'-'+ci, fieldOpts, 'Select field', cond.field||'', function(v){rbFieldChange(containerId,controlsId,bi,ci,v);});
+      csCreate('rb-o-'+containerId+'-'+bi+'-'+ci, opOpts, 'Select operator', cond.op||'', function(v){rbOpChange(containerId,controlsId,bi,ci,v);});
+    });
+  });
+
+  if(ctrl){
+    ctrl.innerHTML=(rulesArr.length<5?'<button class="block-add-btn" onclick="rbAddBlock(\''+containerId+'\',\''+controlsId+'\')">+ Add condition block</button>':'');
+  }
+}
+
+function rbGetRules(containerId){return containerId.includes('col-c-')?colCreateRules:colEditRules;}
+function rbSetRules(containerId,r){if(containerId.includes('col-c-'))colCreateRules=r;else colEditRules=r;}
+function rbGetControlsId(containerId){return containerId.replace('rule-builder','rule-controls').replace('col-c-rule-builder','col-c-rule-controls').replace('col-e-rule-builder','col-e-rule-controls');}
+
+function rbAddBlock(cId,ctrlId){
+  const r=rbGetRules(cId);
+  const interLogic=r[0]?r[0].interLogic:'and';
+  r.push({interLogic,intraLogic:'and',conditions:[{field:'',op:'',val:''}]});
+  renderRuleBuilder(cId,ctrlId,r);
+  if(cId.includes('col-e-')) colEditDirtyFn();
+}
+function rbRemoveBlock(cId,ctrlId,bi){
+  const r=rbGetRules(cId); r.splice(bi,1);
+  renderRuleBuilder(cId,ctrlId,r);
+  if(cId.includes('col-e-')) colEditDirtyFn();
+}
+function rbAddCond(cId,ctrlId,bi){
+  const r=rbGetRules(cId); r[bi].conditions.push({field:'',op:'',val:''});
+  renderRuleBuilder(cId,ctrlId,r);
+  if(cId.includes('col-e-')) colEditDirtyFn();
+}
+function rbRemoveCond(cId,ctrlId,bi,ci){
+  const r=rbGetRules(cId); r[bi].conditions.splice(ci,1);
+  renderRuleBuilder(cId,ctrlId,r);
+  if(cId.includes('col-e-')) colEditDirtyFn();
+}
+function rbFieldChange(cId,ctrlId,bi,ci,v){
+  const r=rbGetRules(cId); r[bi].conditions[ci].field=v; r[bi].conditions[ci].op=''; r[bi].conditions[ci].val='';
+  renderRuleBuilder(cId,ctrlId,r);
+  if(cId.includes('col-e-')) colEditDirtyFn();
+}
+function rbOpChange(cId,ctrlId,bi,ci,v){const r=rbGetRules(cId); r[bi].conditions[ci].op=v; renderRuleBuilder(cId,ctrlId,r); if(cId.includes('col-e-')) colEditDirtyFn();}
+function rbValChange(cId,ctrlId,bi,ci,v){const r=rbGetRules(cId); r[bi].conditions[ci].val=v; renderRuleBuilder(cId,ctrlId,r); if(cId.includes('col-e-')) colEditDirtyFn();}
+function rbIntraChange(cId,ctrlId,bi,v){const r=rbGetRules(cId); r[bi].intraLogic=v; renderRuleBuilder(cId,ctrlId,r); if(cId.includes('col-e-')) colEditDirtyFn();}
+function rbInterChange(cId,ctrlId,v){const r=rbGetRules(cId); r.forEach(b=>b.interLogic=v); renderRuleBuilder(cId,ctrlId,r); if(cId.includes('col-e-')) colEditDirtyFn();}
+
+/* ─── FREQUENCY HELPERS ─── */
+function freqSelectChange(p){
+  const sel=document.getElementById('col-'+p+'-freq-select');
+  const advWrap=document.getElementById('col-'+p+'-adv-wrap');
+  if(sel.value==='__adv__'){
+    // Don't actually select this option — revert to previous and show advanced
+    sel.value = sel.dataset.prev||'day';
+    advWrap.style.display='block';
+  } else {
+    sel.dataset.prev=sel.value;
+    advWrap.style.display='none';
+  }
+  if(p==='e') colEditDirtyFn();
+}
+function freqAdvChange(p,type){
+  const valWrap=document.getElementById('col-'+p+'-adv-val-wrap');
+  const unitLbl=document.getElementById('col-'+p+'-adv-unit-label');
+  valWrap.style.display='flex';
+  unitLbl.textContent=type==='adv_weeks'?'weeks':'days';
+  if(p==='e') colEditDirtyFn();
+}
+function freqGetValue(p){
+  const sel=document.getElementById('col-'+p+'-freq-select');
+  const advWrap=document.getElementById('col-'+p+'-adv-wrap');
+  if(advWrap&&advWrap.style.display!=='none'){
+    const radio=document.querySelector('input[name="col-'+p+'-adv"]:checked');
+    if(radio){
+      const n=parseInt(document.getElementById('col-'+p+'-adv-n').value)||1;
+      return {freqN:n, freqUnit:radio.value==='adv_weeks'?'weeks':'days'};
+    }
+  }
+  const v=sel?sel.value:'day';
+  return {freqN:1, freqUnit:v==='manual'?'manual':v};
+}
+function freqSetValue(p, freqUnit, freqN){
+  const sel=document.getElementById('col-'+p+'-freq-select');
+  const advWrap=document.getElementById('col-'+p+'-adv-wrap');
+  if(freqUnit==='days'&&freqN>1){
+    sel.value='day'; sel.dataset.prev='day';
+    advWrap.style.display='block';
+    const r=document.querySelector('input[name="col-'+p+'-adv"][value="adv_days"]');
+    if(r){r.checked=true; freqAdvChange(p,'adv_days');}
+    const n=document.getElementById('col-'+p+'-adv-n'); if(n) n.value=freqN;
+  } else if(freqUnit==='weeks'){
+    sel.value='day'; sel.dataset.prev='day';
+    advWrap.style.display='block';
+    const r=document.querySelector('input[name="col-'+p+'-adv"][value="adv_weeks"]');
+    if(r){r.checked=true; freqAdvChange(p,'adv_weeks');}
+    const n=document.getElementById('col-'+p+'-adv-n'); if(n) n.value=freqN||1;
+  } else {
+    const map={minute:'minute',hour:'hour',day:'day',days:'day',month:'month',manual:'manual'};
+    sel.value=map[freqUnit]||'day'; sel.dataset.prev=sel.value;
+    advWrap.style.display='none';
+  }
+}
+
+
+function setupColCreate(){
+  colCreateRules=[{interLogic:'and',intraLogic:'and',conditions:[{field:'',op:'',val:''}]}];
+  ['col-c-name','col-c-extid','col-c-desc'].forEach(id=>{const el=document.getElementById(id);if(el) el.value='';});
+  updateCharCount('col-c-name','col-c-name-count',60);
+  updateCharCount('col-c-desc','col-c-desc-count',255);
+  document.getElementById('col-c-freq-select').value='day';
+  document.getElementById('col-c-adv-wrap').style.display='none';
+  renderRuleBuilder('col-c-rule-builder','col-c-rule-controls',colCreateRules);
+}
+
+function submitCollection(){
+  const name=document.getElementById('col-c-name').value.trim();
+  if(!name){alert('Collection name is required.');return;}
+  const extId=document.getElementById('col-c-extid').value.trim();
+  const desc=document.getElementById('col-c-desc').value.trim();
+  const {freqN, freqUnit} = freqGetValue('c');
+  const newId='CG-'+(1000+collections.length+10);
+  collections.push({id:newId,name,extId,desc,entity:currentColTab,status:'pending',count:0,freqN,freqUnit,lastCalc:'—',nextRun:'—',createdBy:'You',createdAt:'Just now',rules:JSON.parse(JSON.stringify(colCreateRules))});
+  showToaster('Collection saved', name+' · Pending Calculation');
+  goTo('col-listing', currentColTab);
+}
+
+/* ─── EDIT ─── */
+function setupColEdit(){
+  colEditDirty=false;
+  const c=collections[currentCollectionIdx]; if(!c) return;
+  colEditRules=JSON.parse(JSON.stringify(c.rules||[]));
+  document.getElementById('col-e-name').value=c.name||'';
+  document.getElementById('col-e-extid').value=c.extId||'';
+  document.getElementById('col-e-desc').value=c.desc||'';
+  updateCharCount('col-e-name','col-e-name-count',60);
+  updateCharCount('col-e-desc','col-e-desc-count',255);
+  freqSetValue('e', c.freqUnit||'day', c.freqN||1);
+  renderRuleBuilder('col-e-rule-builder','col-e-rule-controls',colEditRules);
+  document.getElementById('col-e-save-btn').disabled=true;
+}
+
+function colEditDirtyFn(){colEditDirty=true;const b=document.getElementById('col-e-save-btn');if(b) b.disabled=false;}
+
+function saveColEdit(){
+  const name=document.getElementById('col-e-name').value.trim();
+  if(!name){alert('Collection name is required.');return;}
+  const c=collections[currentCollectionIdx]; if(!c) return;
+  c.name=name;
+  c.extId=document.getElementById('col-e-extid').value.trim();
+  c.desc=document.getElementById('col-e-desc').value.trim();
+  const {freqN: eFreqN, freqUnit: eFreqUnit} = freqGetValue('e');
+  c.freqN=eFreqN; c.freqUnit=eFreqUnit;
+  c.rules=JSON.parse(JSON.stringify(colEditRules));
+  c.status='pending'; c.nextRun='—';
+  showToaster('Changes saved', 'Membership will update on schedule');
+  openColDetail(currentCollectionIdx);
+}
+
+/* ─── HELPERS ─── */
+function updateCharCount(inputId, countId, max){
+  const el=document.getElementById(inputId); const ct=document.getElementById(countId);
+  if(el&&ct) ct.textContent=el.value.length;
+}
+
+/* init */
+document.addEventListener('DOMContentLoaded', function(){
+  // initial page is lbl-cards per original, nothing to do
+});
+
+let toastTimer;
+function showToaster(title,sub){const t=document.getElementById('toaster');document.getElementById('toaster-title').textContent=title;document.getElementById('toaster-sub-wrap').innerHTML=sub?'<div class="toast-sub">'+sub+'</div>':'';t.classList.remove('hidden','hide');clearTimeout(toastTimer);toastTimer=setTimeout(()=>{t.classList.add('hide');setTimeout(()=>t.classList.add('hidden'),300);},5000);}
+function showToasterArchived(title){const t=document.getElementById('toaster');document.getElementById('toaster-title').textContent=title;document.getElementById('toaster-sub-wrap').innerHTML='<div class="toast-sub"><a class="toast-link" onclick="goTo(\'lbl-archived\')">Archived labels</a></div>';t.classList.remove('hidden','hide');clearTimeout(toastTimer);toastTimer=setTimeout(()=>{t.classList.add('hide');setTimeout(()=>t.classList.add('hidden'),300);},5000);}
+function hideToaster(){const t=document.getElementById('toaster');t.classList.add('hide');setTimeout(()=>t.classList.add('hidden'),300);}
 </script>
 </body>
 </html>
